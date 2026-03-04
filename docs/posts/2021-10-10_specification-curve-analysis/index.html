@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2021-10-10">
+
+<title>Specification Curve Analysis: Overview and Stata Example – RCS-Blog</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">RCS-Blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com"> <i class="bi bi-twitter" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Specification Curve Analysis: Overview and Stata Example</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">methods</div>
+                <div class="quarto-category">reprodicibility</div>
+                <div class="quarto-category">specification curve analysis</div>
+                <div class="quarto-category">Stata</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Victoria L. Prince </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">October 10, 2021</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_knit<span class="sc">$</span><span class="fu">set</span>(<span class="at">engine.path =</span> <span class="fu">list</span>(<span class="at">stata =</span> <span class="st">"C:/Program Files/StataNow19/StataMP-64.exe"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>Research reproducibility topic has been gaining momentum over the past decade. There have been many studies reporting inability to replicate published results and lack of necessary details in methods description. Some journals are addressing this issue by requiring access to study data and executable code. However, while this may provide some reassurance in reliability of the results, the actual choice of analytic methods could be shaped by many assumptions that might not be evident.</p>
+<p>There usually isn’t one correct way to analyse data. Instead, empirical studies often have plenty of flexibility in the way data are collected and cleaned as well as in the final model specification. A data cleaning step may involve exclusion of some units with missing data or conversion of a continuous variable to a categorical one or (vice versa). There also might be models equally plausible for the outcome, but having different sets of covariates or functional forms. Each of these small steps may snowball into a reported effect that is overly favorable to researchers’ narrative.</p>
+<p>A relatively novel and very promising method that can help to mitigate this issue was proposed in <span class="citation" data-cites="simonsohn2015better">(<a href="#ref-simonsohn2015better" role="doc-biblioref"><strong>simonsohn2015better?</strong></a>)</span> and is called <strong>Specification Curve Analysis</strong> (SCA). The idea behind the method is simple - the researcher is asked to consider multiple plausible ways to analyze the data and show that, <em>jointly</em>, the null hypothesis of no effect can be rejected. It doesn’t mean that all models must result in a statistically significant effect (though, it would make the conclusions very convincing!). However, even if the effect is detected when all specifications are tested simultaneously, this would result in a more objective inference.</p>
+</section>
+<section id="method-details" class="level2">
+<h2 class="anchored" data-anchor-id="method-details">Method Details</h2>
+<p>The method involves the following steps:</p>
+<ol type="i">
+<li>identifying the set of theoretically justified, statistically valid, and non-redundant analytic specifications;</li>
+<li>running the analysis for each specification and displaying the results graphically - this allows the readers to identify consequential specification decisions;</li>
+<li>conducting statistical tests to determine whether, as a whole, results are inconsistent with the null hypothesis.</li>
+</ol>
+<p>The first two steps above are self-explanatory. However, the third step is novel. The authors (<span class="citation" data-cites="simonsohn2020specification">(<a href="#ref-simonsohn2020specification" role="doc-biblioref"><strong>simonsohn2020specification?</strong></a>)</span>) proposed three test statistics for the SCA:</p>
+<ol type="1">
+<li><p>median effect estimated across all specifications;</p></li>
+<li><p>share of specifications that obtain a statistically significant effect in the predicted direction;</p></li>
+<li><p>average of Z-values across all specifications.</p></li>
+</ol>
+<p>For each of them a sampling distribution can be generating by “resampling under-the-null”. This involves modifying the observed data so that the null hypothesis is known to be true, and then drawing random samples of the modified data. The test statistic of interest is then computed on each of those samples. The resulting distribution is the estimated distribution of the test statistic under the null.</p>
+</section>
+<section id="available-tools" class="level2">
+<h2 class="anchored" data-anchor-id="available-tools">Available Tools</h2>
+<p>There are several resources available to aid the implementation of the method. I organize them in a table below:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Language</th>
+<th>Package Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>R</td>
+<td><a href="https://masurp.github.io/specr/">specr</a></td>
+<td>Available on CRAN. Provides functions to set up, run, evaluate and plot the specifications of interest. There is a lot of flexibility in model set-up. However, the package doesn’t have capability to perform the step (iii) above (i.e., the joint testing).</td>
+</tr>
+<tr class="even">
+<td>R</td>
+<td><a href="https://joachim-gassen.github.io/rdfanalysis/">rdfanalysis</a></td>
+<td>Available only on GitHub. A more comprehensive collection of functions that provides a self-documenting code base that allows researchers to systematically document and explore their researcher degrees of freedom when conducting analyses. Has a shiny front end that helps to explore the findings interactively.</td>
+</tr>
+<tr class="odd">
+<td>Stata</td>
+<td><a href="https://github.com/martin-andresen/speccurve">speccurve</a></td>
+<td>One function that can only plot the curve using coefficients stored in the <strong>e()</strong>-returns. Requires setting up and looping through the models beforehand.</td>
+</tr>
+<tr class="even">
+<td>Stata</td>
+<td><a href="https://github.com/mgao6767/specurve">specurve</a></td>
+<td>Depends on Stata 16’s Python (v.3.6) integration and several additional Python modules. The function performs regressions as specified in a provided YAML-formatted file and plots the specification curve. Limited to <code>reghdfe</code> models only, but allows for various combinations of fixed effects and clustering.</td>
+</tr>
+<tr class="odd">
+<td>Stata</td>
+<td><a href="https://github.com/bbdaniels/specc">specc</a></td>
+<td>Available on <a href="https://econpapers.repec.org/software/bocbocode/s458720.htm">SSC</a> and is open for development on GitHub. The package appears to be very flexible in setting up models and enumerating specifications as well as plotting the curve. However, it lacks a simple example to get started.</td>
+</tr>
+<tr class="even">
+<td>Python</td>
+<td><a href="https://github.com/aeturrell/specification_curve">specification_curve</a></td>
+<td>Allows to conduct analysis and plot specification curves. Flexible in model specification and very well <a href="https://specification-curve.readthedocs.io/en/latest/">documented</a>. While it also can’t perform the joint test (step (iii) of the specification analysis), the author has an example of its manual implementation <a href="http://aeturrell.com/2019/01/25/Specification-Curve-Analysis/">here</a>.</td>
+</tr>
+</tbody>
+</table>
+<p>It looks like most major statistical programming language have some version of the specification curve implemented. However, as far as I can tell, none of them are capable of performing step (iii), which, arguably, is as important as the curve itself. Therefore, for now, researches have to implement it themselves or contact RCS (research@hbs.edu) for assistance!</p>
+</section>
+<section id="stata-example" class="level2">
+<h2 class="anchored" data-anchor-id="stata-example">Stata Example</h2>
+<p>Next, I show an example in Stata that loops through several model specifications and then uses the <a href="https://github.com/martin-andresen/speccurve">speccurve</a> function in Stata to plot the curve. Before running this code, make sure that the function is installed in Stata by running the following line:</p>
+<p><code>net install speccurve, from("https://raw.githubusercontent.com/martin-andresen/speccurve/master")</code></p>
+<p>The code uses a classic <code>auto</code> data set and specifies several regression models that predict car price using available characteristics. The effect of interest is the coefficient estimated for the indicator <code>foreign</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">clear</span> <span class="ot">all</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">sysuse</span> auto, <span class="kw">clear</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>loc no=0</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>* enumerationg many different specifications <span class="kw">using</span> a loop</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="kw">foreach</span> <span class="fu">m</span> <span class="kw">in</span> <span class="st">""</span> <span class="st">"mpg"</span> {</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">foreach</span> tr <span class="kw">in</span> <span class="st">""</span> <span class="st">"trunk"</span> {</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="kw">foreach</span> wt <span class="kw">in</span> <span class="st">""</span> <span class="st">"weight"</span> {</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>            <span class="kw">foreach</span> <span class="fu">ln</span> <span class="kw">in</span> <span class="st">""</span> <span class="st">"length"</span> {</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>                <span class="kw">foreach</span> hr <span class="kw">in</span> <span class="st">""</span> <span class="st">"headroom"</span> {</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">qui</span> <span class="kw">reg</span> price foreign <span class="ot">`m'</span> <span class="ot">`tr'</span> <span class="ot">`wt'</span> <span class="ot">`ln'</span> <span class="ot">`hr'</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>                  eststo md<span class="ot">`no'</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>                    loc ++no</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>                }</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>* plotting a SC with foreign <span class="kw">as</span> a parameter <span class="kw">of</span> interest</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>speccurve *, param(foreign) controls <span class="bn">title</span>(SCA <span class="kw">for</span> the effect <span class="kw">of</span> foreigh)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> <span class="st">"speccurve1.svg"</span>, <span class="kw">replace</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(1978 automobile data)
+
+
+  7.                                   eststo md`no'
+  8.                                         loc ++no
+  9.                                 }
+ 10.                         }
+ 11.                 }
+ 12.         }
+ 13. }
+
+
+file speccurve1.svg saved as SVG format</code></pre>
+</div>
+</div>
+<p>The code above produced the following specification curve:</p>
+<p><img src="speccurve1.svg" class="img-fluid"></p>
+<p>Looks like including the <code>weight</code> variable in the model had a notable effect on the coefficient for <code>foreign</code>. Function <code>speccurve</code> is somewhat limited in that it doesn’t work with models that have factors as controls. Next, I show a workaround for the latter case:</p>
+<div class="cell" data-collectcode="true">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">clear</span> <span class="ot">all</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">sysuse</span> auto, <span class="kw">clear</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">egen</span> headroom_c = <span class="fu">group</span>(headroom)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>loc no=0</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="kw">foreach</span> <span class="fu">m</span> <span class="kw">in</span> <span class="st">""</span> <span class="st">"mpg"</span> {</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">foreach</span> tr <span class="kw">in</span> <span class="st">""</span> <span class="st">"trunk"</span> {</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="kw">foreach</span> wt <span class="kw">in</span> <span class="st">""</span> <span class="st">"weight"</span> {</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>            <span class="kw">foreach</span> <span class="fu">ln</span> <span class="kw">in</span> <span class="st">""</span> <span class="st">"length"</span> {</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>                <span class="kw">foreach</span> hr <span class="kw">in</span> <span class="st">""</span> <span class="st">"headroom"</span> <span class="st">"i.headroom_c"</span>{</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">qui</span> <span class="kw">reg</span> price foreign <span class="ot">`m'</span> <span class="ot">`tr'</span> <span class="ot">`wt'</span> <span class="ot">`ln'</span> <span class="ot">`hr'</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>                    </span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">qui</span> estadd <span class="fu">scalar</span> mpgv = 0, <span class="kw">replace</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">qui</span> estadd <span class="fu">scalar</span> trunkv = 0, <span class="kw">replace</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">qui</span> estadd <span class="fu">scalar</span> weightv = 0, <span class="kw">replace</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">qui</span> estadd <span class="fu">scalar</span> lengthv = 0, <span class="kw">replace</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">foreach</span> vr <span class="kw">in</span> <span class="fu">m</span> tr wt <span class="fu">ln</span> {</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>                        <span class="kw">if</span> <span class="st">"``vr''"</span>!=<span class="st">""</span> <span class="kw">qui</span> estadd <span class="fu">scalar</span> <span class="ot">``vr'</span>'v = 1, <span class="kw">replace</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>                    }</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>                    </span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">qui</span> estadd <span class="fu">scalar</span> headroomv = 0</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">qui</span> estadd <span class="fu">scalar</span> iheadroom_cv = 0</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">local</span> vname = <span class="fu">subinstr</span>(<span class="st">"`hr'"</span>, <span class="st">"."</span>, <span class="st">""</span>, .)</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">qui</span> estadd <span class="fu">scalar</span> <span class="ot">`vname'</span>v = 1, <span class="kw">replace</span> </span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>                    </span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>                    eststo md<span class="ot">`no'</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>                    loc ++no</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>                }</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>* The code below produces an <span class="kw">error</span>:</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>*speccurve *, param(foreign) controls <span class="bn">title</span>(SCA <span class="kw">for</span> the effect <span class="kw">of</span> foreigh)</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>* Workaround:</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>speccurve *, param(foreign) <span class="dv">level</span>(95) graphopts(<span class="bn">legend</span>(pos(1))) <span class="bn">title</span>(SCA <span class="kw">for</span> auto dataset) panel(mpgv trunkv weightv lengthv headroomv iheadroom_cv)</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> <span class="st">"speccurve2.svg"</span>, <span class="kw">replace</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(1978 automobile data)
+
+
+
+  6.                                         qui reg price foreign `m' `tr' `wt
+&gt; ' `ln' `hr'
+  7.                                         
+  9.                                         qui estadd scalar weightv = 0, rep
+&gt; lace
+ 10.                                         qui estadd scalar lengthv = 0, rep
+&gt; lace
+ 11.                                         foreach vr in m tr wt ln {
+ 12.                                                 if "``vr''"!="" qui estadd
+&gt;  scalar ``vr''v = 1, replace
+ 13.                                         }
+ 14.                                         
+ 17.                                         qui estadd scalar `vname'v = 1, re
+&gt; place 
+ 18.                                         
+
+
+file speccurve2.svg saved as SVG format</code></pre>
+</div>
+</div>
+<p>The code implements models that have <code>headroom</code> included as a factor or as a continuous variable. Note that the first call for <code>speccurve</code> would produce an error due to a bug in the function. However, the second call produces the following specification curve:</p>
+<p><img src="speccurve2.svg" class="img-fluid"></p>
+<p>One can also output a table with numerical results:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">matlist</span> <span class="fu">r</span>(<span class="kw">table</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             |    specno    modelno   estimate      min95      max95 
+-------------+-------------------------------------------------------
+         md0 |         1          1   312.2587  -1191.708   1816.225 
+         md2 |         2          3    364.925  -1419.362   2149.212 
+         md1 |         3          2   577.8125  -992.5493   2148.174 
+        md14 |         4         15   740.7716  -960.3329   2441.876 
+        md13 |         5         14   1128.818  -393.3118   2650.948 
+        md12 |         6         13   1190.155  -326.8468   2707.157 
+        md26 |         7         27   1327.396  -294.4929   2949.285 
+        md38 |         8         39   1376.011  -230.2271   2982.249 
+        md25 |         9         26   1714.109   292.4855   3135.733 
+        md24 |        10         25   1767.292   371.2169   3163.368 
+        md37 |        11         38   1825.733   408.1118   3243.355 
+        md36 |        12         37   1887.461   468.5866   3306.335 
+        md41 |        13         42   2196.194   517.1768   3875.212 
+        md29 |        14         30   2247.635   591.1235   3904.146 
+        md17 |        15         18   2294.095   616.0623   3972.129 
+         md5 |        16          6   2352.064   696.5941   4007.534 
+        md40 |        17         41   2615.666   1084.272   4147.059 
+        md27 |        18         28   2644.771   1125.227   4164.315 
+        md28 |        19         29   2644.847   1133.077   4156.616 
+        md39 |        20         40   2670.519   1133.691   4207.347 
+        md16 |        21         17   2774.021   1233.682   4314.361 
+         md3 |        22          4   2801.143   1273.549   4328.737 
+         md4 |        23          5   2801.899   1281.258    4322.54 
+        md15 |        24         16   2827.236    1282.39   4372.082 
+        md23 |        25         24   3072.365   1665.236   4479.495 
+        md47 |        26         48   3079.179   1643.422   4514.937 
+        md20 |        27         21   3116.728   1652.392   4581.064 
+         md8 |        28          9   3132.815    1688.75    4576.88 
+        md11 |        29         12   3146.808   1750.304   4543.312 
+        md35 |        30         36   3148.211   1721.962   4574.459 
+        md44 |        31         45   3162.517   1671.851   4653.184 
+        md32 |        32         33   3179.193   1706.637   4651.749 
+        md46 |        33         47   3502.516   2193.975   4811.056 
+        md22 |        34         23    3526.83   2250.662   4802.999 
+        md34 |        35         35   3545.345   2248.433   4842.256 
+        md33 |        36         34   3550.194   2242.594   4857.793 
+        md45 |        37         46   3557.085     2235.3   4878.871 
+        md10 |        38         11   3570.379   2305.781   4834.976 
+         md9 |        39         10   3573.092   2297.992   4848.191 
+        md21 |        40         22   3580.051   2290.845   4869.256 
+         md7 |        41          8    3623.75   2316.374   4931.127 
+        md19 |        42         20   3631.585    2310.07   4953.101 
+         md6 |        43          7   3637.001   2303.885   4970.118 
+        md31 |        44         32   3648.619   2310.079   4987.159 
+        md43 |        45         44   3654.777   2302.875   5006.679 
+        md30 |        46         31    3673.06   2308.909   5037.212 
+        md18 |        47         19   3686.447   2352.692   5020.201 
+        md42 |        48         43   3711.123   2346.938   5075.308 
+
+             |      mpgv     trunkv    weightv    lengthv  headroomv 
+-------------+-------------------------------------------------------
+         md0 |         0          0          0          0          0 
+         md2 |         0          0          0          0          0 
+         md1 |         0          0          0          0          1 
+        md14 |         0          1          0          0          0 
+        md13 |         0          1          0          0          1 
+        md12 |         0          1          0          0          0 
+        md26 |         1          0          0          0          0 
+        md38 |         1          1          0          0          0 
+        md25 |         1          0          0          0          1 
+        md24 |         1          0          0          0          0 
+        md37 |         1          1          0          0          1 
+        md36 |         1          1          0          0          0 
+        md41 |         1          1          0          1          0 
+        md29 |         1          0          0          1          0 
+        md17 |         0          1          0          1          0 
+         md5 |         0          0          0          1          0 
+        md40 |         1          1          0          1          1 
+        md27 |         1          0          0          1          0 
+        md28 |         1          0          0          1          1 
+        md39 |         1          1          0          1          0 
+        md16 |         0          1          0          1          1 
+         md3 |         0          0          0          1          0 
+         md4 |         0          0          0          1          1 
+        md15 |         0          1          0          1          0 
+        md23 |         0          1          1          1          0 
+        md47 |         1          1          1          1          0 
+        md20 |         0          1          1          0          0 
+         md8 |         0          0          1          0          0 
+        md11 |         0          0          1          1          0 
+        md35 |         1          0          1          1          0 
+        md44 |         1          1          1          0          0 
+        md32 |         1          0          1          0          0 
+        md46 |         1          1          1          1          1 
+        md22 |         0          1          1          1          1 
+        md34 |         1          0          1          1          1 
+        md33 |         1          0          1          1          0 
+        md45 |         1          1          1          1          0 
+        md10 |         0          0          1          1          1 
+         md9 |         0          0          1          1          0 
+        md21 |         0          1          1          1          0 
+         md7 |         0          0          1          0          1 
+        md19 |         0          1          1          0          1 
+         md6 |         0          0          1          0          0 
+        md31 |         1          0          1          0          1 
+        md43 |         1          1          1          0          1 
+        md30 |         1          0          1          0          0 
+        md18 |         0          1          1          0          0 
+        md42 |         1          1          1          0          0 
+
+             | iheadro~v 
+-------------+----------
+         md0 |         0 
+         md2 |         1 
+         md1 |         0 
+        md14 |         1 
+        md13 |         0 
+        md12 |         0 
+        md26 |         1 
+        md38 |         1 
+        md25 |         0 
+        md24 |         0 
+        md37 |         0 
+        md36 |         0 
+        md41 |         1 
+        md29 |         1 
+        md17 |         1 
+         md5 |         1 
+        md40 |         0 
+        md27 |         0 
+        md28 |         0 
+        md39 |         0 
+        md16 |         0 
+         md3 |         0 
+         md4 |         0 
+        md15 |         0 
+        md23 |         1 
+        md47 |         1 
+        md20 |         1 
+         md8 |         1 
+        md11 |         1 
+        md35 |         1 
+        md44 |         1 
+        md32 |         1 
+        md46 |         0 
+        md22 |         0 
+        md34 |         0 
+        md33 |         0 
+        md45 |         0 
+        md10 |         0 
+         md9 |         0 
+        md21 |         0 
+         md7 |         0 
+        md19 |         0 
+         md6 |         0 
+        md31 |         0 
+        md43 |         0 
+        md30 |         0 
+        md18 |         0 
+        md42 |         0 </code></pre>
+</div>
+</div>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/your-website-url\.example\.com");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

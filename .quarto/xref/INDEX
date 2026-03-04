@@ -13,5 +13,8 @@
   },
   "posts/new-test-post/index.qmd": {
     "index.html": "fc73a578"
+  },
+  "posts/2021-10-10_specification-curve-analysis/index.qmd": {
+    "index.html": "d2af655c"
   }
 }
