@@ -1,0 +1,65 @@
+[
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
+    "objectID": "posts/new-test-post/index.html",
+    "href": "posts/new-test-post/index.html",
+    "title": "Testing New Blog",
+    "section": "",
+    "text": "This is the first non-default post in a Quarto blog."
+  },
+  {
+    "objectID": "posts/new-test-post/index.html#section-1",
+    "href": "posts/new-test-post/index.html#section-1",
+    "title": "Testing New Blog",
+    "section": "Section 1",
+    "text": "Section 1\nHere’s a sample section.\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Ut porttitor nec quam condimentum pretium. Duis pulvinar enim vel vehicula venenatis. Aenean eget varius turpis. Nullam orci dolor, porta interdum vestibulum eget, convallis vel risus. Phasellus ipsum nibh, mollis ut ante at, posuere porttitor risus. Praesent egestas varius egestas. Ut sagittis quam eu arcu auctor convallis. Duis sem quam, tempor nec ipsum sed, malesuada pellentesque arcu.\nfunction(sample_code)\nNullam eu est id tellus placerat ultrices non sed ligula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed in purus sem. Proin vitae hendrerit ligula, a gravida urna. Sed faucibus dolor risus, eget mattis turpis egestas a. Quisque scelerisque, erat sed fringilla ullamcorper, ipsum est finibus ipsum, nec ornare est libero at lacus. Sed nec diam sit amet enim pulvinar condimentum. Pellentesque ac ipsum pretium turpis accumsan pellentesque at sit amet erat. Ut a facilisis ligula, ut blandit ipsum."
+  },
+  {
+    "objectID": "posts/new-test-post/index.html#section-2",
+    "href": "posts/new-test-post/index.html#section-2",
+    "title": "Testing New Blog",
+    "section": "Section 2",
+    "text": "Section 2\nA new section! Ut sed ex eget arcu sollicitudin semper vel ac mauris. Vivamus at varius neque, ac tempus nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus.\n\nSub-section\nMauris hendrerit augue eu vehicula convallis. Praesent ullamcorper, metus a suscipit elementum, massa odio convallis dui, ut vulputate ligula arcu ut justo. Nullam sit amet sem consequat, pharetra felis et, feugiat elit. Proin vehicula at nisi sit amet lacinia. Etiam consectetur lobortis magna non ultrices."
+  },
+  {
+    "objectID": "posts/new-test-post/index.html#another-sub-section",
+    "href": "posts/new-test-post/index.html#another-sub-section",
+    "title": "Testing New Blog",
+    "section": "Another sub-section",
+    "text": "Another sub-section\nPraesent et magna vitae nibh tempus interdum at nec purus. Nulla elementum diam sed eleifend fermentum. Maecenas facilisis elementum dui egestas accumsan."
+  },
+  {
+    "objectID": "posts/new-test-post/index.html#conclusion",
+    "href": "posts/new-test-post/index.html#conclusion",
+    "title": "Testing New Blog",
+    "section": "Conclusion",
+    "text": "Conclusion\nHow does this work?"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Featuring posts by RCS staff on data science, research computing, and related tools and methods.\nWe share practical guidance, technical insights, and explorations of emerging ideas that support and inspire the HBS research community. Topics range from hands-on tutorials to reflections on workflows, reproducibility, and research best practices."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "RCS-Blog",
+    "section": "",
+    "text": "HBS Research Computing Services Blog\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nFeb 6, 2026\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nTesting New Blog\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nFeb 3, 2026\n\n\nKatie Alsua\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nFeb 3, 2026\n\n\nTristan O’Malley\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is a post with executable code.\n\n1 + 1\n\n[1] 2"
+  }
+]
