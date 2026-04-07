@@ -1,0 +1,72 @@
+---
+title: "Synthetic Controls: brief overview with practical recommmendations"
+authors: "Victoria L. Prince"
+date: 2019-09-12
+categories:
+- methods
+tags: ["synthetic controls", "causal inference"]
+---
+
+Recently, I found myself researching the latest developments on the topic of Synthetic Controls (SC) for one of the projects. I had the pleasure of learning about the method from its co-author [Prof. Jens Hainmueller](https://web.stanford.edu/~jhain/) back in 2011, when it had just started gaining momentum. Wondering what new insights have been gathered over the last 8 years by applied researchers utilizing this method for causal inference problems, I outlined interesting highlights in this post. <!-- In another post I give an annotated Stata example of automating the method for more than one treated unit. -->
+
+## Overview
+
+The method was first introduced in @Abadie_Economic_Costs_2003 to estimate a causal effect of a political conflict on region's per capita GDP. In the spirit of classical matching methods for causal inference (@rosenbaum2002overt), the authors proposed a procedure for finding a group of control regions such that their *weighted average* would match the specified pre-intervention characteristics (including the evolution of the outcome) of the affected region.
+
+Here is a more technical description: suppose that we observe $J+1$ units in time periods $1,2,..., T$ and unit #1 is exposed to the intervention during periods $T_0+1, ...,T$. Let $Y^C_{jt}$ be the outcome that would be observed (i.e., the [potential outcome](https://en.wikipedia.org/wiki/Rubin_causal_model)) for unit $j$ at time $t$ in the absence of the intervention. For units 2 through $J+1$, the observed outcome $Y_{jt}$ is equivalent to $Y^C_{jt}$. On the other hand, let $Y^I_{jt}$ be the potential outcome under the intervention. Therefore, $Y_{1t}=Y^I_{1t}$ for $t=T_0+1, ...,T$.
+
+Our goal is to estimate the *causal treatment effect on the treated* unit: $$
+\alpha_{1t} = Y^I_{jt} - Y^C_{jt}, \text{for } t=T_0+1,..., T.
+$$ Suppose we also observe a vector of $R$ covariates for each unit $j$, $\textbf{Z}_j$, that are *predictive of the outcome* and "unaffected by the treatment". The SC method assumes that we are able to find a set of nonnegative weights $\textbf{W}=(w_2,...,w_{J+1})'$ that sum up to 1 and satisfy the following $(R+T_0)$ conditions *exactly*: $$
+\sum_{j=2}^{J+1}w_j\textbf{Z}_j=\textbf{Z}_1\text{ and }\sum_{j=2}^{J+1}w_jY_{jt}=Y_{1t}, \text{ for }t=1,...,T_0.
+$$
+
+In practice, of course, it is unlikely that we would find exact matches for all available characteristics. Therefore, we find weights that minimize a chosen measure of discrepancy. Let $\textbf{X}_1$ be a $(R+T_0)\times 1$ vector of pre-intervention characteristics for the treated unit. Similarly, $\textbf{X}_0$ is a $(R+T_0) \times J$ matrix of the same variables for the donor pool. The original paper (@abadie2010synthetic) minimizes the following distance measure: $$
+||\textbf{X}_1-\textbf{X}_0\textbf{W}||_{\textbf{V}} = \sqrt{(\textbf{X}_1-\textbf{X}_0\textbf{W})'\textbf{V}(\textbf{X}_1-\textbf{X}_0\textbf{W})} \qquad\qquad(1)
+$$ In words, SC calculation produces two outputs: matrix $\textbf{V}$, which weighs variables included in the minimization differently depending on how well they predict pre-intervention outcomes, and an array of weights $\textbf{W}$ for control units.
+
+There are various ways to choose $\textbf{V}$, including subjective assessment of predictive power of $\textbf{X}$, regression, minimize prediction error, or cross-validation. When $\textbf{V}$ is set to $\textbf{I}$, the identity matrix, then all characteristics are assumed to have equal weights, and the distance defined in (1) can be interpreted as the usual Euclidean distance between points $\textbf{X}_1$ and $\textbf{X}_0\textbf{W}$ on a $(R+T_0)$-dimensional space.
+
+Note that, once we have a synthetic control for the treated unit, the method permits estimation of a treatment effect for each post-treatment time period $t=T_0+1,..., T$, as long as we observe the corresponding outcome for all controls. However, it is more common to report an aggregated post-treatment effect, e.g., $\sum_{t=T_0+1}^T \alpha_{1t}/(T-T_0)$.
+
+## Features and Limitations
+
+There are several attractive features of the SC method:
+
+-   It provides a systematic data-driven way of assigning weights to control units to provide a close synthetic match to a treated unit, especially if none of the observed control units fit the bill.
+
+-   When potential outcomes are related linearly to observed and unobserved covariates (or *factors*), @abadie2010synthetic showed that the estimated causal effect is unbiased even when there are unobserved confounding factors that vary with time (though, this feature as well as many other theoretical properties of the SC method rely on availability of a *large number of preintervention outcomes*.)
+
+-   There is an *interesting parallel between a linear regression and the SC method*: it turns out that, when estimating a counterfactual outcome using a naive regression approach, i.e., regressing $Y_{jt}$ on $\textbf{X}_0$ post-treatment for controls ($t=T_0,...,T$, $j=2,...,J$) and then using this model together with $\textbf{X}_1$ to predict $Y^C_{1t}$, we can also rewrite the result as a linear combination of untreated units (see @abadie2015comparative for a proof) with weights that sum up to one. However, a conceptual difference lies in the fact that regression weights are *unrestricted* - they may be negative or greater than one. "As a result, estimates of counterfactuals based on linear regression may extrapolate beyond the support of comparison units." In fact, as suggested in @abadie2015comparative, one way to assess the extent of the extrapolation is to calculate the regression weights explicitly!
+
+-   It can be shown that the SC method is a special case of a "sideways" Lasso regression with a fixed value of its threshold parameter to $1$ and an additional restriction on coefficients to be nonnegative and sum up to one (@kinn2018synthetic). The "sideways" regression refers to one where units are acting as covariates, and the time periods (and covariates $\textbf{Z}$) serve as new "units" (e.g., observation $Y_{1t}$ is regressed on $Y_{2t}, \dots, Y_{(J+1)t}$ for $t=1, \dots, T_0$).
+
+-   The SC method was originally developed for one treated unit. However, if multiple units are affected by the event of interest, the method can be applied to each unit separately and the treatment effect summarized by computing an Average Treatment Effect on the Treated (ATT) as demonstrated in @kreif2016examination.
+
+<!-- An example of this procedure in Stata is shown here. -->
+
+## Practical Recommendations
+
+The topic of SCs is still an active area of research appearing regularly in methodological and applied papers. Here are some useful tips that I came across while going over the literature:
+
+-   There are many (sometimes, conflicting!) recommendations on what should be included as part of $\textbf{X}_0$ and $\textbf{X}_1$, and I think the jury is still out. Of course, there is no doubt that the chosen covariates should be predictive of the outcome. That said, it is a bit less apparent how to strike a balance between the length of the pretreatment outcome window and a set of background characteristics that should be used to construct $\textbf{X}$ matrices.
+
+    -   On one hand, many theoretical properties of the procedure were derived asymptotically, assuming infinite pretreatment window. Moreover, @botosaru2019covariates show that a "perfect balance on pre-treatment outcomes does not generally imply an approximate balance for all covariates, even when they are all relevant", concluding that, "although there may be advantages to balancing on covariates to construct the SC estimator, a perfect balance on covariates should not be required for the SC method as long as there is a perfect balance on a long set of pre-treatment outcomes."
+
+    -   On the other hand @kaul2015synthetic argues that one should not use covariates simultaneously with *all* available preintervention outcomes, as, under certain conditions, this may renders covariates to be irrelevant. With that, @abadie2015comparative states that "it is of crucial importance that synthetic controls closely reproduce the values that variables with a large predictive power on the outcome of interest take for the unit affected by the intervention." Thus, it is important that the chosen covariates are allowed to influence the estimated synthetic control.
+
+-   One should always inspect the quality of the match and discard synthetic controls that do not closely trace the preintervention outcome. However, there is still debate whether a perfect balance on pre-treatment covariates is strictly necessary (@botosaru2017role).
+
+-   @abadie2010synthetic emphasizes that SC method should be avoided in cases where the treated unit lies outside the distribution of control units. In other words, values of pretreatment variables for the affected unit cannot be outside any linear combination of the donor pool values. If no convex combination of control units can reconstruct the treated unit then counterfactual estimates could be severely biased. In practice, one can start with inspecting the ranges of outcomes and covariates during the pre-treatment period among controls and making sure that they at least overlap with those for the treated unit.
+
+-   In addition to the extrapolation issues, we should watch out for possible interpolation bias by making sure that the variables used to compute the weights have values among the donor pool units that are similar to those observed for the affected unit. To reduce interpolation biases, it is recommended to restrict the donor pool to units that are "similar" to the treated one(s).
+
+-   Implicit in the notation above is the usual assumption of *no interference* between units - or that outcomes of the untreated units are not affected by the intervention implemented in the treated unit. For example, the policy in the affected region cannot affect the outcome in the pool of donor regions.
+
+-   Finally, when dealing with multiple outcomes, a procedure that uses distance measure given in (1) will likely construct a different synthetic control for each outcome, even if the same set of pretreatment characteristics is being matched on. This is due to the fact that the weighting matrix $\textbf{V}$ is computed separately for each outcome. If we preset $\textbf{V}$ to an identity (or any other positive-definite) matrix and use the same pretreatment outcome values to construct $\textbf{X}_0$ and $\textbf{X}_1$, the same synthetic control will be constructed for each unit regardless of the outcome considered.
+
+    -   As a special case, if $\textbf{X}_0$ and $\textbf{X}_1$ do not contain any pretreatment characteristics, setting $\textbf{V}$ to $\textbf{I}$ would imply that we assume that all pretreatment outcome lags affect post-treatment values equally.
+
+This list is by no means exhaustive. I'm sure, as the SC method matures, our understanding of its strengths and limitations as well as advice on practical implementation will continue evolving.
+
+## References

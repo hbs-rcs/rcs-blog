@@ -1,0 +1,109 @@
+---
+title: "Easier web scraping in R with tidyverse"
+author: "Ista Zahn"
+date: "2020-01-10"
+categories: [R, web scraping]
+---
+
+I recently used R for a moderately complicated scraping task, and found that using tools and techniques from the *tidyverse* made for a very pleasant web scraping experience, especially for retrieving nested data. In particular, the *nest/unnest* functions in the `tidyr` package make it easy to implement breadth-first scrapers in R by nesting the results from each level and then expanding to a tabular structure. This approach has the advantage of making it easy to follow the program logic, and it also makes it very easy to store retrieved values in a convenient format.
+
+## Example: HBS workshops
+
+As a simple example of a website with a nested structure consider <https://training.rcs.hbs.org/workshops.> This site lists workshops nested within categories.
+
+### Start at the top and store results in tibbles
+
+Using the *tidyverse* packages along with *rvest* make web scraping in R more convenient.
+
+```{r, results='hide', message=FALSE, warning=FALSE}
+library(tidyverse)
+library(rvest)
+```
+
+To retrieve workshop information from <https://training.rcs.hbs.org> we can start by creating a `tibble` to store the data we will retrieve from the site. To begin with this `tibble` has only one row and one column containing the URL of the starting page. This might seem like a strange way to start, but it helps us keep a consistent and clean pattern as we descend through the nested structure of the website.
+
+```{r}
+ws_data <- tibble(start_url = "https://training.rcs.hbs.org/workshops")
+```
+
+### Store retrieved data in list columns and unnest as needed
+
+Next we *mutate* the data, reading the page containing the outer-most collection and extracting the information we need. The information we extract includes URLs at the next level of the tree we are traversing. Because we will retrieve multiple elements we store the result in a list-column.
+
+```{r}
+#| echo: true
+ws_data <- ws_data %>%
+  mutate(category = map(start_url,
+                        ~ read_html(.) %>%
+                          html_nodes(".menu-depth-2 a") %>%
+                          {tibble(name = html_text(.),
+                                  url = html_attr(., "href"))})
+  )
+
+glimpse(ws_data)
+```
+
+Our data structure still only has one row, but we can easily expand it so that it has one row per category.
+
+```{r}
+ws_data <- ws_data %>%
+  unnest(category, names_sep = "_", keep_empty = TRUE)
+
+glimpse(ws_data)
+```
+
+Each of the categories contains one or more workshops, so the next step is to iterate over categories and retrieve the all the workshop links. Because we want to retrieve more than one value for each category we store the result in a list-column.
+
+```{r}
+#| echo: true
+ws_data <- ws_data %>%
+  mutate(workshop = map(category_url,
+                        ~ read_html(.) %>%
+                          html_nodes(".menu-depth-3 a") %>%
+                          {tibble(name = html_text(.),
+                                  url = html_attr(., "href"))})
+  )
+
+glimpse(ws_data)
+```
+
+As before we unnest the data, making sure to keep empty rows.
+
+```{r}
+#| eval: false
+#| include: false
+ws_data <- ws_data %>%
+  unnest(workshop, names_sep = "_", keep_empty = TRUE)
+
+glimpse(ws_data)
+```
+
+### Putting it all together
+
+As simple as it is, the code examples above can be simplified even further by modularizing the data processing functions. Here is the whole simplified program for retrieving workshop information, in less than 20 lines of code.
+
+```{r}
+library(tidyverse)
+library(rvest)
+
+get_links <- function(url, css) {
+  read_html(url) %>%
+    html_nodes(css) %>%
+    {tibble(name = html_text(.),
+            url = html_attr(., "href"))}
+}
+
+ws_data <- tibble(start_url = "https://training.rcs.hbs.org/workshops")
+
+ws_data <- ws_data %>%
+  mutate(category = map(start_url, get_links, css = ".menu-depth-2 a")) %>%
+  unnest(category, names_sep = "_", keep_empty = TRUE) %>%
+  mutate(workshop = map(category_url, get_links, css = ".menu-depth-3 a")) %>%
+  unnest(workshop, names_sep = "_", keep_empty = TRUE)
+
+glimpse(ws_data)
+```
+
+## Conclusions
+
+The key pattern is `mutate` to a list-column containing `tibbles` and then `unnest` to maintain a tabular record of URLs and results at each level. This expands the data structure as you descend through each level, resulting in a nice clean tabular structure at the end. At each level `unest(names_sep = "_")` produces a consistent naming scheme with minimal effort. Finally, this pattern generalizes easily to cases where you wish to retrieve multiple pieces of information at each level.
