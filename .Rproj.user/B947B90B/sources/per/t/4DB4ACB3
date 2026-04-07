@@ -3,9 +3,9 @@
     "path": "~/GitHub/RCS-Blog/posts/new-test-post/index.qmd",
     "project_path": "posts/new-test-post/index.qmd",
     "type": "quarto_markdown",
-    "hash": "0",
+    "hash": "2533568882",
     "contents": "",
-    "dirty": true,
+    "dirty": false,
     "created": 1775588150902.0,
     "source_on_save": false,
     "relative_order": 7,
@@ -21,11 +21,11 @@
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1770409279,
+    "lastKnownWriteTime": 1775591757,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1775588153308,
+    "last_content_update": 1775591757660,
     "read_only": false,
     "read_only_alternatives": []
 }

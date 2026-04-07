@@ -9,7 +9,7 @@ This is the first non-default post in a Quarto blog.
 
 ## Section 1
 
-Here's a sample section. 
+Here's a sample section.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut porttitor nec quam condimentum pretium. Duis pulvinar enim vel vehicula venenatis. Aenean eget varius turpis. Nullam orci dolor, porta interdum vestibulum eget, convallis vel risus. Phasellus ipsum nibh, mollis ut ante at, posuere porttitor risus. Praesent egestas varius egestas. Ut sagittis quam eu arcu auctor convallis. Duis sem quam, tempor nec ipsum sed, malesuada pellentesque arcu.
 
@@ -19,11 +19,11 @@ Nullam eu est id tellus placerat ultrices non sed ligula. Pellentesque habitant 
 
 ## Section 2
 
-A new section! Ut sed ex eget arcu sollicitudin semper vel ac mauris. Vivamus at varius neque, ac tempus nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus. 
+A new section! Ut sed ex eget arcu sollicitudin semper vel ac mauris. Vivamus at varius neque, ac tempus nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus.
 
 ### Sub-section
 
-Mauris hendrerit augue eu vehicula convallis. Praesent ullamcorper, metus a suscipit elementum, massa odio convallis dui, ut vulputate ligula arcu ut justo. Nullam sit amet sem consequat, pharetra felis et, feugiat elit. Proin vehicula at nisi sit amet lacinia. Etiam consectetur lobortis magna non ultrices. 
+Mauris hendrerit augue eu vehicula convallis. Praesent ullamcorper, metus a suscipit elementum, massa odio convallis dui, ut vulputate ligula arcu ut justo. Nullam sit amet sem consequat, pharetra felis et, feugiat elit. Proin vehicula at nisi sit amet lacinia. Etiam consectetur lobortis magna non ultrices.
 
 ## Another sub-section
 

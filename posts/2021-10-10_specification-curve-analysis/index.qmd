@@ -10,7 +10,6 @@ bibliography: references.bib
 knitr::opts_knit$set(engine.path = list(stata = "C:/Program Files/StataNow19/StataMP-64.exe"))
 ```
 
-
 ## Overview
 
 Research reproducibility topic has been gaining momentum over the past decade. There have been many studies reporting inability to replicate published results and lack of necessary details in methods description. Some journals are addressing this issue by requiring access to study data and executable code. However, while this may provide some reassurance in reliability of the results, the actual choice of analytic methods could be shaped by many assumptions that might not be evident.
@@ -42,7 +41,7 @@ For each of them a sampling distribution can be generating by "resampling under-
 There are several resources available to aid the implementation of the method. I organize them in a table below:
 
 | Language | Package Name | Description |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | R | [specr](https://masurp.github.io/specr/) | Available on CRAN. Provides functions to set up, run, evaluate and plot the specifications of interest. There is a lot of flexibility in model set-up. However, the package doesn't have capability to perform the step (iii) above (i.e., the joint testing). |
 | R | [rdfanalysis](https://joachim-gassen.github.io/rdfanalysis/) | Available only on GitHub. A more comprehensive collection of functions that provides a self-documenting code base that allows researchers to systematically document and explore their researcher degrees of freedom when conducting analyses. Has a shiny front end that helps to explore the findings interactively. |
 | Stata | [speccurve](https://github.com/martin-andresen/speccurve) | One function that can only plot the curve using coefficients stored in the **e()**-returns. Requires setting up and looping through the models beforehand. |
