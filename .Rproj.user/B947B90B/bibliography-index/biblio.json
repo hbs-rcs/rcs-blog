@@ -1,0 +1,316 @@
+{
+    "sources": [
+        {
+            "DOI": "10.1093/ectj/utz001",
+            "ISSN": "1368-4221",
+            "URL": "https://doi.org/10.1093/ectj/utz001",
+            "author": [
+                {
+                    "family": "Botosaru",
+                    "given": "Irene"
+                },
+                {
+                    "family": "Ferman",
+                    "given": "Bruno"
+                }
+            ],
+            "container-title": "The Econometrics Journal",
+            "id": "botosaru2019covariates",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019,
+                        1
+                    ]
+                ]
+            },
+            "page": "117-130",
+            "title": "On the role of covariates in the synthetic control method",
+            "type": "article-journal",
+            "volume": "22"
+        },
+        {
+            "author": [
+                {
+                    "family": "Kreif",
+                    "given": "Noémi"
+                },
+                {
+                    "family": "Grieve",
+                    "given": "Richard"
+                },
+                {
+                    "family": "Hangartner",
+                    "given": "Dominik"
+                },
+                {
+                    "family": "Turner",
+                    "given": "Alex James"
+                },
+                {
+                    "family": "Nikolova",
+                    "given": "Silviya"
+                },
+                {
+                    "family": "Sutton",
+                    "given": "Matt"
+                }
+            ],
+            "container-title": "Health economics",
+            "id": "kreif2016examination",
+            "issue": "12",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016
+                    ]
+                ]
+            },
+            "page": "1514-1528",
+            "publisher": "Wiley Online Library",
+            "title": "Examination of the synthetic control method for evaluating health policies with multiple treated units",
+            "type": "article-journal",
+            "volume": "25"
+        },
+        {
+            "author": [
+                {
+                    "family": "Kaul",
+                    "given": "Ashok"
+                },
+                {
+                    "family": "Klößner",
+                    "given": "Stefan"
+                },
+                {
+                    "family": "Pfeifer",
+                    "given": "Gregor"
+                },
+                {
+                    "family": "Schieler",
+                    "given": "Manuel"
+                }
+            ],
+            "id": "kaul2015synthetic",
+            "issued": {
+                "date-parts": [
+                    [
+                        2015
+                    ]
+                ]
+            },
+            "title": "Synthetic control methods: Never use all pre-intervention outcomes together with covariates",
+            "title-short": "Synthetic control methods",
+            "type": "article-journal"
+        },
+        {
+            "author": [
+                {
+                    "family": "Abadie",
+                    "given": "Alberto"
+                },
+                {
+                    "family": "Diamond",
+                    "given": "Alexis"
+                },
+                {
+                    "family": "Hainmueller",
+                    "given": "Jens"
+                }
+            ],
+            "container-title": "American Journal of Political Science",
+            "id": "abadie2015comparative",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2015
+                    ]
+                ]
+            },
+            "page": "495-510",
+            "publisher": "Wiley Online Library",
+            "title": "Comparative politics and the synthetic control method",
+            "type": "article-journal",
+            "volume": "59"
+        },
+        {
+            "author": [
+                {
+                    "family": "Abadie",
+                    "given": "Alberto"
+                },
+                {
+                    "family": "Diamond",
+                    "given": "Alexis"
+                },
+                {
+                    "family": "Hainmueller",
+                    "given": "Jens"
+                }
+            ],
+            "container-title": "Journal of the American statistical Association",
+            "id": "abadie2010synthetic",
+            "issue": "490",
+            "issued": {
+                "date-parts": [
+                    [
+                        2010
+                    ]
+                ]
+            },
+            "page": "493-505",
+            "publisher": "Taylor & Francis",
+            "title": "Synthetic control methods for comparative case studies: Estimating the effect of californias tobacco control program",
+            "title-short": "Synthetic control methods for comparative case studies",
+            "type": "article-journal",
+            "volume": "105"
+        },
+        {
+            "author": [
+                {
+                    "family": "Abadie",
+                    "given": "Alberto"
+                },
+                {
+                    "family": "Diamond",
+                    "given": "Alexis"
+                },
+                {
+                    "family": "Hainmueller",
+                    "given": "Jens"
+                }
+            ],
+            "container-title": "Journal of Statistical Software",
+            "id": "abadie2011synth",
+            "issue": "13",
+            "issued": {
+                "date-parts": [
+                    [
+                        2011
+                    ]
+                ]
+            },
+            "title": "Synth: An r package for synthetic control methods in comparative case studies",
+            "title-short": "Synth",
+            "type": "article-journal",
+            "volume": "42"
+        },
+        {
+            "author": [
+                {
+                    "family": "Kinn",
+                    "given": "Daniel"
+                }
+            ],
+            "container-title": "arXiv preprint arXiv:1803.00096",
+            "id": "kinn2018synthetic",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018
+                    ]
+                ]
+            },
+            "title": "Synthetic control methods and big data",
+            "type": "article-journal"
+        },
+        {
+            "URL": "https://mpra.ub.uni-muenchen.de/81940/",
+            "author": [
+                {
+                    "family": "Botosaru",
+                    "given": "Irene"
+                },
+                {
+                    "family": "Ferman",
+                    "given": "Bruno"
+                }
+            ],
+            "id": "botosaru2017role",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017
+                    ]
+                ]
+            },
+            "title": "On the role of covariates in the synthetic control method",
+            "type": "article-journal"
+        },
+        {
+            "author": [
+                {
+                    "family": "Rosenbaum",
+                    "given": "Paul R"
+                }
+            ],
+            "container-title": "Observational studies",
+            "id": "rosenbaum2002overt",
+            "issued": {
+                "date-parts": [
+                    [
+                        2002
+                    ]
+                ]
+            },
+            "page": "71-104",
+            "publisher": "Springer",
+            "title": "Overt bias in observational studies",
+            "type": "chapter"
+        },
+        {
+            "author": [
+                {
+                    "family": "Rubin",
+                    "given": "D. B."
+                }
+            ],
+            "container-title": "Journal of Educational Statistics",
+            "id": "rubin_assignment_1977",
+            "issued": {
+                "date-parts": [
+                    [
+                        1977
+                    ]
+                ]
+            },
+            "keyword": "bibtex-import",
+            "page": "1-26",
+            "title": "Assignment to a treatment group on the basis of a covariate",
+            "type": "article-journal",
+            "volume": "2"
+        },
+        {
+            "DOI": "10.1257/000282803321455188",
+            "URL": "http://www.nyu.edu/gsas/dept/politics/faculty/beck/abadie_aer.pdf",
+            "author": [
+                {
+                    "family": "Abadie",
+                    "given": "Alberto"
+                },
+                {
+                    "family": "Gardeazabal",
+                    "given": "Javier"
+                }
+            ],
+            "container-title": "American Economic Review",
+            "id": "Abadie_Economic_Costs_2003",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2003
+                    ]
+                ]
+            },
+            "page": "113-132",
+            "title": "The economic costs of conflict: A case study of the basque country",
+            "title-short": "The economic costs of conflict",
+            "type": "article-journal",
+            "volume": "93"
+        }
+    ],
+    "project_biblios": []
+}

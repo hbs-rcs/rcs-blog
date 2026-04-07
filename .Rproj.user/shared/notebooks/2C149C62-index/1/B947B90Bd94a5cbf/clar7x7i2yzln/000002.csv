@@ -1,0 +1,43 @@
+"0","clear all
+sysuse auto, clear
+
+egen headroom_c = group(headroom)
+loc no=0
+
+foreach m in """" ""mpg"" {
+	foreach tr in """" ""trunk"" {
+		foreach wt in """" ""weight"" {
+			foreach ln in """" ""length"" {
+				foreach hr in """" ""headroom"" ""i.headroom_c""{
+					qui reg price foreign `m' `tr' `wt' `ln' `hr'
+					
+					qui estadd scalar mpgv = 0, replace
+					qui estadd scalar trunkv = 0, replace
+					qui estadd scalar weightv = 0, replace
+					qui estadd scalar lengthv = 0, replace
+					foreach vr in m tr wt ln {
+						if ""``vr''""!="""" qui estadd scalar ``vr''v = 1, replace
+					}
+					
+					qui estadd scalar headroomv = 0
+					qui estadd scalar iheadroom_cv = 0
+					local vname = subinstr(""`hr'"", ""."", """", .)
+					qui estadd scalar `vname'v = 1, replace	
+					
+					eststo md`no'
+					loc ++no
+				}
+			}
+		}
+	}
+}
+
+* The code below produces an error:
+*speccurve *, param(foreign) controls title(SCA for the effect of foreigh)
+
+* Workaround:
+speccurve *, param(foreign) level(95) graphopts(legend(pos(1))) title(SCA for auto dataset) panel(mpgv trunkv weightv lengthv headroomv iheadroom_cv)
+graph export ""speccurve2.svg"", replace"
+"2","'stata' is not recognized as an internal or external command,
+operable program or batch file.
+"

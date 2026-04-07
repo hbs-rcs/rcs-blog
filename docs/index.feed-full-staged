@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>RCS-Blog</title>
+<link>https://your-website-url.example.com/</link>
+<atom:link href="https://your-website-url.example.com/index.xml" rel="self" type="application/rss+xml"/>
+<description>A blog built with Quarto</description>
+<generator>quarto-1.8.25</generator>
+<lastBuildDate>Fri, 06 Feb 2026 05:00:00 GMT</lastBuildDate>
+<item>
+  <title>{B4F502887207:/posts/post-with-code/index.html}</title>
+  <dc:creator>Harlow Malloc</dc:creator>
+  <link>https://your-website-url.example.com/posts/post-with-code/</link>
+  <description>{B4F502887207:/posts/post-with-code/index.html}</description>
+  <category>news</category>
+  <category>code</category>
+  <category>analysis</category>
+  <guid>https://your-website-url.example.com/posts/post-with-code/</guid>
+  <pubDate>Fri, 06 Feb 2026 05:00:00 GMT</pubDate>
+  <media:content url="https://your-website-url.example.com/posts/post-with-code/image.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>{B4F502887207:/posts/new-test-post/index.html}</title>
+  <dc:creator>Katie Alsua</dc:creator>
+  <link>https://your-website-url.example.com/posts/new-test-post/</link>
+  <description>{B4F502887207:/posts/new-test-post/index.html}</description>
+  <category>news</category>
+  <guid>https://your-website-url.example.com/posts/new-test-post/</guid>
+  <pubDate>Tue, 03 Feb 2026 05:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/posts/welcome/index.html}</title>
+  <dc:creator>Tristan O&#39;Malley</dc:creator>
+  <link>https://your-website-url.example.com/posts/welcome/</link>
+  <description>{B4F502887207:/posts/welcome/index.html}</description>
+  <category>news</category>
+  <guid>https://your-website-url.example.com/posts/welcome/</guid>
+  <pubDate>Tue, 03 Feb 2026 05:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/posts/2021-10-10_specification-curve-analysis/index.html}</title>
+  <link>https://your-website-url.example.com/posts/2021-10-10_specification-curve-analysis/</link>
+  <description>{B4F502887207:/posts/2021-10-10_specification-curve-analysis/index.html}</description>
+  <category>methods</category>
+  <category>reprodicibility</category>
+  <category>specification curve analysis</category>
+  <category>Stata</category>
+  <guid>https://your-website-url.example.com/posts/2021-10-10_specification-curve-analysis/</guid>
+  <pubDate>Sun, 10 Oct 2021 04:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/posts/2019-09-12_synthetic-controls/index.html}</title>
+  <link>https://your-website-url.example.com/posts/2019-09-12_synthetic-controls/</link>
+  <description>{B4F502887207:/posts/2019-09-12_synthetic-controls/index.html}</description>
+  <category>methods</category>
+  <guid>https://your-website-url.example.com/posts/2019-09-12_synthetic-controls/</guid>
+  <pubDate>Thu, 12 Sep 2019 04:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/posts/2019-08-08_web-scraping-in-R/index.html}</title>
+  <link>https://your-website-url.example.com/posts/2019-08-08_web-scraping-in-R/</link>
+  <description>{B4F502887207:/posts/2019-08-08_web-scraping-in-R/index.html}</description>
+  <guid>https://your-website-url.example.com/posts/2019-08-08_web-scraping-in-R/</guid>
+  <pubDate>Thu, 08 Aug 2019 04:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>
