@@ -3,9 +3,12 @@ title: "Testing New Blog Again"
 author: "Katie Alsua"
 date: "2026-08-05"
 categories: [news]
+image: "blooming tree at hbs cropped.jpg"
 ---
 
-This is the second non-default post in a Quarto blog.
+This is the second non-default post in a Quarto blog. Image?:
+
+\![Alt text\](tablescreenshot.png)
 
 ## Section 1
 

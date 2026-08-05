@@ -21,7 +21,8 @@
 
 
 
-<p>This is the second non-default post in a Quarto blog.</p>
+<p>This is the second non-default post in a Quarto blog. Image?:</p>
+<p>![Alt text](tablescreenshot.png)</p>
 <section id="section-1" class="level2">
 <h2 class="anchored" data-anchor-id="section-1">Section 1</h2>
 <p>Here’s a sample section.</p>
@@ -52,6 +53,7 @@
   <category>news</category>
   <guid>https://hbs-rcs.github.io/rcs-blog/posts/new-test-post1/</guid>
   <pubDate>Wed, 05 Aug 2026 04:00:00 GMT</pubDate>
+  <media:content url="https://hbs-rcs.github.io/rcs-blog/posts/new-test-post1/blooming tree at hbs cropped.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Post With Code</title>
