@@ -9,8 +9,50 @@
 <link>https://hbs-rcs.github.io/rcs-blog/</link>
 <atom:link href="https://hbs-rcs.github.io/rcs-blog/index.xml" rel="self" type="application/rss+xml"/>
 <description>A blog built with Quarto</description>
-<generator>quarto-1.8.25</generator>
-<lastBuildDate>Fri, 06 Feb 2026 05:00:00 GMT</lastBuildDate>
+<generator>quarto-1.9.38</generator>
+<lastBuildDate>Wed, 05 Aug 2026 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>Testing New Blog Again</title>
+  <dc:creator>Katie Alsua</dc:creator>
+  <link>https://hbs-rcs.github.io/rcs-blog/posts/new-test-post1/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>This is the second non-default post in a Quarto blog.</p>
+<section id="section-1" class="level2">
+<h2 class="anchored" data-anchor-id="section-1">Section 1</h2>
+<p>Here’s a sample section.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut porttitor nec quam condimentum pretium. Duis pulvinar enim vel vehicula venenatis. Aenean eget varius turpis. Nullam orci dolor, porta interdum vestibulum eget, convallis vel risus. Phasellus ipsum nibh, mollis ut ante at, posuere porttitor risus. Praesent egestas varius egestas. Ut sagittis quam eu arcu auctor convallis. Duis sem quam, tempor nec ipsum sed, malesuada pellentesque arcu.</p>
+<p><code>function(sample_code)</code></p>
+<p>Nullam eu est id tellus placerat ultrices non sed ligula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed in purus sem. Proin vitae hendrerit ligula, a gravida urna. Sed faucibus dolor risus, eget mattis turpis egestas a. Quisque scelerisque, erat sed fringilla ullamcorper, ipsum est finibus ipsum, nec ornare est libero at lacus. Sed nec diam sit amet enim pulvinar condimentum. Pellentesque ac ipsum pretium turpis accumsan pellentesque at sit amet erat. Ut a facilisis ligula, ut blandit ipsum.</p>
+</section>
+<section id="section-2" class="level2">
+<h2 class="anchored" data-anchor-id="section-2">Section 2</h2>
+<p>A new section! Ut sed ex eget arcu sollicitudin semper vel ac mauris. Vivamus at varius neque, ac tempus nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+<section id="sub-section" class="level3">
+<h3 class="anchored" data-anchor-id="sub-section">Sub-section</h3>
+<p>Mauris hendrerit augue eu vehicula convallis. Praesent ullamcorper, metus a suscipit elementum, massa odio convallis dui, ut vulputate ligula arcu ut justo. Nullam sit amet sem consequat, pharetra felis et, feugiat elit. Proin vehicula at nisi sit amet lacinia. Etiam consectetur lobortis magna non ultrices.</p>
+</section>
+</section>
+<section id="another-sub-section" class="level2">
+<h2 class="anchored" data-anchor-id="another-sub-section">Another sub-section</h2>
+<p>Praesent et magna vitae nibh tempus interdum at nec purus. Nulla elementum diam sed eleifend fermentum. Maecenas facilisis elementum dui egestas accumsan.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>How does this work?????</p>
+
+
+</section>
+
+ ]]></description>
+  <category>news</category>
+  <guid>https://hbs-rcs.github.io/rcs-blog/posts/new-test-post1/</guid>
+  <pubDate>Wed, 05 Aug 2026 04:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Post With Code</title>
   <dc:creator>Harlow Malloc</dc:creator>
