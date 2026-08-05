@@ -1,0 +1,31 @@
+{
+    "id": "B7B9518A",
+    "path": "~/GitHub/rcs-blog/posts/new-test-post1/index.qmd",
+    "project_path": "posts/new-test-post1/index.qmd",
+    "type": "quarto_markdown",
+    "hash": "2218823367",
+    "contents": "",
+    "dirty": false,
+    "created": 1785961434196.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "rmdVisualMode": "true",
+        "rmdVisualWrapConfigured": "true",
+        "source_window_id": "",
+        "Source": "Source",
+        "docOutlineVisible": "1",
+        "rmdVisualCollapsedChunks": "",
+        "rmdVisualModeLocation": "1939:864.7999877929688",
+        "cursorPosition": "31,0",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1785961491,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1785961491613,
+    "read_only": false,
+    "read_only_alternatives": []
+}

@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://hbs-rcs.github.io/rcs-blog/posts/welcome/index.html</loc>
-    <lastmod>2026-02-06T20:48:57.374Z</lastmod>
+    <lastmod>2026-08-05T17:44:09.118Z</lastmod>
   </url>
   <url>
     <loc>https://hbs-rcs.github.io/rcs-blog/posts/new-test-post/index.html</loc>
-    <lastmod>2026-04-07T19:55:57.646Z</lastmod>
+    <lastmod>2026-08-05T17:44:09.106Z</lastmod>
   </url>
   <url>
     <loc>https://hbs-rcs.github.io/rcs-blog/about.html</loc>
@@ -14,10 +14,14 @@
   </url>
   <url>
     <loc>https://hbs-rcs.github.io/rcs-blog/index.html</loc>
-    <lastmod>2026-02-06T20:11:14.263Z</lastmod>
+    <lastmod>2026-08-05T17:44:09.099Z</lastmod>
   </url>
   <url>
     <loc>https://hbs-rcs.github.io/rcs-blog/posts/post-with-code/index.html</loc>
-    <lastmod>2026-02-06T20:21:27.517Z</lastmod>
+    <lastmod>2026-08-05T17:44:09.113Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hbs-rcs.github.io/rcs-blog/posts/new-test-post1/index.html</loc>
+    <lastmod>2026-08-05T20:24:51.600Z</lastmod>
   </url>
 </urlset>
