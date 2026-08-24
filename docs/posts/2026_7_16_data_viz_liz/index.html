@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Liz Kernan, HBS Research Computing Services">
+<meta name="dcterms.date" content="2026-07-16">
+
+<title>Global trends among GDP rankings and the willingness to help strangers – HBS RCS Blog</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-a0f9fd0d421825b736dc1bbcbcba2219.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="../../site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+
+<script src="../../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<script src="../../site_libs/plotly-binding-4.12.1/plotly.js"></script>
+
+<script src="../../site_libs/typedarray-0.1/typedarray.min.js"></script>
+
+<script src="../../site_libs/jquery-3.5.1/jquery.min.js"></script>
+
+<link href="../../site_libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+
+<script src="../../site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+
+<link href="../../site_libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
+
+<script src="../../site_libs/plotly-main-2.25.2/plotly-latest.min.js"></script>
+
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">HBS RCS Blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com"> <i class="bi bi-twitter" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Global trends among GDP rankings and the willingness to help strangers</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">data visualization</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Liz Kernan, HBS Research Computing Services </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">July 16, 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<p>I am interested in looking at the intersection of social behavior and wealth on a global scale. For this example, I am using world Gallup polling data to the following question: “Have you helped a stranger in the past month?” I then compared these figures to a country’s GDP over a ten year span from 2015-2024.</p>
+<section id="average-percentage-of-willingness-to-help-a-stranger-by-year" class="level2">
+<h2 class="anchored" data-anchor-id="average-percentage-of-willingness-to-help-a-stranger-by-year">Average percentage of willingness to help a stranger by year</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This is how respondents answered whether they’ve helped a stranger in the past month on average from 2015-2024. Notice that there is a big shift between pre and post-covid, as 2020 is highlighted in red.</p>
+</section>
+<section id="average-percentage-of-willingness-to-help-a-stranger-among-countries-over-time" class="level2">
+<h2 class="anchored" data-anchor-id="average-percentage-of-willingness-to-help-a-stranger-among-countries-over-time">Average percentage of willingness to help a stranger among countries over time</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-183a3269406bd4917172" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-183a3269406bd4917172">{"x":{"visdat":{"88544e5f501a":["function () ","plotlyVisDat"]},"cur_data":"88544e5f501a","attrs":{"88544e5f501a":{"locations":{},"z":{},"colorscale":"Reds","text":{},"colorbar":{"title":"% Helped a Stranger","tickformat":".1f"},"frame":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"choropleth"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Percentage of willingness to help a stranger per country 2015-2024","geo":{"projection":{"type":"natural earth"},"showframe":true,"framecolor":"black","framewidth":2,"showcoastlines":true,"coastlinecolor":"gray50","showocean":true,"oceancolor":"lightblue","landcolor":"lightgray","showlakes":true,"lakecolor":"white","showcountries":true,"countrycolor":"gray60"},"scene":{"zaxis":{"title":"helped_a_stranger * 1"}},"hovermode":"closest","showlegend":false,"sliders":[{"currentvalue":{"prefix":"year: ","xanchor":"right","font":{"size":16,"color":"rgba(204,204,204,1)"}},"steps":[{"method":"animate","args":[["2015"],{"transition":{"duration":0,"easing":"linear"},"frame":{"duration":800,"redraw":true},"mode":"immediate"}],"label":"2015","value":"2015"},{"method":"animate","args":[["2016"],{"transition":{"duration":0,"easing":"linear"},"frame":{"duration":800,"redraw":true},"mode":"immediate"}],"label":"2016","value":"2016"},{"method":"animate","args":[["2017"],{"transition":{"duration":0,"easing":"linear"},"frame":{"duration":800,"redraw":true},"mode":"immediate"}],"label":"2017","value":"2017"},{"method":"animate","args":[["2018"],{"transition":{"duration":0,"easing":"linear"},"frame":{"duration":800,"redraw":true},"mode":"immediate"}],"label":"2018","value":"2018"},{"method":"animate","args":[["2019"],{"transition":{"duration":0,"easing":"linear"},"frame":{"duration":800,"redraw":true},"mode":"immediate"}],"label":"2019","value":"2019"},{"method":"animate","args":[["2020"],{"transition":{"duration":0,"easing":"linear"},"frame":{"duration":800,"redraw":true},"mode":"immediate"}],"label":"2020","value":"2020"},{"method":"animate","args":[["2021"],{"transition":{"duration":0,"easing":"linear"},"frame":{"duration":800,"redraw":true},"mode":"immediate"}],"label":"2021","value":"2021"},{"method":"animate","args":[["2022"],{"transition":{"duration":0,"easing":"linear"},"frame":{"duration":800,"redraw":true},"mode":"immediate"}],"label":"2022","value":"2022"},{"method":"animate","args":[["2023"],{"transition":{"duration":0,"easing":"linear"},"frame":{"duration":800,"redraw":true},"mode":"immediate"}],"label":"2023","value":"2023"},{"method":"animate","args":[["2024"],{"transition":{"duration":0,"easing":"linear"},"frame":{"duration":800,"redraw":true},"mode":"immediate"}],"label":"2024","value":"2024"}],"visible":true,"pad":{"t":40}}],"updatemenus":[{"type":"buttons","direction":"right","showactive":false,"y":0,"x":0,"yanchor":"top","xanchor":"right","pad":{"t":60,"r":5},"buttons":[{"label":"Play","method":"animate","args":[null,{"fromcurrent":true,"mode":"immediate","transition":{"duration":0,"easing":"linear"},"frame":{"duration":800,"redraw":true}}]}]}],"legend":{"yanchor":"top","y":0.5}},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"colorbar":{"title":"% Helped a Stranger","ticklen":2,"tickformat":".1f","len":0.5,"lenmode":"fraction","y":1,"yanchor":"top"},"colorscale":"Reds","showscale":true,"locations":["AFG","ALB","ARE","ARG","ARM","AUS","AUT","AZE","BEL","BEN","BFA","BGD","BGR","BHR","BIH","BLR","BOL","BRA","BTN","BWA","CAN","CHE","CHL","CHN","CIV","CMR","COD","COG","COL","CRI","CYP","CYP","CZE","DEU","DNK","DOM","ECU","EGY","ESP","EST","ETH","FIN","FRA","GAB","GBR","GEO","GHA","GIN","GRC","GTM","HND","HRV","HTI","HUN","IDN","IND","IRL","IRN","IRQ","ISL","ISR","ITA","JOR","JPN","KAZ","KEN","KGZ","KHM","KOR","KWT","LBN","LBR","LBY","LKA","LTU","LUX","LVA","MAR","MDA","MDG","MEX","MKD","MLI","MLT","MMR","MNE","MNG","MOZ","MRT","MWI","MYS","NER","NGA","NIC","NLD","NOR","NPL","NZL","PAK","PAN","PER","PHL","POL","PRT","PRY","PSE","ROU","RUS","RWA","SAU","SEN","SGP","SLE","SLV","SOM","SRB","SSD","SVK","SVN","SWE","SYR","TCD","TGO","THA","TJK","TKM","TUN","TUR","TZA","UGA","UKR","URY","USA","UZB","VEN","VNM","YEM","ZAF","ZMB","ZWE"],"z":[55.443853899999993,45.699047100000001,74.803646099999995,52.668846899999998,46.781352200000001,68.143790199999998,52.228591899999998,33.319223000000001,54.325251399999999,44.858761700000002,62.692616899999997,56.178049500000007,42.472737899999998,65.589883999999998,35.012151600000003,34.3192564,55.049944399999994,53.911584300000001,51.561804300000006,73.2498176,65.026218799999995,53.459916500000006,59.472939400000001,23.978160000000003,54.476970999999999,66.728000100000003,38.2048536,63.571206700000005,58.632269400000006,61.048751999999993,52.737294899999995,58.843984599999999,30.497691500000002,54.839706499999998,54.487691900000002,63.974245500000002,47.045310600000001,47.373795399999999,47.787257799999999,35.112057400000005,44.689633299999997,55.445010100000005,37.302044099999996,63.7249348,60.9912767,40.398439099999997,52.356817800000002,63.540018400000001,40.163487399999994,61.681962999999996,43.389500499999997,29.744721299999998,42.4849824,34.198376099999997,42.653644499999999,42.9098337,56.176278499999995,52.928258500000005,81.444928599999997,51.597815300000008,49.484057300000003,43.488704400000003,64.807257199999995,25.345296699999999,37.516368800000002,70.133656999999999,54.942325199999999,24.665953299999998,46.000990700000003,77.695399800000004,42.253102599999998,71.775989699999997,78.814554999999999,60.747386400000003,43.626533199999997,34.7745228,32.859732299999997,53.533247500000002,36.815011499999997,27.777363000000001,46.684352799999999,34.829272199999998,59.408920700000003,47.367271600000002,62.959721899999998,34.938321000000002,46.277760099999995,52.937920099999999,36.668055100000004,74.494503999999992,48.150432299999999,46.571257299999999,67.810313800000003,42.303674600000001,55.476520999999998,51.713849499999995,45.947965600000003,61.404606999999999,43.850925699999998,60.011716699999994,59.855052900000004,55.231202300000007,41.645500900000002,50.035448899999999,31.496113799999996,34.1330983,57.358488399999999,35.346665900000005,35.6216601,72.780911400000008,60.981077500000005,49.715208199999999,73.097222700000003,50.191854199999995,77.150398199999998,28.116675600000001,59.1636709,31.6469554,51.521402500000001,58.626592600000002,61.5035405,48.282302799999997,52.969168600000003,44.302159000000003,48.742828899999999,49.005953000000005,50.561173000000004,72.519343800000001,63.855330000000002,71.945175599999999,35.733715400000001,60.902940900000004,73.079350300000002,67.370291299999991,40.053775700000003,54.868986300000003,40.634129299999998,65.358185999999989,66.956806,52.151221100000001],"text":["Afghanistan","Albania","United Arab Emirates","Argentina","Armenia","Australia","Austria","Azerbaijan","Belgium","Benin","Burkina Faso","Bangladesh","Bulgaria","Bahrain","Bosnia and Herzegovina","Belarus","Bolivia","Brazil","Bhutan","Botswana","Canada","Switzerland","Chile","China","Cote d'Ivoire","Cameroon","Congo, Dem. Rep.","Congo, Rep.","Colombia","Costa Rica","Cyprus","Cyprus","Czechia","Germany","Denmark","Dominican Republic","Ecuador","Egypt, Arab Rep.","Spain","Estonia","Ethiopia","Finland","France","Gabon","United Kingdom","Georgia","Ghana","Guinea","Greece","Guatemala","Honduras","Croatia","Haiti","Hungary","Indonesia","India","Ireland","Iran, Islamic Rep.","Iraq","Iceland","Israel","Italy","Jordan","Japan","Kazakhstan","Kenya","Kyrgyz Republic","Cambodia","Korea, Rep.","Kuwait","Lebanon","Liberia","Libya","Sri Lanka","Lithuania","Luxembourg","Latvia","Morocco","Moldova","Madagascar","Mexico","North Macedonia","Mali","Malta","Myanmar","Montenegro","Mongolia","Mozambique","Mauritania","Malawi","Malaysia","Niger","Nigeria","Nicaragua","Netherlands","Norway","Nepal","New Zealand","Pakistan","Panama","Peru","Philippines","Poland","Portugal","Paraguay","West Bank and Gaza","Romania","Russian Federation","Rwanda","Saudi Arabia","Senegal","Singapore","Sierra Leone","El Salvador","Somalia","Serbia","South Sudan","Slovak Republic","Slovenia","Sweden","Syrian Arab Republic","Chad","Togo","Thailand","Tajikistan","Turkmenistan","Tunisia","Turkiye","Tanzania","Uganda","Ukraine","Uruguay","United States","Uzbekistan","Venezuela, RB","Viet Nam","Yemen, Rep.","South Africa","Zambia","Zimbabwe"],"frame":"2015","type":"choropleth","marker":{"line":{"color":"rgba(31,119,180,1)"}},"visible":true}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"frames":[{"name":"2015","data":[{"colorbar":{"title":"% Helped a Stranger","ticklen":2,"tickformat":".1f"},"colorscale":"Reds","showscale":true,"locations":["AFG","ALB","ARE","ARG","ARM","AUS","AUT","AZE","BEL","BEN","BFA","BGD","BGR","BHR","BIH","BLR","BOL","BRA","BTN","BWA","CAN","CHE","CHL","CHN","CIV","CMR","COD","COG","COL","CRI","CYP","CYP","CZE","DEU","DNK","DOM","ECU","EGY","ESP","EST","ETH","FIN","FRA","GAB","GBR","GEO","GHA","GIN","GRC","GTM","HND","HRV","HTI","HUN","IDN","IND","IRL","IRN","IRQ","ISL","ISR","ITA","JOR","JPN","KAZ","KEN","KGZ","KHM","KOR","KWT","LBN","LBR","LBY","LKA","LTU","LUX","LVA","MAR","MDA","MDG","MEX","MKD","MLI","MLT","MMR","MNE","MNG","MOZ","MRT","MWI","MYS","NER","NGA","NIC","NLD","NOR","NPL","NZL","PAK","PAN","PER","PHL","POL","PRT","PRY","PSE","ROU","RUS","RWA","SAU","SEN","SGP","SLE","SLV","SOM","SRB","SSD","SVK","SVN","SWE","SYR","TCD","TGO","THA","TJK","TKM","TUN","TUR","TZA","UGA","UKR","URY","USA","UZB","VEN","VNM","YEM","ZAF","ZMB","ZWE"],"z":[55.443853899999993,45.699047100000001,74.803646099999995,52.668846899999998,46.781352200000001,68.143790199999998,52.228591899999998,33.319223000000001,54.325251399999999,44.858761700000002,62.692616899999997,56.178049500000007,42.472737899999998,65.589883999999998,35.012151600000003,34.3192564,55.049944399999994,53.911584300000001,51.561804300000006,73.2498176,65.026218799999995,53.459916500000006,59.472939400000001,23.978160000000003,54.476970999999999,66.728000100000003,38.2048536,63.571206700000005,58.632269400000006,61.048751999999993,52.737294899999995,58.843984599999999,30.497691500000002,54.839706499999998,54.487691900000002,63.974245500000002,47.045310600000001,47.373795399999999,47.787257799999999,35.112057400000005,44.689633299999997,55.445010100000005,37.302044099999996,63.7249348,60.9912767,40.398439099999997,52.356817800000002,63.540018400000001,40.163487399999994,61.681962999999996,43.389500499999997,29.744721299999998,42.4849824,34.198376099999997,42.653644499999999,42.9098337,56.176278499999995,52.928258500000005,81.444928599999997,51.597815300000008,49.484057300000003,43.488704400000003,64.807257199999995,25.345296699999999,37.516368800000002,70.133656999999999,54.942325199999999,24.665953299999998,46.000990700000003,77.695399800000004,42.253102599999998,71.775989699999997,78.814554999999999,60.747386400000003,43.626533199999997,34.7745228,32.859732299999997,53.533247500000002,36.815011499999997,27.777363000000001,46.684352799999999,34.829272199999998,59.408920700000003,47.367271600000002,62.959721899999998,34.938321000000002,46.277760099999995,52.937920099999999,36.668055100000004,74.494503999999992,48.150432299999999,46.571257299999999,67.810313800000003,42.303674600000001,55.476520999999998,51.713849499999995,45.947965600000003,61.404606999999999,43.850925699999998,60.011716699999994,59.855052900000004,55.231202300000007,41.645500900000002,50.035448899999999,31.496113799999996,34.1330983,57.358488399999999,35.346665900000005,35.6216601,72.780911400000008,60.981077500000005,49.715208199999999,73.097222700000003,50.191854199999995,77.150398199999998,28.116675600000001,59.1636709,31.6469554,51.521402500000001,58.626592600000002,61.5035405,48.282302799999997,52.969168600000003,44.302159000000003,48.742828899999999,49.005953000000005,50.561173000000004,72.519343800000001,63.855330000000002,71.945175599999999,35.733715400000001,60.902940900000004,73.079350300000002,67.370291299999991,40.053775700000003,54.868986300000003,40.634129299999998,65.358185999999989,66.956806,52.151221100000001],"text":["Afghanistan","Albania","United Arab Emirates","Argentina","Armenia","Australia","Austria","Azerbaijan","Belgium","Benin","Burkina Faso","Bangladesh","Bulgaria","Bahrain","Bosnia and Herzegovina","Belarus","Bolivia","Brazil","Bhutan","Botswana","Canada","Switzerland","Chile","China","Cote d'Ivoire","Cameroon","Congo, Dem. Rep.","Congo, Rep.","Colombia","Costa Rica","Cyprus","Cyprus","Czechia","Germany","Denmark","Dominican Republic","Ecuador","Egypt, Arab Rep.","Spain","Estonia","Ethiopia","Finland","France","Gabon","United Kingdom","Georgia","Ghana","Guinea","Greece","Guatemala","Honduras","Croatia","Haiti","Hungary","Indonesia","India","Ireland","Iran, Islamic Rep.","Iraq","Iceland","Israel","Italy","Jordan","Japan","Kazakhstan","Kenya","Kyrgyz Republic","Cambodia","Korea, Rep.","Kuwait","Lebanon","Liberia","Libya","Sri Lanka","Lithuania","Luxembourg","Latvia","Morocco","Moldova","Madagascar","Mexico","North Macedonia","Mali","Malta","Myanmar","Montenegro","Mongolia","Mozambique","Mauritania","Malawi","Malaysia","Niger","Nigeria","Nicaragua","Netherlands","Norway","Nepal","New Zealand","Pakistan","Panama","Peru","Philippines","Poland","Portugal","Paraguay","West Bank and Gaza","Romania","Russian Federation","Rwanda","Saudi Arabia","Senegal","Singapore","Sierra Leone","El Salvador","Somalia","Serbia","South Sudan","Slovak Republic","Slovenia","Sweden","Syrian Arab Republic","Chad","Togo","Thailand","Tajikistan","Turkmenistan","Tunisia","Turkiye","Tanzania","Uganda","Ukraine","Uruguay","United States","Uzbekistan","Venezuela, RB","Viet Nam","Yemen, Rep.","South Africa","Zambia","Zimbabwe"],"frame":"2015","type":"choropleth","marker":{"line":{"color":"rgba(31,119,180,1)"}},"visible":true}],"traces":[0]},{"name":"2016","data":[{"colorbar":{"title":"% Helped a Stranger","ticklen":2,"tickformat":".1f"},"colorscale":"Reds","showscale":true,"locations":["AFG","ALB","ARE","ARG","ARM","AUS","AUT","AZE","BEL","BEN","BFA","BGD","BGR","BHR","BIH","BLR","BOL","BRA","BWA","CAF","CAN","CHE","CHL","CHN","CIV","CMR","COD","COG","COL","CRI","CYP","CYP","CZE","DEU","DNK","DOM","ECU","EGY","ESP","EST","ETH","FIN","FRA","GAB","GBR","GEO","GHA","GIN","GRC","GTM","HKG","HND","HRV","HTI","HUN","IDN","IND","IRL","IRN","IRQ","ISL","ISR","ITA","JOR","JPN","KAZ","KEN","KGZ","KHM","KOR","KWT","LBN","LBR","LBY","LSO","LTU","LUX","LVA","MAR","MDA","MDG","MEX","MKD","MLI","MLT","MMR","MNE","MNG","MRT","MUS","MWI","NER","NGA","NIC","NLD","NOR","NPL","NZL","PAK","PAN","PER","PHL","POL","PRT","PRY","PSE","ROU","RUS","RWA","SAU","SEN","SGP","SLE","SLV","SOM","SRB","SSD","SVK","SVN","SWE","TCD","TGO","THA","TJK","TKM","TUN","TUR","TZA","UGA","UKR","URY","USA","UZB","VEN","VNM","YEM","ZAF","ZMB","ZWE"],"z":[46.2660804,43.498865500000001,70.698422600000001,55.569575100000002,43.900939600000001,65.594823700000006,51.264294800000002,30.207469599999996,45.988006800000001,40.787105499999996,51.467139100000004,33.727037700000004,33.5450892,72.374409200000002,53.148596400000002,26.770794399999996,53.633076700000004,53.561067900000005,63.986599400000003,40.942757,66.855051899999992,39.218926599999996,50.551690100000002,29.565028599999998,56.681604399999998,58.644581799999997,36.168511100000003,64.531270599999999,62.914116300000003,63.411123999999994,53.417177199999998,54.397369900000001,23.031448299999997,57.504817200000005,57.311663500000002,65.378727900000001,56.212408099999998,54.290492100000002,50.818057199999998,36.058106699999996,39.764982599999996,54.576171799999997,38.719314100000005,58.589261999999998,57.6592117,37.802447200000003,59.839671000000003,52.962011399999994,49.781000499999998,58.145766600000002,59.218136700000002,53.721584600000007,20.6408667,35.352122000000001,36.389443100000001,47.448802299999997,36.461368100000001,60.682511699999999,60.505127800000004,77.880303900000001,43.842731800000003,43.799757100000001,44.427621799999997,55.791937500000003,23.1938721,40.054236400000001,76.264373200000009,46.200015200000003,17.753232300000001,43.7128303,74.137949199999994,46.0673697,74.902915699999994,76.601485400000001,66.815442700000006,27.704611200000002,37.348860199999997,28.460493199999998,43.127685399999997,39.775100699999996,26.883685699999997,45.776519300000004,49.240240400000005,50.019139300000006,44.730133100000003,53.290301200000002,39.595293500000004,49.445391000000001,39.037942199999996,38.7430661,69.468808100000004,44.530202000000003,69.263012899999993,37.553185999999997,50.985129399999998,48.974093400000001,43.821530899999999,65.204158000000007,49.333149999999996,58.199219800000002,52.2909121,50.927364300000001,37.443496799999998,46.385782599999999,29.096526600000001,40.788841399999995,59.726854500000002,30.256042500000003,44.391682500000002,71.087033300000002,59.154783700000003,40.595364699999998,81.427754300000004,49.363022200000003,68.373391299999994,21.104273000000003,55.863746299999995,32.846695799999999,39.820991100000001,53.314789599999997,43.505050799999999,44.759062200000002,50.995819699999998,44.872362500000001,42.562914200000002,59.978942999999994,74.4740307,52.885797700000005,72.700741600000001,41.6507079,58.655035300000002,72.870148099999994,55.254485700000004,45.480821599999999,36.696815100000002,30.697972400000001,71.971118500000003,69.301299100000008,65.870215799999997],"text":["Afghanistan","Albania","United Arab Emirates","Argentina","Armenia","Australia","Austria","Azerbaijan","Belgium","Benin","Burkina Faso","Bangladesh","Bulgaria","Bahrain","Bosnia and Herzegovina","Belarus","Bolivia","Brazil","Botswana","Central African Republic","Canada","Switzerland","Chile","China","Cote d'Ivoire","Cameroon","Congo, Dem. Rep.","Congo, Rep.","Colombia","Costa Rica","Cyprus","Cyprus","Czechia","Germany","Denmark","Dominican Republic","Ecuador","Egypt, Arab Rep.","Spain","Estonia","Ethiopia","Finland","France","Gabon","United Kingdom","Georgia","Ghana","Guinea","Greece","Guatemala","Hong Kong SAR, China","Honduras","Croatia","Haiti","Hungary","Indonesia","India","Ireland","Iran, Islamic Rep.","Iraq","Iceland","Israel","Italy","Jordan","Japan","Kazakhstan","Kenya","Kyrgyz Republic","Cambodia","Korea, Rep.","Kuwait","Lebanon","Liberia","Libya","Lesotho","Lithuania","Luxembourg","Latvia","Morocco","Moldova","Madagascar","Mexico","North Macedonia","Mali","Malta","Myanmar","Montenegro","Mongolia","Mauritania","Mauritius","Malawi","Niger","Nigeria","Nicaragua","Netherlands","Norway","Nepal","New Zealand","Pakistan","Panama","Peru","Philippines","Poland","Portugal","Paraguay","West Bank and Gaza","Romania","Russian Federation","Rwanda","Saudi Arabia","Senegal","Singapore","Sierra Leone","El Salvador","Somalia","Serbia","South Sudan","Slovak Republic","Slovenia","Sweden","Chad","Togo","Thailand","Tajikistan","Turkmenistan","Tunisia","Turkiye","Tanzania","Uganda","Ukraine","Uruguay","United States","Uzbekistan","Venezuela, RB","Viet Nam","Yemen, Rep.","South Africa","Zambia","Zimbabwe"],"frame":"2016","type":"choropleth","marker":{"line":{"color":"rgba(31,119,180,1)"}},"visible":true}],"traces":[0]},{"name":"2017","data":[{"colorbar":{"title":"% Helped a Stranger","ticklen":2,"tickformat":".1f"},"colorscale":"Reds","showscale":true,"locations":["AFG","ALB","ARE","ARG","ARM","AUS","AUT","AZE","BEL","BEN","BFA","BGD","BGR","BHR","BIH","BLR","BOL","BRA","BWA","CAF","CAN","CHE","CHL","CHN","CIV","CMR","COD","COG","COL","CRI","CYP","CZE","DEU","DNK","DOM","DZA","ECU","EGY","ESP","EST","ETH","FIN","FRA","GAB","GBR","GEO","GHA","GIN","GMB","GRC","GTM","HKG","HND","HRV","HTI","HUN","IDN","IND","IRL","IRN","IRQ","ISL","ISR","ITA","JAM","JOR","JPN","KAZ","KEN","KGZ","KHM","KOR","KWT","LAO","LBN","LBR","LBY","LKA","LSO","LTU","LUX","LVA","MAR","MDA","MDG","MDV","MEX","MKD","MLI","MLT","MMR","MNE","MNG","MOZ","MRT","MUS","MWI","NAM","NER","NGA","NIC","NLD","NOR","NPL","NZL","PAK","PAN","PER","PHL","POL","PRT","PRY","PSE","ROU","RUS","RWA","SAU","SEN","SGP","SLE","SLV","SRB","SSD","SVK","SVN","SWE","TCD","TGO","THA","TJK","TKM","TTO","TUN","TUR","TZA","UGA","UKR","URY","USA","UZB","VEN","YEM","ZAF","ZMB","ZWE"],"z":[41.309864400000002,42.270697499999997,68.296915400000003,51.563462400000006,44.8094283,64.645172500000001,52.4855242,34.9590058,51.102872600000005,47.6213762,55.844808,57.092682199999999,42.194374600000003,74.384153099999992,36.869364099999999,30.903597900000001,48.564775900000001,42.885892599999998,58.8797432,51.590108300000004,56.9265002,39.6420581,54.149680499999995,31.476823799999998,55.3786232,66.8524137,55.886660499999998,50.503181799999993,55.502482200000003,58.841670899999997,59.5729477,26.461324600000001,57.554512500000001,57.955370100000003,64.346080999999998,53.498367800000004,39.758178100000002,57.356901299999997,56.438128499999998,33.773356300000003,42.498329699999999,53.369231599999999,36.954021399999995,54.064148599999996,62.918616800000002,47.459586700000003,61.760213700000001,51.640698900000004,73.786298400000007,35.554418599999998,51.471949299999999,59.520682000000001,54.040632299999999,24.575093200000001,61.771772599999998,36.288143499999997,46.081010500000005,31.016020900000001,64.423122700000008,61.329427899999999,80.596089500000005,49.9181898,49.958159099999996,46.367322600000001,63.246101700000004,68.452685400000007,23.478523500000001,34.662640600000003,72.294178399999993,51.577876600000003,17.885492799999998,46.753608100000001,80.173028299999999,21.775504100000003,48.983982599999997,79.928476000000003,82.789952299999996,51.7463573,58.047997500000001,47.670723700000003,39.833438100000002,28.387276500000002,65.204402900000005,44.911670000000001,38.772467200000001,50.905194200000004,45.136713200000003,30.308729200000002,51.858506999999996,53.453953800000001,40.1405131,38.344507399999998,41.184693600000003,50.114165300000003,37.071170599999995,56.700258500000004,65.532085100000003,64.365538600000008,65.878539899999993,71.278790499999999,51.739501300000001,51.501351500000006,54.017171300000001,49.937001899999998,65.650324400000002,43.4446844,47.877584299999995,46.510786700000004,43.7709136,34.452273900000002,50.259815100000004,53.158037700000008,36.583296799999999,53.926767600000005,44.178516699999996,39.423766799999996,73.774148699999998,53.860893200000007,66.709863599999991,79.710316199999994,39.4012283,33.849737600000005,59.502215499999998,31.527377299999998,47.080413900000003,51.510956299999997,49.677907300000001,46.363841499999999,36.071611500000003,59.4053909,47.7586771,70.395946099999989,43.5552907,40.002877099999999,46.589341499999996,66.604747399999994,42.399875399999999,49.239294000000001,72.233347899999998,51.337422200000006,51.465729800000005,36.274226300000002,71.673226499999998,69.534495500000006,61.208440699999997],"text":["Afghanistan","Albania","United Arab Emirates","Argentina","Armenia","Australia","Austria","Azerbaijan","Belgium","Benin","Burkina Faso","Bangladesh","Bulgaria","Bahrain","Bosnia and Herzegovina","Belarus","Bolivia","Brazil","Botswana","Central African Republic","Canada","Switzerland","Chile","China","Cote d'Ivoire","Cameroon","Congo, Dem. Rep.","Congo, Rep.","Colombia","Costa Rica","Cyprus","Czechia","Germany","Denmark","Dominican Republic","Algeria","Ecuador","Egypt, Arab Rep.","Spain","Estonia","Ethiopia","Finland","France","Gabon","United Kingdom","Georgia","Ghana","Guinea","Gambia, The","Greece","Guatemala","Hong Kong SAR, China","Honduras","Croatia","Haiti","Hungary","Indonesia","India","Ireland","Iran, Islamic Rep.","Iraq","Iceland","Israel","Italy","Jamaica","Jordan","Japan","Kazakhstan","Kenya","Kyrgyz Republic","Cambodia","Korea, Rep.","Kuwait","Lao PDR","Lebanon","Liberia","Libya","Sri Lanka","Lesotho","Lithuania","Luxembourg","Latvia","Morocco","Moldova","Madagascar","Maldives","Mexico","North Macedonia","Mali","Malta","Myanmar","Montenegro","Mongolia","Mozambique","Mauritania","Mauritius","Malawi","Namibia","Niger","Nigeria","Nicaragua","Netherlands","Norway","Nepal","New Zealand","Pakistan","Panama","Peru","Philippines","Poland","Portugal","Paraguay","West Bank and Gaza","Romania","Russian Federation","Rwanda","Saudi Arabia","Senegal","Singapore","Sierra Leone","El Salvador","Serbia","South Sudan","Slovak Republic","Slovenia","Sweden","Chad","Togo","Thailand","Tajikistan","Turkmenistan","Trinidad and Tobago","Tunisia","Turkiye","Tanzania","Uganda","Ukraine","Uruguay","United States","Uzbekistan","Venezuela, RB","Yemen, Rep.","South Africa","Zambia","Zimbabwe"],"frame":"2017","type":"choropleth","marker":{"line":{"color":"rgba(31,119,180,1)"}},"visible":true}],"traces":[0]},{"name":"2018","data":[{"colorbar":{"title":"% Helped a Stranger","ticklen":2,"tickformat":".1f"},"colorscale":"Reds","showscale":true,"locations":["AFG","ALB","ARE","ARG","ARM","AUS","AUT","AZE","BDI","BEL","BEN","BFA","BGD","BGR","BIH","BLR","BOL","BRA","BWA","CAN","CHE","CHL","CHN","CIV","CMR","COG","COL","COM","CRI","CYP","CYP","CZE","DEU","DNK","DOM","DZA","ECU","EGY","ESP","EST","ETH","FIN","FRA","GAB","GBR","GEO","GHA","GIN","GMB","GRC","GTM","HND","HRV","HTI","HUN","IDN","IND","IRL","IRN","IRQ","ISR","ITA","JOR","JPN","KAZ","KEN","KGZ","KHM","KOR","KWT","LAO","LBN","LBR","LBY","LKA","LTU","LUX","LVA","MAR","MDA","MDG","MEX","MKD","MLI","MLT","MMR","MNE","MNG","MOZ","MRT","MUS","MWI","MYS","NAM","NER","NGA","NIC","NOR","NPL","NZL","PAK","PAN","PER","PHL","POL","PRT","PRY","PSE","ROU","RUS","RWA","SAU","SEN","SGP","SLE","SLV","SRB","SVK","SVN","SWE","SWZ","TCD","TGO","THA","TJK","TKM","TUN","TUR","TZA","UGA","UKR","URY","USA","UZB","VEN","VNM","YEM","ZAF","ZMB","ZWE"],"z":[44.1605572,47.662531600000001,59.911397200000003,49.693509000000006,51.566707099999995,45.218665100000003,48.861057099999996,37.692515499999999,33.778685400000001,31.590557499999999,46.676009899999997,53.306220100000004,60.357704499999997,39.498111100000003,43.777841199999997,24.081783000000001,44.939728799999997,46.336874099999996,65.98369910000001,51.434351300000003,37.413367199999996,57.343778,34.150403000000004,53.243518999999992,64.299325500000009,53.315714999999997,48.528202399999998,64.992231700000005,51.861407699999994,46.616260699999998,48.571594000000005,16.3564063,49.748177900000002,41.121709499999994,52.059341599999996,44.007203400000002,48.041538600000003,49.359605000000002,54.173563100000003,36.564533599999997,47.926398900000002,38.075648000000001,32.177838199999997,54.536904799999995,56.358875900000008,59.476393999999999,60.535025699999998,62.045837299999995,67.960539600000004,36.575678000000003,49.699475999999997,55.444499300000004,32.3030653,69.585709399999999,29.516602600000002,55.2193307,38.621077499999998,55.408564200000001,55.703513699999995,64.341738500000005,44.818744700000003,40.161575599999999,54.931626200000004,11.573744099999999,32.341391000000002,67.498018599999995,52.441854300000003,17.868992299999999,30.215712199999999,64.224889099999999,28.689326999999999,33.688378200000002,77.207416500000008,70.339917700000001,52.6467241,37.527524100000001,33.185078799999999,22.9536607,58.036734899999999,48.879767100000002,41.301538900000004,42.407636199999999,32.420595599999999,47.278863700000002,32.889693599999994,35.2320098,42.237006600000001,37.5399265,50.094809500000004,40.176597700000002,37.334511999999997,65.748053100000007,58.1809498,54.157991500000001,69.1525927,70.8276252,47.126209699999997,38.565192199999998,45.968388900000001,45.218823299999997,44.426982599999995,45.277682000000006,48.296538900000002,53.785078600000006,21.425305399999999,38.852314999999997,52.269443400000007,46.598289899999997,49.2035415,41.738084499999999,41.125581199999999,60.130353299999996,51.550840899999997,33.925684799999999,76.463672500000001,44.138788499999997,33.496846600000005,32.5848491,29.9818374,39.934988500000003,56.869706600000001,50.162534700000009,50.850752200000002,34.777302399999996,56.591184900000002,64.571206000000004,51.082459300000004,52.339863399999999,42.1598896,66.569783700000002,30.6345533,47.331197500000002,64.729079799999994,56.103988900000004,55.837712600000003,36.498555500000002,45.9352722,69.351530499999996,68.614311700000002,52.142559899999995],"text":["Afghanistan","Albania","United Arab Emirates","Argentina","Armenia","Australia","Austria","Azerbaijan","Burundi","Belgium","Benin","Burkina Faso","Bangladesh","Bulgaria","Bosnia and Herzegovina","Belarus","Bolivia","Brazil","Botswana","Canada","Switzerland","Chile","China","Cote d'Ivoire","Cameroon","Congo, Rep.","Colombia","Comoros","Costa Rica","Cyprus","Cyprus","Czechia","Germany","Denmark","Dominican Republic","Algeria","Ecuador","Egypt, Arab Rep.","Spain","Estonia","Ethiopia","Finland","France","Gabon","United Kingdom","Georgia","Ghana","Guinea","Gambia, The","Greece","Guatemala","Honduras","Croatia","Haiti","Hungary","Indonesia","India","Ireland","Iran, Islamic Rep.","Iraq","Israel","Italy","Jordan","Japan","Kazakhstan","Kenya","Kyrgyz Republic","Cambodia","Korea, Rep.","Kuwait","Lao PDR","Lebanon","Liberia","Libya","Sri Lanka","Lithuania","Luxembourg","Latvia","Morocco","Moldova","Madagascar","Mexico","North Macedonia","Mali","Malta","Myanmar","Montenegro","Mongolia","Mozambique","Mauritania","Mauritius","Malawi","Malaysia","Namibia","Niger","Nigeria","Nicaragua","Norway","Nepal","New Zealand","Pakistan","Panama","Peru","Philippines","Poland","Portugal","Paraguay","West Bank and Gaza","Romania","Russian Federation","Rwanda","Saudi Arabia","Senegal","Singapore","Sierra Leone","El Salvador","Serbia","Slovak Republic","Slovenia","Sweden","Eswatini","Chad","Togo","Thailand","Tajikistan","Turkmenistan","Tunisia","Turkiye","Tanzania","Uganda","Ukraine","Uruguay","United States","Uzbekistan","Venezuela, RB","Viet Nam","Yemen, Rep.","South Africa","Zambia","Zimbabwe"],"frame":"2018","type":"choropleth","marker":{"line":{"color":"rgba(31,119,180,1)"}},"visible":true}],"traces":[0]},{"name":"2019","data":[{"colorbar":{"title":"% Helped a Stranger","ticklen":2,"tickformat":".1f"},"colorscale":"Reds","showscale":true,"locations":["AFG","ALB","ARE","ARG","ARM","AUS","AUT","AZE","BEL","BEN","BFA","BGD","BGR","BHR","BIH","BLR","BOL","BRA","BWA","CAN","CHE","CHL","CHN","CIV","CMR","COG","COL","COM","CRI","CYP","CYP","DEU","DNK","DOM","DZA","ECU","EGY","ESP","EST","ETH","FIN","FRA","GAB","GBR","GEO","GHA","GIN","GMB","GRC","GTM","HKG","HND","HRV","HUN","IDN","IND","IRL","IRN","IRQ","ISR","ITA","JAM","JOR","JPN","KAZ","KEN","KGZ","KHM","KOR","KWT","LAO","LBN","LBR","LBY","LKA","LSO","LTU","LUX","LVA","MAR","MDA","MDG","MEX","MKD","MLI","MLT","MMR","MNE","MNG","MOZ","MRT","MUS","MWI","MYS","NAM","NER","NGA","NIC","NLD","NOR","NPL","NZL","PAK","PAN","PER","PHL","POL","PRT","PRY","PSE","ROU","RUS","RWA","SAU","SEN","SGP","SLE","SLV","SRB","SVK","SVN","SWE","SWZ","TCD","TGO","THA","TJK","TKM","TUN","TUR","TZA","UGA","UKR","URY","USA","UZB","VEN","VNM","YEM","ZAF","ZMB","ZWE"],"z":[47.979768499999999,45.039772900000003,61.904826100000001,51.275589700000005,54.005591500000008,56.773671100000001,51.217980300000001,34.2821231,34.906626099999997,51.065046199999998,54.966894799999999,58.244560800000002,43.360564400000001,66.031628900000001,42.521203299999996,23.9581442,49.336927500000002,57.4285462,62.364769699999997,59.740934300000006,37.462251500000001,61.982901999999996,32.009404000000004,66.001012000000003,61.943973299999996,60.093117299999996,56.7882113,66.342534299999997,51.661180999999999,51.109707900000004,56.8528418,44.505082899999998,53.028466500000007,55.806845299999999,53.204483199999999,49.852905,54.573916499999996,51.549150200000007,41.799197999999997,44.161395900000002,45.114711400000004,34.250597399999997,58.519574399999996,59.640903899999998,56.295797700000008,62.926757799999997,60.000475499999993,70.137631600000006,41.717878600000006,48.243548799999999,48.350121899999998,57.338695200000004,37.542541499999999,36.926493499999999,58.600377800000004,60.329687099999994,53.916814899999999,58.083327300000001,67.572546299999999,52.284304800000001,38.109787799999999,63.255584499999998,57.016969399999994,13.852414699999999,41.152386800000002,74.951473199999995,40.371273899999998,11.417499100000001,38.0484413,66.243541399999998,26.730087699999999,35.658790199999999,77.081548499999997,75.499305400000011,52.941711900000001,66.788181999999992,27.1167257,33.520773500000004,24.915405199999999,63.6933893,50.801317400000002,42.0917417,53.190447900000002,42.073937900000004,53.4688552,41.390733600000004,39.321395599999995,39.269046699999997,40.364755800000005,56.342636499999998,57.676311599999998,48.083898900000001,61.182648999999998,56.817485499999997,52.183802300000004,63.427382200000004,59.536008600000002,49.028619599999999,38.919749299999999,43.386137699999999,51.412535000000005,55.096294800000003,52.046814300000001,47.814744500000003,51.681750999999998,52.807437199999995,19.387294099999998,42.291111399999998,55.510358699999998,47.789295599999996,45.300305399999999,44.866345699999997,44.551754000000003,59.524192099999993,54.736472599999999,45.510623000000002,77.107747799999999,46.118345599999998,33.193908999999998,39.736006400000001,39.069440399999998,45.328893700000002,58.855792900000004,64.7251045,55.981491800000008,39.774565899999999,53.975125599999998,72.697054199999997,56.212800799999997,62.212069299999996,40.684458200000002,65.503468900000001,32.028609400000001,51.490346299999999,64.377064200000007,55.148165999999996,57.412441100000002,46.284631399999995,45.740012800000002,63.044177099999999,72.021154699999997,59.145471100000002],"text":["Afghanistan","Albania","United Arab Emirates","Argentina","Armenia","Australia","Austria","Azerbaijan","Belgium","Benin","Burkina Faso","Bangladesh","Bulgaria","Bahrain","Bosnia and Herzegovina","Belarus","Bolivia","Brazil","Botswana","Canada","Switzerland","Chile","China","Cote d'Ivoire","Cameroon","Congo, Rep.","Colombia","Comoros","Costa Rica","Cyprus","Cyprus","Germany","Denmark","Dominican Republic","Algeria","Ecuador","Egypt, Arab Rep.","Spain","Estonia","Ethiopia","Finland","France","Gabon","United Kingdom","Georgia","Ghana","Guinea","Gambia, The","Greece","Guatemala","Hong Kong SAR, China","Honduras","Croatia","Hungary","Indonesia","India","Ireland","Iran, Islamic Rep.","Iraq","Israel","Italy","Jamaica","Jordan","Japan","Kazakhstan","Kenya","Kyrgyz Republic","Cambodia","Korea, Rep.","Kuwait","Lao PDR","Lebanon","Liberia","Libya","Sri Lanka","Lesotho","Lithuania","Luxembourg","Latvia","Morocco","Moldova","Madagascar","Mexico","North Macedonia","Mali","Malta","Myanmar","Montenegro","Mongolia","Mozambique","Mauritania","Mauritius","Malawi","Malaysia","Namibia","Niger","Nigeria","Nicaragua","Netherlands","Norway","Nepal","New Zealand","Pakistan","Panama","Peru","Philippines","Poland","Portugal","Paraguay","West Bank and Gaza","Romania","Russian Federation","Rwanda","Saudi Arabia","Senegal","Singapore","Sierra Leone","El Salvador","Serbia","Slovak Republic","Slovenia","Sweden","Eswatini","Chad","Togo","Thailand","Tajikistan","Turkmenistan","Tunisia","Turkiye","Tanzania","Uganda","Ukraine","Uruguay","United States","Uzbekistan","Venezuela, RB","Viet Nam","Yemen, Rep.","South Africa","Zambia","Zimbabwe"],"frame":"2019","type":"choropleth","marker":{"line":{"color":"rgba(31,119,180,1)"}},"visible":true}],"traces":[0]},{"name":"2020","data":[{"colorbar":{"title":"% Helped a Stranger","ticklen":2,"tickformat":".1f"},"colorscale":"Reds","showscale":true,"locations":["ALB","ARE","ARG","AUS","AUT","BEL","BEN","BFA","BGD","BGR","BHR","BIH","BOL","BRA","CAN","CHE","CHL","CHN","CIV","CMR","COG","COL","CRI","CYP","CZE","DEU","DNK","DOM","DZA","ECU","EGY","ESP","EST","ETH","FIN","FRA","GAB","GBR","GEO","GHA","GIN","GRC","HKG","HRV","HUN","IDN","IND","IRL","IRN","IRQ","ISL","ISR","ITA","JAM","JOR","JPN","KAZ","KEN","KGZ","KHM","KOR","LAO","LBN","LKA","LTU","LVA","MAR","MDA","MEX","MKD","MLI","MLT","MMR","MNE","MNG","MUS","MYS","NAM","NGA","NIC","NLD","NOR","NPL","NZL","PAK","PER","PHL","POL","PRT","PRY","ROU","RUS","SAU","SEN","SLV","SRB","SVK","SVN","SWE","THA","TJK","TUN","TUR","TZA","UGA","UKR","URY","USA","UZB","VEN","VNM","ZAF","ZMB","ZWE"],"z":[58.004999400000003,65.724652800000001,58.151275599999998,57.171228299999996,41.759529699999995,24.576920299999998,60.541965900000008,67.125965300000004,63.383030300000001,64.108713199999997,64.456930900000003,50.302357799999996,63.546996700000001,63.096263200000003,52.165217200000001,30.047319500000004,66.910739599999999,48.695827000000001,64.998586700000004,78.361035199999989,62.022291799999998,67.098316800000006,57.972871699999992,48.764176300000003,44.553554200000001,40.196132599999999,46.476955199999999,70.377610799999999,60.170697699999998,56.695169599999993,71.034416499999992,41.419696999999999,42.724263499999999,65.585924800000001,41.835968000000001,30.871774200000001,56.233897600000006,43.1200185,76.182511700000006,65.369379500000008,71.286039599999995,53.019775199999998,36.7643603,52.658265000000007,58.3768788,65.124183000000002,59.267707199999997,48.833463500000001,62.130072300000009,77.581083300000003,35.197423399999998,39.7306423,33.419769899999999,66.5043553,60.549343099999994,11.9115026,42.813081699999998,75.625019500000008,58.600861600000002,43.9519333,29.136196199999997,41.5563103,45.502004899999996,48.675237700000004,43.376206400000001,40.913218299999997,60.188088799999996,69.987766199999996,59.530495800000004,56.693335499999996,57.610438100000003,37.027271400000004,50.543701399999996,52.518228199999996,44.936900600000001,46.374034299999998,54.828521100000003,69.2354907,81.918654099999998,62.913161799999997,34.564042900000004,38.7009136,50.934193299999997,55.914627800000005,41.996536800000001,65.011436099999997,61.590777200000005,56.138912699999999,36.934793999999997,63.959112100000006,56.921569699999999,57.027768000000002,63.894323299999996,68.250349499999999,56.4252702,53.695745299999999,53.096255900000003,33.334365099999999,40.401159900000003,60.267293899999999,70.462391800000006,67.704385099999996,58.970027300000005,55.798012100000008,75.424981700000004,65.665505100000004,56.714342799999997,57.702647900000002,56.9356583,68.126491799999997,63.135249999999999,65.470595500000002,75.694662199999996,65.454222299999998],"text":["Albania","United Arab Emirates","Argentina","Australia","Austria","Belgium","Benin","Burkina Faso","Bangladesh","Bulgaria","Bahrain","Bosnia and Herzegovina","Bolivia","Brazil","Canada","Switzerland","Chile","China","Cote d'Ivoire","Cameroon","Congo, Rep.","Colombia","Costa Rica","Cyprus","Czechia","Germany","Denmark","Dominican Republic","Algeria","Ecuador","Egypt, Arab Rep.","Spain","Estonia","Ethiopia","Finland","France","Gabon","United Kingdom","Georgia","Ghana","Guinea","Greece","Hong Kong SAR, China","Croatia","Hungary","Indonesia","India","Ireland","Iran, Islamic Rep.","Iraq","Iceland","Israel","Italy","Jamaica","Jordan","Japan","Kazakhstan","Kenya","Kyrgyz Republic","Cambodia","Korea, Rep.","Lao PDR","Lebanon","Sri Lanka","Lithuania","Latvia","Morocco","Moldova","Mexico","North Macedonia","Mali","Malta","Myanmar","Montenegro","Mongolia","Mauritius","Malaysia","Namibia","Nigeria","Nicaragua","Netherlands","Norway","Nepal","New Zealand","Pakistan","Peru","Philippines","Poland","Portugal","Paraguay","Romania","Russian Federation","Saudi Arabia","Senegal","El Salvador","Serbia","Slovak Republic","Slovenia","Sweden","Thailand","Tajikistan","Tunisia","Turkiye","Tanzania","Uganda","Ukraine","Uruguay","United States","Uzbekistan","Venezuela, RB","Viet Nam","South Africa","Zambia","Zimbabwe"],"frame":"2020","type":"choropleth","marker":{"line":{"color":"rgba(31,119,180,1)"}},"visible":true}],"traces":[0]},{"name":"2021","data":[{"colorbar":{"title":"% Helped a Stranger","ticklen":2,"tickformat":".1f"},"colorscale":"Reds","showscale":true,"locations":["AFG","ALB","ARE","ARG","ARM","AUS","AUT","BEL","BEN","BFA","BGD","BGR","BIH","BOL","BRA","CAN","CHE","CHL","CHN","CIV","CMR","COG","COL","CRI","CYP","CZE","DEU","DNK","DOM","DZA","ECU","EGY","ESP","EST","FIN","FRA","GAB","GBR","GEO","GHA","GIN","GRC","HKG","HND","HRV","HUN","IDN","IND","IRL","IRN","IRQ","ISL","ISR","ITA","JAM","JOR","JPN","KAZ","KEN","KGZ","KHM","KOR","LAO","LBN","LKA","LTU","LVA","MAR","MDA","MEX","MKD","MLI","MLT","MMR","MNG","MOZ","MUS","MWI","MYS","NAM","NGA","NIC","NLD","NOR","NPL","NZL","PAK","PAN","PER","PHL","POL","PRT","PRY","ROU","RUS","SAU","SEN","SGP","SLE","SLV","SRB","SVK","SVN","SWE","TGO","THA","TJK","TUN","TUR","TZA","UGA","UKR","URY","USA","UZB","VEN","VNM","ZAF","ZMB","ZWE"],"z":[44.044295400000003,57.171716400000008,64.888402400000004,75.614737200000008,60.940278999999997,69.3622996,50.8788087,51.840960300000006,54.018507400000004,60.8826885,68.509995199999992,71.502151800000007,62.385038600000001,75.122602700000002,75.624327600000001,64.566359399999996,40.079401500000003,67.129565900000003,64.763516800000005,66.925896300000005,70.595167599999996,68.788581899999997,76.298666299999994,77.648544000000001,62.617940100000006,64.093267699999998,53.496374000000003,60.411782000000002,72.579153500000004,57.606788299999998,74.42448379999999,56.939265299999995,50.044828600000002,55.321267200000001,53.1154315,37.803947600000001,73.129784099999995,52.378082299999996,67.697631000000001,61.1241889,72.096485700000002,57.093476600000002,54.8135446,68.250611500000005,62.575636799999998,73.38725740000001,57.692301700000002,56.763772599999996,54.558363499999999,63.928591300000001,73.166111700000002,49.655249300000001,51.3709591,43.518297199999999,80.336030999999991,73.269135699999993,24.4583403,46.888817500000002,76.7846926,65.246376100000006,23.195211199999999,52.683104999999998,36.003177800000003,49.928499799999997,66.281523300000003,64.325572699999995,50.324387699999996,72.9645692,68.053515899999994,76.017217500000001,69.311339500000003,63.4243557,47.595736500000001,55.356663699999999,49.8012728,53.422634300000006,53.507521999999994,73.347579799999991,65.6025913,67.602210700000001,79.323794599999999,64.486802799999992,42.902882599999998,49.920882500000005,54.949387100000003,65.648994000000002,53.128332,64.288677100000001,70.473368600000001,74.950456500000001,65.803302399999993,52.285957000000003,71.035668399999992,61.352197799999999,70.856044600000004,63.638201699999996,70.905392399999997,60.685036199999999,83.396018400000003,60.9273959,67.904242199999999,63.306921299999999,49.7531307,51.282471999999999,57.017829099999993,63.615964900000002,59.693400600000004,63.340818099999993,74.791891200000009,53.424198400000002,76.560586799999996,75.128560300000004,71.8615961,79.763016800000003,54.233195599999995,81.877877499999997,63.773961700000001,61.511190999999997,73.9443275,63.2846495],"text":["Afghanistan","Albania","United Arab Emirates","Argentina","Armenia","Australia","Austria","Belgium","Benin","Burkina Faso","Bangladesh","Bulgaria","Bosnia and Herzegovina","Bolivia","Brazil","Canada","Switzerland","Chile","China","Cote d'Ivoire","Cameroon","Congo, Rep.","Colombia","Costa Rica","Cyprus","Czechia","Germany","Denmark","Dominican Republic","Algeria","Ecuador","Egypt, Arab Rep.","Spain","Estonia","Finland","France","Gabon","United Kingdom","Georgia","Ghana","Guinea","Greece","Hong Kong SAR, China","Honduras","Croatia","Hungary","Indonesia","India","Ireland","Iran, Islamic Rep.","Iraq","Iceland","Israel","Italy","Jamaica","Jordan","Japan","Kazakhstan","Kenya","Kyrgyz Republic","Cambodia","Korea, Rep.","Lao PDR","Lebanon","Sri Lanka","Lithuania","Latvia","Morocco","Moldova","Mexico","North Macedonia","Mali","Malta","Myanmar","Mongolia","Mozambique","Mauritius","Malawi","Malaysia","Namibia","Nigeria","Nicaragua","Netherlands","Norway","Nepal","New Zealand","Pakistan","Panama","Peru","Philippines","Poland","Portugal","Paraguay","Romania","Russian Federation","Saudi Arabia","Senegal","Singapore","Sierra Leone","El Salvador","Serbia","Slovak Republic","Slovenia","Sweden","Togo","Thailand","Tajikistan","Tunisia","Turkiye","Tanzania","Uganda","Ukraine","Uruguay","United States","Uzbekistan","Venezuela, RB","Viet Nam","South Africa","Zambia","Zimbabwe"],"frame":"2021","type":"choropleth","marker":{"line":{"color":"rgba(31,119,180,1)"}},"visible":true}],"traces":[0]},{"name":"2022","data":[{"colorbar":{"title":"% Helped a Stranger","ticklen":2,"tickformat":".1f"},"colorscale":"Reds","showscale":true,"locations":["AFG","ALB","ARE","ARG","ARM","AUS","AUT","AZE","BEL","BEN","BGD","BGR","BIH","BOL","BRA","BWA","CAN","CHE","CHL","CIV","CMR","COD","COG","COL","COM","CRI","CYP","CYP","CZE","DEU","DNK","DOM","DZA","ECU","EGY","ESP","EST","ETH","FIN","FRA","GAB","GBR","GEO","GHA","GIN","GMB","GRC","GTM","HKG","HND","HRV","HUN","IDN","IND","IRL","IRN","IRQ","ISL","ISR","ITA","JAM","JOR","JPN","KAZ","KEN","KGZ","KHM","KOR","KWT","LAO","LBN","LBR","LBY","LKA","LSO","LTU","LUX","LVA","MAR","MDA","MDG","MEX","MKD","MLI","MLT","MMR","MNE","MNG","MOZ","MRT","MUS","MWI","MYS","NAM","NER","NGA","NIC","NLD","NOR","NPL","NZL","PAK","PAN","PER","PHL","POL","PRI","PRT","PRY","PSE","ROU","RUS","SAU","SEN","SGP","SLE","SLV","SRB","SVK","SVN","SWE","SWZ","TCD","TGO","THA","TJK","TUN","TUR","TZA","UGA","UKR","URY","USA","UZB","VEN","VNM","YEM","ZAF","ZMB","ZWE"],"z":[44.111609899999998,51.914499000000006,62.583910600000003,65.841538499999999,58.832124500000006,64.641022000000007,49.7820958,66.5684392,51.715396599999998,49.6476094,67.922125800000003,43.935862999999998,53.544569900000006,68.325558900000004,63.8753581,73.282312000000005,66.910088299999998,41.586383500000004,68.097710800000002,68.528922199999997,71.385971100000006,68.712915300000006,74.111064599999992,66.434688500000007,58.012287399999998,71.022776800000003,63.171316499999996,75.632087900000002,63.280590500000002,63.608435700000001,62.297143699999999,73.960285499999998,52.778818000000008,65.153618600000001,63.168802300000003,54.600576999999994,57.650882199999998,62.006802999999998,56.786768700000003,40.281132400000004,69.196872899999988,51.141892600000006,72.2295278,67.230778400000005,68.114464299999995,68.496900699999998,42.853921399999997,61.873984400000005,54.177156800000006,67.251924100000011,29.620426700000003,73.93197099999999,60.9369266,60.093477200000002,56.227003600000003,67.189653699999994,74.749054400000006,48.600768199999997,53.168104800000002,53.153034399999996,82.65552550000001,64.194012799999996,21.237237100000002,48.554714799999999,76.406751799999995,67.011282299999991,22.449143100000001,56.666193499999991,78.730657000000008,40.721571599999997,41.558037399999996,80.203045099999997,80.082230699999997,68.606098599999996,63.4040599,40.932538399999999,42.647503199999996,57.217510500000003,69.691275200000007,67.239107200000007,53.169157199999994,61.947629800000001,49.2841132,59.220110200000001,56.476591099999993,53.655640900000002,38.417726399999999,49.267002900000001,52.751868700000003,62.579622100000002,48.466997399999997,65.37408529999999,55.420649600000004,72.881693400000003,66.438665,79.240086599999998,62.807018299999996,45.057748600000004,59.1790138,49.124240200000003,64.986736499999992,36.888424299999997,67.607314500000001,63.551048499999993,56.752080900000003,22.3573302,66.469614300000003,52.834464999999994,69.225060499999998,60.977477199999996,55.624790199999993,57.283578700000007,66.959673500000008,76.65560769999999,67.145086700000007,76.132687700000005,64.882417699999991,39.757674700000003,48.050909500000003,49.161345599999997,55.094546300000005,70.827361499999995,67.628136699999999,58.893884100000008,52.340882499999999,68.615550800000008,57.298427900000007,53.698281100000003,46.226262599999998,69.917583800000003,78.292261699999997,70.352570700000001,76.193783100000005,59.097759699999997,74.725657900000002,47.088166799999996,43.472012900000003,71.012950100000012,73.061874599999996,60.992481099999992],"text":["Afghanistan","Albania","United Arab Emirates","Argentina","Armenia","Australia","Austria","Azerbaijan","Belgium","Benin","Bangladesh","Bulgaria","Bosnia and Herzegovina","Bolivia","Brazil","Botswana","Canada","Switzerland","Chile","Cote d'Ivoire","Cameroon","Congo, Dem. Rep.","Congo, Rep.","Colombia","Comoros","Costa Rica","Cyprus","Cyprus","Czechia","Germany","Denmark","Dominican Republic","Algeria","Ecuador","Egypt, Arab Rep.","Spain","Estonia","Ethiopia","Finland","France","Gabon","United Kingdom","Georgia","Ghana","Guinea","Gambia, The","Greece","Guatemala","Hong Kong SAR, China","Honduras","Croatia","Hungary","Indonesia","India","Ireland","Iran, Islamic Rep.","Iraq","Iceland","Israel","Italy","Jamaica","Jordan","Japan","Kazakhstan","Kenya","Kyrgyz Republic","Cambodia","Korea, Rep.","Kuwait","Lao PDR","Lebanon","Liberia","Libya","Sri Lanka","Lesotho","Lithuania","Luxembourg","Latvia","Morocco","Moldova","Madagascar","Mexico","North Macedonia","Mali","Malta","Myanmar","Montenegro","Mongolia","Mozambique","Mauritania","Mauritius","Malawi","Malaysia","Namibia","Niger","Nigeria","Nicaragua","Netherlands","Norway","Nepal","New Zealand","Pakistan","Panama","Peru","Philippines","Poland","Puerto Rico (US)","Portugal","Paraguay","West Bank and Gaza","Romania","Russian Federation","Saudi Arabia","Senegal","Singapore","Sierra Leone","El Salvador","Serbia","Slovak Republic","Slovenia","Sweden","Eswatini","Chad","Togo","Thailand","Tajikistan","Tunisia","Turkiye","Tanzania","Uganda","Ukraine","Uruguay","United States","Uzbekistan","Venezuela, RB","Viet Nam","Yemen, Rep.","South Africa","Zambia","Zimbabwe"],"frame":"2022","type":"choropleth","marker":{"line":{"color":"rgba(31,119,180,1)"}},"visible":true}],"traces":[0]},{"name":"2023","data":[{"colorbar":{"title":"% Helped a Stranger","ticklen":2,"tickformat":".1f"},"colorscale":"Reds","showscale":true,"locations":["AFG","ALB","ARE","ARG","ARM","AUS","AUT","AZE","BEL","BEN","BFA","BGD","BGR","BHR","BIH","BOL","BRA","BWA","CAN","CHE","CHL","CHN","CIV","CMR","COD","COG","COL","COM","CRI","CYP","CYP","CZE","DEU","DNK","DOM","ECU","EGY","ESP","EST","ETH","FIN","FRA","GAB","GBR","GEO","GHA","GIN","GMB","GRC","GTM","HKG","HND","HRV","HUN","IDN","IND","IRL","IRN","IRQ","ISL","ISR","ITA","JOR","JPN","KAZ","KEN","KGZ","KHM","KOR","KWT","LAO","LBN","LBR","LBY","LKA","LTU","LUX","LVA","MAR","MDA","MDG","MEX","MKD","MLI","MLT","MMR","MNE","MNG","MOZ","MRT","MUS","MWI","MYS","NAM","NER","NGA","NIC","NLD","NOR","NPL","NZL","PAK","PAN","PER","PHL","POL","PRT","PRY","PSE","ROU","RUS","SAU","SEN","SGP","SLE","SLV","SOM","SRB","SVK","SVN","SWE","SWZ","TCD","TGO","THA","TJK","TUN","TUR","TZA","UGA","UKR","URY","USA","UZB","VEN","VNM","YEM","ZAF","ZMB","ZWE"],"z":[52.974566000000003,61.130842999999999,65.487954799999997,68.342407000000009,61.741295399999998,69.211630200000002,51.893826300000001,63.431940300000001,55.441809799999994,52.468535299999999,64.341527899999988,81.293390200000005,47.560350499999998,71.500513400000003,57.857989600000003,67.499832999999995,65.0822766,69.845848000000004,66.866501400000004,45.223044299999998,65.741878400000004,53.8565665,57.999152499999994,67.864360599999998,67.338352200000003,69.697819899999999,67.428265799999991,59.274507200000002,70.847045800000004,70.914112500000002,64.712104800000006,64.0284209,57.196922200000003,60.268333799999994,71.457403999999997,60.548354800000006,72.141835499999999,60.249116100000002,54.520730900000004,65.527621600000003,55.285636000000004,37.705880400000005,70.174344000000005,54.622852700000003,70.572523399999994,65.179723899999999,74.170549899999997,77.858215900000005,63.0089282,68.959004000000007,56.144660999999999,68.674803199999999,42.599023099999997,75.666847699999991,66.387661699999995,64.724085700000003,59.145692800000006,69.124658100000005,75.517028799999991,48.366946500000005,63.166117200000002,53.933404100000004,67.472749499999992,23.630229,44.563400100000003,81.507505000000009,65.108423200000004,28.0131385,53.054817200000002,63.6317789,46.115161700000002,48.945986099999999,80.069222100000005,72.460471299999995,64.857767899999999,40.945739099999997,48.650387199999997,53.377154099999998,72.957343899999998,58.196979800000001,62.191399400000002,63.964949000000004,49.341271599999999,50.540421500000001,55.897404999999999,52.671784000000002,49.495443199999997,50.892532999999993,57.840154200000008,66.948149999999998,53.395528699999993,77.122603400000003,62.390855300000005,66.103877199999999,76.623219300000002,80.908122899999995,66.274954199999996,47.953481099999998,52.945670199999995,53.185137500000003,60.445903800000004,49.102296699999997,65.285645200000005,68.430262999999997,68.321029699999997,23.010285799999998,54.884909100000002,66.230904300000006,64.221786300000005,53.284931199999995,71.154791099999997,70.699247400000004,77.97627700000001,75.436354699999995,77.927475400000006,63.762693299999995,65.870114300000012,45.2739841,44.885270900000002,49.072493000000001,58.455735799999999,70.545721299999997,71.779968199999999,48.0368785,64.235326099999995,61.639349499999994,55.139889600000004,56.397573599999994,54.052642799999994,69.179696700000008,77.239430299999995,69.06081859999999,75.969802299999998,60.613334399999999,73.375338200000002,51.704003799999995,52.471229100000002,64.921174000000008,68.606741,59.798382100000005],"text":["Afghanistan","Albania","United Arab Emirates","Argentina","Armenia","Australia","Austria","Azerbaijan","Belgium","Benin","Burkina Faso","Bangladesh","Bulgaria","Bahrain","Bosnia and Herzegovina","Bolivia","Brazil","Botswana","Canada","Switzerland","Chile","China","Cote d'Ivoire","Cameroon","Congo, Dem. Rep.","Congo, Rep.","Colombia","Comoros","Costa Rica","Cyprus","Cyprus","Czechia","Germany","Denmark","Dominican Republic","Ecuador","Egypt, Arab Rep.","Spain","Estonia","Ethiopia","Finland","France","Gabon","United Kingdom","Georgia","Ghana","Guinea","Gambia, The","Greece","Guatemala","Hong Kong SAR, China","Honduras","Croatia","Hungary","Indonesia","India","Ireland","Iran, Islamic Rep.","Iraq","Iceland","Israel","Italy","Jordan","Japan","Kazakhstan","Kenya","Kyrgyz Republic","Cambodia","Korea, Rep.","Kuwait","Lao PDR","Lebanon","Liberia","Libya","Sri Lanka","Lithuania","Luxembourg","Latvia","Morocco","Moldova","Madagascar","Mexico","North Macedonia","Mali","Malta","Myanmar","Montenegro","Mongolia","Mozambique","Mauritania","Mauritius","Malawi","Malaysia","Namibia","Niger","Nigeria","Nicaragua","Netherlands","Norway","Nepal","New Zealand","Pakistan","Panama","Peru","Philippines","Poland","Portugal","Paraguay","West Bank and Gaza","Romania","Russian Federation","Saudi Arabia","Senegal","Singapore","Sierra Leone","El Salvador","Somalia","Serbia","Slovak Republic","Slovenia","Sweden","Eswatini","Chad","Togo","Thailand","Tajikistan","Tunisia","Turkiye","Tanzania","Uganda","Ukraine","Uruguay","United States","Uzbekistan","Venezuela, RB","Viet Nam","Yemen, Rep.","South Africa","Zambia","Zimbabwe"],"frame":"2023","type":"choropleth","marker":{"line":{"color":"rgba(31,119,180,1)"}},"visible":true}],"traces":[0]},{"name":"2024","data":[{"colorbar":{"title":"% Helped a Stranger","ticklen":2,"tickformat":".1f"},"colorscale":"Reds","showscale":true,"locations":["ALB","ARE","ARG","ARM","AUS","AUT","AZE","BEL","BEN","BFA","BGD","BGR","BHR","BIH","BLZ","BOL","BRA","BWA","CAN","CHE","CHL","CHN","CIV","CMR","COD","COG","COL","COM","CRI","CYP","CYP","CZE","DEU","DNK","DOM","DZA","ECU","EGY","ESP","EST","ETH","FIN","FRA","GAB","GBR","GEO","GHA","GIN","GMB","GRC","GTM","HKG","HND","HRV","HUN","IDN","IND","IRL","IRN","IRQ","ISL","ISR","ITA","JOR","JPN","KAZ","KEN","KGZ","KHM","KOR","KWT","LAO","LBN","LBR","LBY","LKA","LSO","LTU","LVA","MAR","MDA","MDG","MEX","MKD","MLI","MLT","MMR","MNE","MNG","MOZ","MRT","MUS","MWI","MYS","NAM","NER","NGA","NIC","NLD","NOR","NPL","NZL","OMN","PAK","PAN","PER","PHL","POL","PRT","PRY","PSE","ROU","RUS","RWA","SAU","SEN","SGP","SLE","SLV","SRB","SVK","SVN","SWE","SWZ","TCD","TGO","THA","TJK","TTO","TUN","TUR","TZA","UGA","UKR","URY","USA","UZB","VEN","VNM","ZAF","ZMB","ZWE"],"z":[50.719312699999996,59.884794900000003,61.906266899999999,53.001883699999993,68.864943300000007,57.412378799999999,60.771671500000004,48.354343200000002,49.310090899999999,64.369570600000003,74.035638400000011,50.825191999999994,66.396465500000005,47.3590047,70.996957699999996,47.503347499999997,62.809318700000006,76.433741499999996,64.483176200000003,45.3038545,68.763102799999999,42.712421800000001,70.053286800000009,65.498370600000001,62.862410099999998,70.5626362,46.296533799999999,61.645887399999999,61.289592299999995,58.352036900000002,62.139916599999999,61.226098900000004,58.822902399999997,59.633603899999997,66.563261999999995,59.732359799999998,46.854309600000001,68.0332121,63.881609599999997,54.731536499999997,44.370292200000002,58.546115700000001,43.869214599999999,76.427877499999994,55.449635700000002,60.2527452,68.413913600000001,75.292253799999997,73.790611699999999,58.008583599999994,53.634741500000004,47.985995100000004,64.672684199999992,33.2636197,66.721767200000002,64.343148200000002,58.289162299999994,58.577327599999997,71.621479699999995,67.836066500000001,51.658024900000001,60.786459299999997,46.971626200000003,61.301031299999998,21.1642394,38.493930599999999,80.933611299999995,61.845317499999993,28.2463242,49.386263800000002,69.933918699999992,35.236421999999997,40.420197800000004,87.410618600000006,55.690727500000001,65.355220400000007,62.070872099999995,57.857906400000005,45.881601500000002,62.341386,58.390563799999995,55.327073400000003,64.45724109999999,42.3606494,60.448042599999994,51.366685099999998,55.694407400000003,36.263016399999998,40.035204200000003,58.155351700000004,71.628786399999996,52.877220000000001,75.385588299999995,60.961165100000002,56.043949099999999,79.056543099999999,75.326954900000004,58.071086199999996,44.281405299999996,55.338740999999999,52.010307499999996,64.692407299999999,71.7744371,51.821025099999993,49.143834300000002,48.807989899999995,71.1800104,26.789389499999999,48.987620199999995,62.103024599999998,45.781237000000004,49.831372999999999,58.920881199999997,56.112847000000002,64.0934089,80.910711899999995,60.695678000000001,83.503750300000007,47.144756900000004,43.936919500000002,41.977738199999997,46.054299399999998,59.527328000000004,68.791752399999993,70.139146799999992,55.183130400000003,56.4092877,61.618154799999999,81.331940799999998,68.825142800000009,46.905989500000004,58.5814515,77.448101100000002,70.363738499999997,64.714565300000004,70.987444600000003,49.372264199999996,86.8747118,52.896213700000004,58.800342100000002,84.267644200000007,49.947756300000002],"text":["Albania","United Arab Emirates","Argentina","Armenia","Australia","Austria","Azerbaijan","Belgium","Benin","Burkina Faso","Bangladesh","Bulgaria","Bahrain","Bosnia and Herzegovina","Belize","Bolivia","Brazil","Botswana","Canada","Switzerland","Chile","China","Cote d'Ivoire","Cameroon","Congo, Dem. Rep.","Congo, Rep.","Colombia","Comoros","Costa Rica","Cyprus","Cyprus","Czechia","Germany","Denmark","Dominican Republic","Algeria","Ecuador","Egypt, Arab Rep.","Spain","Estonia","Ethiopia","Finland","France","Gabon","United Kingdom","Georgia","Ghana","Guinea","Gambia, The","Greece","Guatemala","Hong Kong SAR, China","Honduras","Croatia","Hungary","Indonesia","India","Ireland","Iran, Islamic Rep.","Iraq","Iceland","Israel","Italy","Jordan","Japan","Kazakhstan","Kenya","Kyrgyz Republic","Cambodia","Korea, Rep.","Kuwait","Lao PDR","Lebanon","Liberia","Libya","Sri Lanka","Lesotho","Lithuania","Latvia","Morocco","Moldova","Madagascar","Mexico","North Macedonia","Mali","Malta","Myanmar","Montenegro","Mongolia","Mozambique","Mauritania","Mauritius","Malawi","Malaysia","Namibia","Niger","Nigeria","Nicaragua","Netherlands","Norway","Nepal","New Zealand","Oman","Pakistan","Panama","Peru","Philippines","Poland","Portugal","Paraguay","West Bank and Gaza","Romania","Russian Federation","Rwanda","Saudi Arabia","Senegal","Singapore","Sierra Leone","El Salvador","Serbia","Slovak Republic","Slovenia","Sweden","Eswatini","Chad","Togo","Thailand","Tajikistan","Trinidad and Tobago","Tunisia","Turkiye","Tanzania","Uganda","Ukraine","Uruguay","United States","Uzbekistan","Venezuela, RB","Viet Nam","South Africa","Zambia","Zimbabwe"],"frame":"2024","type":"choropleth","marker":{"line":{"color":"rgba(31,119,180,1)"}},"visible":true}],"traces":[0]}],"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>This is a global visualization of how each country answered this question on average over the ten year span using a cool (and free) resource called Plotly. If you hover over each country, you should be able to see its affiliated percentage - and the globe spins!</p>
+</section>
+<section id="comparing-highest-and-lowest-gdps-between-2015-and-2024" class="level2">
+<h2 class="anchored" data-anchor-id="comparing-highest-and-lowest-gdps-between-2015-and-2024">Comparing highest and lowest GDP’s between 2015 and 2024</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-6-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>There is a clear shift when comparing 2015-2024 in the percentages that have helped strangers. In 2024, countries with the lowest GDP’s helped strangers much more on average than the highest GDP’s.</p>
+</section>
+<section id="comparing-highest-and-lowest-gdps-during-covid" class="level2">
+<h2 class="anchored" data-anchor-id="comparing-highest-and-lowest-gdps-during-covid">Comparing highest and lowest GDP’s during covid</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This difference is interesingly the most dramatic during 2020 and the covid-19 pandemic.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-c3f44fd6047bbd83466b" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-c3f44fd6047bbd83466b">{"x":{"visdat":{"8854671a6903":["function () ","plotlyVisDat"]},"cur_data":"8854671a6903","attrs":{"8854671a6903":{"x":{},"y":{},"text":{},"mode":"markers+text","textposition":"middle right","marker":{"size":10,"opacity":0.84999999999999998},"textfont":{"size":10},"cliponaxis":false,"color":{},"frame":{},"colors":["blue","red"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":60,"l":140,"t":80,"r":40},"title":"Top 10 (blue) vs Bottom 10 (red) GDP Countries — GDP vs % Helped over Time","xaxis":{"domain":[0,1],"automargin":true,"title":"GDP per capita","range":[0,137978.06547],"tickformat":","},"yaxis":{"domain":[0,1],"automargin":true,"title":"% who helped a stranger","tickformat":".2f","ticksuffix":"%","range":[0,95.562182980000003]},"legend":{"title":{"text":"Group"}},"hovermode":"closest","showlegend":true,"sliders":[{"currentvalue":{"prefix":"Year: ","xanchor":"right","font":{"size":16,"color":"rgba(204,204,204,1)"}},"steps":[{"method":"animate","args":[["2015"],{"transition":{"duration":0,"easing":"linear"},"frame":{"duration":800,"redraw":true},"mode":"immediate"}],"label":"2015","value":"2015"},{"method":"animate","args":[["2016"],{"transition":{"duration":0,"easing":"linear"},"frame":{"duration":800,"redraw":true},"mode":"immediate"}],"label":"2016","value":"2016"},{"method":"animate","args":[["2017"],{"transition":{"duration":0,"easing":"linear"},"frame":{"duration":800,"redraw":true},"mode":"immediate"}],"label":"2017","value":"2017"},{"method":"animate","args":[["2018"],{"transition":{"duration":0,"easing":"linear"},"frame":{"duration":800,"redraw":true},"mode":"immediate"}],"label":"2018","value":"2018"},{"method":"animate","args":[["2019"],{"transition":{"duration":0,"easing":"linear"},"frame":{"duration":800,"redraw":true},"mode":"immediate"}],"label":"2019","value":"2019"},{"method":"animate","args":[["2020"],{"transition":{"duration":0,"easing":"linear"},"frame":{"duration":800,"redraw":true},"mode":"immediate"}],"label":"2020","value":"2020"},{"method":"animate","args":[["2021"],{"transition":{"duration":0,"easing":"linear"},"frame":{"duration":800,"redraw":true},"mode":"immediate"}],"label":"2021","value":"2021"},{"method":"animate","args":[["2022"],{"transition":{"duration":0,"easing":"linear"},"frame":{"duration":800,"redraw":true},"mode":"immediate"}],"label":"2022","value":"2022"},{"method":"animate","args":[["2023"],{"transition":{"duration":0,"easing":"linear"},"frame":{"duration":800,"redraw":true},"mode":"immediate"}],"label":"2023","value":"2023"},{"method":"animate","args":[["2024"],{"transition":{"duration":0,"easing":"linear"},"frame":{"duration":800,"redraw":true},"mode":"immediate"}],"label":"2024","value":"2024"}],"visible":true,"pad":{"t":40}}],"updatemenus":[{"type":"buttons","direction":"right","showactive":false,"y":0,"x":0,"yanchor":"top","xanchor":"right","pad":{"t":60,"r":5},"buttons":[{"label":"Play","method":"animate","args":[null,{"fromcurrent":true,"mode":"immediate","transition":{"duration":0,"easing":"linear"},"frame":{"duration":800,"redraw":true}}]}]}]},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displayModeBar":true},"data":[{"x":[630.12475080000002,621.84567379999999,610.56377469999995,565.56973040000003,539.60536320000006,485.66257419999999,467.9145805,445.58308010000002,445.32006949999999],"y":[62.692616899999997,44.689633299999997,52.937920099999999,55.443853899999993,74.494503999999992,46.571257299999999,38.2048536,77.150398199999998,27.777363000000001],"text":["Burkina Faso (62.69%)","Ethiopia (44.69%)","Mozambique (52.94%)","Afghanistan (55.44%)","Malawi (74.49%)","Niger (46.57%)","Congo, Dem. Rep. (38.20%)","Somalia (77.15%)","Madagascar (27.78%)"],"mode":"markers+text","textposition":["middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right"],"marker":{"color":"rgba(255,0,0,1)","size":10,"opacity":0.84999999999999998,"line":{"color":"rgba(255,0,0,1)"}},"textfont":{"color":"rgba(255,0,0,1)","size":10},"cliponaxis":false,"frame":"2015","type":"scatter","name":"Bottom 10 GDP","error_y":{"color":"rgba(255,0,0,1)"},"error_x":{"color":"rgba(255,0,0,1)"},"line":{"color":"rgba(255,0,0,1)"},"xaxis":"x","yaxis":"y","visible":true},{"x":[105462.0126,83806.4476,74809.965800000005,64311.823470000003,56849.469790000003,56739.026530000003,55645.60686,53094.013359999997,52951.681510000002,51197.952929999999],"y":[34.7745228,53.459916500000006,51.713849499999995,56.176278499999995,73.079350300000002,68.143790199999998,49.715208199999999,54.487691900000002,51.597815300000008,58.626592600000002],"text":["Luxembourg (34.77%)","Switzerland (53.46%)","Norway (51.71%)","Ireland (56.18%)","United States (73.08%)","Australia (68.14%)","Singapore (49.72%)","Denmark (54.49%)","Iceland (51.60%)","Sweden (58.63%)"],"mode":"markers+text","textposition":["middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right"],"marker":{"color":"rgba(0,0,255,1)","size":10,"opacity":0.84999999999999998,"line":{"color":"rgba(0,0,255,1)"}},"textfont":{"color":"rgba(0,0,255,1)","size":10},"cliponaxis":false,"frame":"2015","type":"scatter","name":"Top 10 GDP","error_y":{"color":"rgba(0,0,255,1)"},"error_x":{"color":"rgba(0,0,255,1)"},"line":{"color":"rgba(0,0,255,1)"},"xaxis":"x","yaxis":"y","visible":true}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"frames":[{"name":"2015","data":[{"x":[630.12475080000002,621.84567379999999,610.56377469999995,565.56973040000003,539.60536320000006,485.66257419999999,467.9145805,445.58308010000002,445.32006949999999],"y":[62.692616899999997,44.689633299999997,52.937920099999999,55.443853899999993,74.494503999999992,46.571257299999999,38.2048536,77.150398199999998,27.777363000000001],"text":["Burkina Faso (62.69%)","Ethiopia (44.69%)","Mozambique (52.94%)","Afghanistan (55.44%)","Malawi (74.49%)","Niger (46.57%)","Congo, Dem. Rep. (38.20%)","Somalia (77.15%)","Madagascar (27.78%)"],"mode":"markers+text","textposition":["middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right"],"marker":{"color":"rgba(255,0,0,1)","size":10,"opacity":0.84999999999999998,"line":{"color":"rgba(255,0,0,1)"}},"textfont":{"color":"rgba(255,0,0,1)","size":10},"cliponaxis":false,"frame":"2015","type":"scatter","name":"Bottom 10 GDP","error_y":{"color":"rgba(255,0,0,1)"},"error_x":{"color":"rgba(255,0,0,1)"},"line":{"color":"rgba(255,0,0,1)"},"xaxis":"x","yaxis":"y","visible":true},{"x":[105462.0126,83806.4476,74809.965800000005,64311.823470000003,56849.469790000003,56739.026530000003,55645.60686,53094.013359999997,52951.681510000002,51197.952929999999],"y":[34.7745228,53.459916500000006,51.713849499999995,56.176278499999995,73.079350300000002,68.143790199999998,49.715208199999999,54.487691900000002,51.597815300000008,58.626592600000002],"text":["Luxembourg (34.77%)","Switzerland (53.46%)","Norway (51.71%)","Ireland (56.18%)","United States (73.08%)","Australia (68.14%)","Singapore (49.72%)","Denmark (54.49%)","Iceland (51.60%)","Sweden (58.63%)"],"mode":"markers+text","textposition":["middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right"],"marker":{"color":"rgba(0,0,255,1)","size":10,"opacity":0.84999999999999998,"line":{"color":"rgba(0,0,255,1)"}},"textfont":{"color":"rgba(0,0,255,1)","size":10},"cliponaxis":false,"frame":"2015","type":"scatter","name":"Top 10 GDP","error_y":{"color":"rgba(0,0,255,1)"},"error_x":{"color":"rgba(0,0,255,1)"},"line":{"color":"rgba(0,0,255,1)"},"xaxis":"x","yaxis":"y","visible":true}],"traces":[0,1]},{"name":"2016","data":[{"x":[663.74236480000002,522.08221560000004,502.70647539999999,460.92849059999998,453.97071449999999,450.50610549999999,442.31047210000003,387.17620340000002],"y":[51.467139100000004,46.2660804,44.530202000000003,68.373391299999994,26.883685699999997,69.468808100000004,36.168511100000003,40.942757],"text":["Burkina Faso (51.47%)","Afghanistan (46.27%)","Niger (44.53%)","Somalia (68.37%)","Madagascar (26.88%)","Malawi (69.47%)","Congo, Dem. Rep. (36.17%)","Central African Republic (40.94%)"],"mode":"markers+text","textposition":["middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right"],"marker":{"color":"rgba(255,0,0,1)","size":10,"opacity":0.84999999999999998,"line":{"color":"rgba(255,0,0,1)"}},"textfont":{"color":"rgba(255,0,0,1)","size":10},"cliponaxis":false,"frame":"2016","type":"scatter","name":"Bottom 10 GDP","error_y":{"color":"rgba(255,0,0,1)"},"error_x":{"color":"rgba(255,0,0,1)"},"line":{"color":"rgba(255,0,0,1)"},"xaxis":"x","yaxis":"y","visible":true},{"x":[106899.2935,82153.074540000001,70867.361000000004,64192.941809999997,61987.926359999998,57976.628199999999,57005.58872,54500.926039999998,51820.397250000002,49888.041080000003],"y":[37.348860199999997,39.218926599999996,48.974093400000001,60.682511699999999,43.842731800000003,72.870148099999994,40.595364699999998,57.311663500000002,53.314789599999997,65.594823700000006],"text":["Luxembourg (37.35%)","Switzerland (39.22%)","Norway (48.97%)","Ireland (60.68%)","Iceland (43.84%)","United States (72.87%)","Singapore (40.60%)","Denmark (57.31%)","Sweden (53.31%)","Australia (65.59%)"],"mode":"markers+text","textposition":["middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right"],"marker":{"color":"rgba(0,0,255,1)","size":10,"opacity":0.84999999999999998,"line":{"color":"rgba(0,0,255,1)"}},"textfont":{"color":"rgba(0,0,255,1)","size":10},"cliponaxis":false,"frame":"2016","type":"scatter","name":"Top 10 GDP","error_y":{"color":"rgba(0,0,255,1)"},"error_x":{"color":"rgba(0,0,255,1)"},"line":{"color":"rgba(0,0,255,1)"},"xaxis":"x","yaxis":"y","visible":true}],"traces":[0,1]},{"name":"2017","data":[{"x":[642.52264130000003,525.46977089999996,521.80412999999999,495.76968340000002,491.86684869999999,470.93856310000001,436.58453470000001,432.32402569999999],"y":[73.786298400000007,41.309864400000002,65.878539899999993,65.532085100000003,38.772467200000001,50.114165300000003,55.886660499999998,51.590108300000004],"text":["Gambia, The (73.79%)","Afghanistan (41.31%)","Niger (65.88%)","Malawi (65.53%)","Madagascar (38.77%)","Mozambique (50.11%)","Congo, Dem. Rep. (55.89%)","Central African Republic (51.59%)"],"mode":"markers+text","textposition":["middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right"],"marker":{"color":"rgba(255,0,0,1)","size":10,"opacity":0.84999999999999998,"line":{"color":"rgba(255,0,0,1)"}},"textfont":{"color":"rgba(255,0,0,1)","size":10},"cliponaxis":false,"frame":"2017","type":"scatter","name":"Bottom 10 GDP","error_y":{"color":"rgba(255,0,0,1)"},"error_x":{"color":"rgba(255,0,0,1)"},"line":{"color":"rgba(255,0,0,1)"},"xaxis":"x","yaxis":"y","visible":true},{"x":[110193.2138,82254.377049999996,76131.838399999993,72198.107699999993,72010.14903,61236.251270000001,60047.719069999999,57521.551500000001,53901.714540000001,53300.85873],"y":[39.833438100000002,39.6420581,54.017171300000001,64.423122700000008,49.9181898,66.709863599999991,72.233347899999998,57.955370100000003,64.645172500000001,51.510956299999997],"text":["Luxembourg (39.83%)","Switzerland (39.64%)","Norway (54.02%)","Ireland (64.42%)","Iceland (49.92%)","Singapore (66.71%)","United States (72.23%)","Denmark (57.96%)","Australia (64.65%)","Sweden (51.51%)"],"mode":"markers+text","textposition":["middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right"],"marker":{"color":"rgba(0,0,255,1)","size":10,"opacity":0.84999999999999998,"line":{"color":"rgba(0,0,255,1)"}},"textfont":{"color":"rgba(0,0,255,1)","size":10},"cliponaxis":false,"frame":"2017","type":"scatter","name":"Top 10 GDP","error_y":{"color":"rgba(0,0,255,1)"},"error_x":{"color":"rgba(0,0,255,1)"},"line":{"color":"rgba(0,0,255,1)"},"xaxis":"x","yaxis":"y","visible":true}],"traces":[0,1]},{"name":"2018","data":[{"x":[696.21980699999995,692.20312709999996,633.88720249999994,578.5680357,533.20317369999998,517.50726029999998,500.45718549999998,491.33722139999998,224.89939240000001],"y":[67.960539600000004,77.207416500000008,45.9352722,69.1525927,65.748053100000007,50.094809500000004,41.301538900000004,44.1605572,33.778685400000001],"text":["Gambia, The (67.96%)","Liberia (77.21%)","Yemen, Rep. (45.94%)","Niger (69.15%)","Malawi (65.75%)","Mozambique (50.09%)","Madagascar (41.30%)","Afghanistan (44.16%)","Burundi (33.78%)"],"mode":"markers+text","textposition":["middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right"],"marker":{"color":"rgba(255,0,0,1)","size":10,"opacity":0.84999999999999998,"line":{"color":"rgba(255,0,0,1)"}},"textfont":{"color":"rgba(255,0,0,1)","size":10},"cliponaxis":false,"frame":"2018","type":"scatter","name":"Bottom 10 GDP","error_y":{"color":"rgba(255,0,0,1)"},"error_x":{"color":"rgba(255,0,0,1)"},"line":{"color":"rgba(255,0,0,1)"},"xaxis":"x","yaxis":"y","visible":true},{"x":[116926.7596,85217.369149999999,82792.842709999997,80738.962880000006,66881.606700000004,62875.666140000001,61324.766499999998,57196.422079999997,54181.90698,51194.074979999998],"y":[33.185078799999999,37.413367199999996,38.565192199999998,55.408564200000001,33.925684799999999,64.729079799999994,41.121709499999994,45.218665100000003,39.934988500000003,48.861057099999996],"text":["Luxembourg (33.19%)","Switzerland (37.41%)","Norway (38.57%)","Ireland (55.41%)","Singapore (33.93%)","United States (64.73%)","Denmark (41.12%)","Australia (45.22%)","Sweden (39.93%)","Austria (48.86%)"],"mode":"markers+text","textposition":["middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right"],"marker":{"color":"rgba(0,0,255,1)","size":10,"opacity":0.84999999999999998,"line":{"color":"rgba(0,0,255,1)"}},"textfont":{"color":"rgba(0,0,255,1)","size":10},"cliponaxis":false,"frame":"2018","type":"scatter","name":"Top 10 GDP","error_y":{"color":"rgba(0,0,255,1)"},"error_x":{"color":"rgba(0,0,255,1)"},"line":{"color":"rgba(0,0,255,1)"},"xaxis":"x","yaxis":"y","visible":true}],"traces":[0,1]},{"name":"2019","data":[{"x":[764.85307780000005,738.18675199999996,658.16418080000005,623.37616809999997,580.88981609999996,561.69130429999996,519.09255089999999,499.81883759999999,496.60250430000002],"y":[54.966894799999999,70.137631600000006,77.081548499999997,45.740012800000002,61.182648999999998,63.427382200000004,56.342636499999998,42.0917417,47.979768499999999],"text":["Burkina Faso (54.97%)","Gambia, The (70.14%)","Liberia (77.08%)","Yemen, Rep. (45.74%)","Malawi (61.18%)","Niger (63.43%)","Mozambique (56.34%)","Madagascar (42.09%)","Afghanistan (47.98%)"],"mode":"markers+text","textposition":["middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right"],"marker":{"color":"rgba(255,0,0,1)","size":10,"opacity":0.84999999999999998,"line":{"color":"rgba(255,0,0,1)"}},"textfont":{"color":"rgba(255,0,0,1)","size":10},"cliponaxis":false,"frame":"2019","type":"scatter","name":"Bottom 10 GDP","error_y":{"color":"rgba(255,0,0,1)"},"error_x":{"color":"rgba(255,0,0,1)"},"line":{"color":"rgba(255,0,0,1)"},"xaxis":"x","yaxis":"y","visible":true},{"x":[112696.6491,84121.931030000007,81810.192649999997,76430.588950000005,65952.037899999996,65227.956590000002,59404.266320000002,54972.701789999999,53554.900750000001,51773.046459999998],"y":[33.520773500000004,37.462251500000001,53.916814899999999,43.386137699999999,45.510623000000002,64.377064200000007,53.028466500000007,56.773671100000001,38.919749299999999,45.328893700000002],"text":["Luxembourg (33.52%)","Switzerland (37.46%)","Ireland (53.92%)","Norway (43.39%)","Singapore (45.51%)","United States (64.38%)","Denmark (53.03%)","Australia (56.77%)","Netherlands (38.92%)","Sweden (45.33%)"],"mode":"markers+text","textposition":["middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right"],"marker":{"color":"rgba(0,0,255,1)","size":10,"opacity":0.84999999999999998,"line":{"color":"rgba(0,0,255,1)"}},"textfont":{"color":"rgba(0,0,255,1)","size":10},"cliponaxis":false,"frame":"2019","type":"scatter","name":"Top 10 GDP","error_y":{"color":"rgba(0,0,255,1)"},"error_x":{"color":"rgba(0,0,255,1)"},"line":{"color":"rgba(0,0,255,1)"},"xaxis":"x","yaxis":"y","visible":true}],"traces":[0,1]},{"name":"2020","data":[{"x":[1154.2151759999999,1117.415283,1053.660977,953.24294329999998,951.64431669999999,905.31315930000005,845.76646389999996,834.31171549999999,825.23703880000005],"y":[50.934193299999997,55.798012100000008,71.286039599999995,57.610438100000003,75.694662199999996,65.585924800000001,75.424981700000004,70.462391800000006,67.125965300000004],"text":["Nepal (50.93%)","Tanzania (55.80%)","Guinea (71.29%)","Mali (57.61%)","Zambia (75.69%)","Ethiopia (65.59%)","Uganda (75.42%)","Tajikistan (70.46%)","Burkina Faso (67.13%)"],"mode":"markers+text","textposition":["middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right"],"marker":{"color":"rgba(255,0,0,1)","size":10,"opacity":0.84999999999999998,"line":{"color":"rgba(255,0,0,1)"}},"textfont":{"color":"rgba(255,0,0,1)","size":10},"cliponaxis":false,"frame":"2020","type":"scatter","name":"Bottom 10 GDP","error_y":{"color":"rgba(255,0,0,1)"},"error_x":{"color":"rgba(255,0,0,1)"},"line":{"color":"rgba(255,0,0,1)"},"xaxis":"x","yaxis":"y","visible":true},{"x":[86622.506729999994,85897.784329999995,68340.018100000001,64401.507440000001,60985.488559999998,59023.566350000001,53467.927739999999,52653.756589999997,51791.540180000004,48828.684690000002],"y":[48.833463500000001,30.047319500000004,38.7009136,57.702647900000002,46.476955199999999,35.197423399999998,34.564042900000004,40.401159900000003,57.171228299999996,41.835968000000001],"text":["Ireland (48.83%)","Switzerland (30.05%)","Norway (38.70%)","United States (57.70%)","Denmark (46.48%)","Iceland (35.20%)","Netherlands (34.56%)","Sweden (40.40%)","Australia (57.17%)","Finland (41.84%)"],"mode":"markers+text","textposition":["middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right"],"marker":{"color":"rgba(0,0,255,1)","size":10,"opacity":0.84999999999999998,"line":{"color":"rgba(0,0,255,1)"}},"textfont":{"color":"rgba(0,0,255,1)","size":10},"cliponaxis":false,"frame":"2020","type":"scatter","name":"Top 10 GDP","error_y":{"color":"rgba(0,0,255,1)"},"error_x":{"color":"rgba(0,0,255,1)"},"line":{"color":"rgba(0,0,255,1)"},"xaxis":"x","yaxis":"y","visible":true}],"traces":[0,1]},{"name":"2021","data":[{"x":[1027.2734539999999,939.61337379999998,896.7480534,895.53528840000001,886.19293909999999,882.79171740000004,617.44752080000001,509.90782949999999,356.49621409999997],"y":[63.4243557,57.017829099999993,59.693400600000004,60.8826885,83.396018400000003,76.560586799999996,73.347579799999991,53.422634300000006,44.044295400000003],"text":["Mali (63.42%)","Togo (57.02%)","Tajikistan (59.69%)","Burkina Faso (60.88%)","Sierra Leone (83.40%)","Uganda (76.56%)","Malawi (73.35%)","Mozambique (53.42%)","Afghanistan (44.04%)"],"mode":"markers+text","textposition":["middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right"],"marker":{"color":"rgba(255,0,0,1)","size":10,"opacity":0.84999999999999998,"line":{"color":"rgba(255,0,0,1)"}},"textfont":{"color":"rgba(255,0,0,1)","size":10},"cliponaxis":false,"frame":"2021","type":"scatter","name":"Bottom 10 GDP","error_y":{"color":"rgba(255,0,0,1)"},"error_x":{"color":"rgba(255,0,0,1)"},"line":{"color":"rgba(255,0,0,1)"},"xaxis":"x","yaxis":"y","visible":true},{"x":[103961.9764,93664.773669999995,93072.892510000005,80056.128819999998,71307.401729999998,69727.987370000003,69178.404699999999,61174.96802,60607.778859999999,60141.988089999999],"y":[54.558363499999999,40.079401500000003,49.920882500000005,60.685036199999999,79.763016800000003,60.411782000000002,49.655249300000001,51.282471999999999,69.3622996,42.902882599999998],"text":["Ireland (54.56%)","Switzerland (40.08%)","Norway (49.92%)","Singapore (60.69%)","United States (79.76%)","Denmark (60.41%)","Iceland (49.66%)","Sweden (51.28%)","Australia (69.36%)","Netherlands (42.90%)"],"mode":"markers+text","textposition":["middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right"],"marker":{"color":"rgba(0,0,255,1)","size":10,"opacity":0.84999999999999998,"line":{"color":"rgba(0,0,255,1)"}},"textfont":{"color":"rgba(0,0,255,1)","size":10},"cliponaxis":false,"frame":"2021","type":"scatter","name":"Top 10 GDP","error_y":{"color":"rgba(0,0,255,1)"},"error_x":{"color":"rgba(0,0,255,1)"},"line":{"color":"rgba(0,0,255,1)"},"xaxis":"x","yaxis":"y","visible":true}],"traces":[0,1]},{"name":"2022","data":[{"x":[836.2448756,744.61717520000002,642.61226710000005,615.70207770000002,609.74514769999996,604.26975119999997,578.25166379999996,503.51453350000003,357.26115279999999],"y":[68.496900699999998,80.203045099999997,68.712915300000006,43.472012900000003,66.438665,65.37408529999999,52.751868700000003,53.169157199999994,44.111609899999998],"text":["Gambia, The (68.50%)","Liberia (80.20%)","Congo, Dem. Rep. (68.71%)","Yemen, Rep. (43.47%)","Niger (66.44%)","Malawi (65.37%)","Mozambique (52.75%)","Madagascar (53.17%)","Afghanistan (44.11%)"],"mode":"markers+text","textposition":["middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right"],"marker":{"color":"rgba(255,0,0,1)","size":10,"opacity":0.84999999999999998,"line":{"color":"rgba(255,0,0,1)"}},"textfont":{"color":"rgba(255,0,0,1)","size":10},"cliponaxis":false,"frame":"2022","type":"scatter","name":"Bottom 10 GDP","error_y":{"color":"rgba(255,0,0,1)"},"error_x":{"color":"rgba(255,0,0,1)"},"line":{"color":"rgba(255,0,0,1)"},"xaxis":"x","yaxis":"y","visible":true},{"x":[123719.65889999999,109269.5206,105234.5116,94394.510680000007,90299.069459999999,77860.911290000004,75121.015230000005,68091.319109999997,64997.013650000001,59123.31856],"y":[42.647503199999996,59.1790138,56.227003600000003,41.586383500000004,67.145086700000007,76.193783100000005,48.600768199999997,62.297143699999999,64.641022000000007,45.057748600000004],"text":["Luxembourg (42.65%)","Norway (59.18%)","Ireland (56.23%)","Switzerland (41.59%)","Singapore (67.15%)","United States (76.19%)","Iceland (48.60%)","Denmark (62.30%)","Australia (64.64%)","Netherlands (45.06%)"],"mode":"markers+text","textposition":["middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right"],"marker":{"color":"rgba(0,0,255,1)","size":10,"opacity":0.84999999999999998,"line":{"color":"rgba(0,0,255,1)"}},"textfont":{"color":"rgba(0,0,255,1)","size":10},"cliponaxis":false,"frame":"2022","type":"scatter","name":"Top 10 GDP","error_y":{"color":"rgba(0,0,255,1)"},"error_x":{"color":"rgba(0,0,255,1)"},"line":{"color":"rgba(0,0,255,1)"},"xaxis":"x","yaxis":"y","visible":true}],"traces":[0,1]},{"name":"2023","data":[{"x":[638.33608070000002,633.39566170000001,622.98561930000005,602.34361980000006,597.4588546,508.71842770000001,426.3540759,413.75789470000001],"y":[76.623219300000002,67.338352200000003,57.840154200000008,77.122603400000003,65.870114300000012,62.191399400000002,52.471229100000002,52.974566000000003],"text":["Niger (76.62%)","Congo, Dem. Rep. (67.34%)","Mozambique (57.84%)","Malawi (77.12%)","Somalia (65.87%)","Madagascar (62.19%)","Yemen, Rep. (52.47%)","Afghanistan (52.97%)"],"mode":"markers+text","textposition":["middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right"],"marker":{"color":"rgba(255,0,0,1)","size":10,"opacity":0.84999999999999998,"line":{"color":"rgba(255,0,0,1)"}},"textfont":{"color":"rgba(255,0,0,1)","size":10},"cliponaxis":false,"frame":"2023","type":"scatter","name":"Bottom 10 GDP","error_y":{"color":"rgba(255,0,0,1)"},"error_x":{"color":"rgba(255,0,0,1)"},"line":{"color":"rgba(255,0,0,1)"},"xaxis":"x","yaxis":"y","visible":true},{"x":[131407.6814,103887.80039999999,100631.8028,87497.328930000003,85412.230349999998,82304.620429999995,79960.096149999998,68453.876929999999,64835.919979999999,64572.005960000002],"y":[48.650387199999997,59.145692800000006,45.223044299999998,52.945670199999995,75.436354699999995,75.969802299999998,48.366946500000005,60.268333799999994,69.211630200000002,47.953481099999998],"text":["Luxembourg (48.65%)","Ireland (59.15%)","Switzerland (45.22%)","Norway (52.95%)","Singapore (75.44%)","United States (75.97%)","Iceland (48.37%)","Denmark (60.27%)","Australia (69.21%)","Netherlands (47.95%)"],"mode":"markers+text","textposition":["middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right"],"marker":{"color":"rgba(0,0,255,1)","size":10,"opacity":0.84999999999999998,"line":{"color":"rgba(0,0,255,1)"}},"textfont":{"color":"rgba(0,0,255,1)","size":10},"cliponaxis":false,"frame":"2023","type":"scatter","name":"Top 10 GDP","error_y":{"color":"rgba(0,0,255,1)"},"error_x":{"color":"rgba(0,0,255,1)"},"line":{"color":"rgba(0,0,255,1)"},"xaxis":"x","yaxis":"y","visible":true}],"traces":[0,1]},{"name":"2024","data":[{"x":[806.94569509999997,722.74865030000001,647.43570480000005,647.28579950000005,544.99730269999998,508.37127349999997],"y":[75.326954900000004,79.056543099999999,62.862410099999998,58.155351700000004,55.327073400000003,75.385588299999995],"text":["Nigeria (75.33%)","Niger (79.06%)","Congo, Dem. Rep. (62.86%)","Mozambique (58.16%)","Madagascar (55.33%)","Malawi (75.39%)"],"mode":"markers+text","textposition":["middle right","middle right","middle right","middle right","middle right","middle right"],"marker":{"color":"rgba(255,0,0,1)","size":10,"opacity":0.84999999999999998,"line":{"color":"rgba(255,0,0,1)"}},"textfont":{"color":"rgba(255,0,0,1)","size":10},"cliponaxis":false,"frame":"2024","type":"scatter","name":"Bottom 10 GDP","error_y":{"color":"rgba(255,0,0,1)"},"error_x":{"color":"rgba(255,0,0,1)"},"line":{"color":"rgba(255,0,0,1)"},"xaxis":"x","yaxis":"y","visible":true},{"x":[107316.3373,103669.872,90674.066630000001,86809.724690000003,85809.900380000006,82703.857990000004,71851.756210000007,68218.7261,64407.484259999997,57723.234499999999],"y":[58.577327599999997,45.3038545,60.695678000000001,55.338740999999999,70.987444600000003,51.658024900000001,59.633603899999997,44.281405299999996,68.864943300000007,59.527328000000004],"text":["Ireland (58.58%)","Switzerland (45.30%)","Singapore (60.70%)","Norway (55.34%)","United States (70.99%)","Iceland (51.66%)","Denmark (59.63%)","Netherlands (44.28%)","Australia (68.86%)","Sweden (59.53%)"],"mode":"markers+text","textposition":["middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right","middle right"],"marker":{"color":"rgba(0,0,255,1)","size":10,"opacity":0.84999999999999998,"line":{"color":"rgba(0,0,255,1)"}},"textfont":{"color":"rgba(0,0,255,1)","size":10},"cliponaxis":false,"frame":"2024","type":"scatter","name":"Top 10 GDP","error_y":{"color":"rgba(0,0,255,1)"},"error_x":{"color":"rgba(0,0,255,1)"},"line":{"color":"rgba(0,0,255,1)"},"xaxis":"x","yaxis":"y","visible":true}],"traces":[0,1]}],"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>This plot prints out the data for the highest and lowest ten GDP’s for each year and where they fall on the scale of helping strangers.</p>
+</section>
+<section id="statistical-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="statistical-analysis">Statistical Analysis</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Regression: Helped a Stranger vs GDP per Capita (per 10,000)
+===============================================
+                        Dependent variable:    
+                    ---------------------------
+                      Willingness to Help (%)  
+-----------------------------------------------
+GDP per 10,000               -0.785***         
+                              (0.166)          
+                                               
+Constant                     55.929***         
+                              (0.455)          
+                                               
+-----------------------------------------------
+Observations                   1,346           
+R2                             0.016           
+Adjusted R2                    0.016           
+Residual Std. Error     13.283 (df = 1344)     
+F Statistic          22.479*** (df = 1; 1344)  
+===============================================
+Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>There is a significant negative relationship between GDP per capita and willingness to help a stranger:</p>
+<p>For every $10,000 increase in GDP per capita, the percentage of people helping a stranger tends to drop by about 0.8%.</p>
+<p>However, GDP explains only about 1.6% of the variation — so while the effect is real, it’s small.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/hbs-rcs\.github\.io\/rcs-blog\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
