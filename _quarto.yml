@@ -3,22 +3,39 @@ project:
   output-dir: docs
 
 website:
-  description: "A blog built with Quarto"
+  description: "Posts by HBS Research Computing Services staff on data science, research computing, and related tools and methods."
   site-url: https://hbs-rcs.github.io/rcs-blog/ # you must change this appropriately for RSS feeds to work properly
   title: "HBS RCS Blog"
   navbar:
+    logo-alt: "HBS Research Computing Services"
     right:
       - about.qmd
       - icon: github
-        href: https://github.com/
-      - icon: twitter
-        href: https://twitter.com
+        href: https://github.com/hbs-rcs
+        aria-label: GitHub
+      - icon: rss
+        href: index.xml
+        aria-label: RSS feed
+  page-footer:
+    border: true
+    left: "Harvard Business School — Research Computing Services"
+    right:
+      - text: "About"
+        href: about.qmd
+      - text: "RSS"
+        href: index.xml
+
 format:
   html:
     theme:
       - cosmo
       - brand
+      - theme.scss
     css: styles.css
+    highlight-style: github
+    code-copy: true
+    code-overflow: wrap
+    anchor-sections: true
+    smooth-scroll: true
 
 editor: visual
-

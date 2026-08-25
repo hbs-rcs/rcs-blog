@@ -42,11 +42,46 @@
     "text": "Conclusion\nHow does this work?????"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "RCS-Blog",
+    "objectID": "posts/2026_7_16_data_viz_liz/index.html",
+    "href": "posts/2026_7_16_data_viz_liz/index.html",
+    "title": "Global trends among GDP rankings and the willingness to help strangers",
     "section": "",
-    "text": "HBS Research Computing Services Blog\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTesting New Blog Again\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nAug 5, 2026\n\n\nKatie Alsua\n\n\n\n\n\n\n\n\n\n\n\n\nGlobal trends among GDP rankings and the willingness to help strangers\n\n\n\nR\n\ndata visualization\n\n\n\n\n\n\n\n\n\nJul 16, 2026\n\n\nLiz Kernan, HBS Research Computing Services\n\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nFeb 6, 2026\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nTesting New Blog\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nFeb 3, 2026\n\n\nKatie Alsua\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nFeb 3, 2026\n\n\nTristan O’Malley\n\n\n\n\n\nNo matching items"
+    "text": "I am interested in looking at the intersection of social behavior and wealth on a global scale. For this example, I am using world Gallup polling data to the following question: “Have you helped a stranger in the past month?” I then compared these figures to a country’s GDP over a ten year span from 2015-2024."
+  },
+  {
+    "objectID": "posts/2026_7_16_data_viz_liz/index.html#average-percentage-of-willingness-to-help-a-stranger-by-year",
+    "href": "posts/2026_7_16_data_viz_liz/index.html#average-percentage-of-willingness-to-help-a-stranger-by-year",
+    "title": "Global trends among GDP rankings and the willingness to help strangers",
+    "section": "Average percentage of willingness to help a stranger by year",
+    "text": "Average percentage of willingness to help a stranger by year\n\n\n\n\n\n\n\n\n\nThis is how respondents answered whether they’ve helped a stranger in the past month on average from 2015-2024. Notice that there is a big shift between pre and post-covid, as 2020 is highlighted in red."
+  },
+  {
+    "objectID": "posts/2026_7_16_data_viz_liz/index.html#average-percentage-of-willingness-to-help-a-stranger-among-countries-over-time",
+    "href": "posts/2026_7_16_data_viz_liz/index.html#average-percentage-of-willingness-to-help-a-stranger-among-countries-over-time",
+    "title": "Global trends among GDP rankings and the willingness to help strangers",
+    "section": "Average percentage of willingness to help a stranger among countries over time",
+    "text": "Average percentage of willingness to help a stranger among countries over time\n\n\n\n\n\n\nThis is a global visualization of how each country answered this question on average over the ten year span using a cool (and free) resource called Plotly. If you hover over each country, you should be able to see its affiliated percentage - and the globe spins!"
+  },
+  {
+    "objectID": "posts/2026_7_16_data_viz_liz/index.html#comparing-highest-and-lowest-gdps-between-2015-and-2024",
+    "href": "posts/2026_7_16_data_viz_liz/index.html#comparing-highest-and-lowest-gdps-between-2015-and-2024",
+    "title": "Global trends among GDP rankings and the willingness to help strangers",
+    "section": "Comparing highest and lowest GDP’s between 2015 and 2024",
+    "text": "Comparing highest and lowest GDP’s between 2015 and 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThere is a clear shift when comparing 2015-2024 in the percentages that have helped strangers. In 2024, countries with the lowest GDP’s helped strangers much more on average than the highest GDP’s."
+  },
+  {
+    "objectID": "posts/2026_7_16_data_viz_liz/index.html#comparing-highest-and-lowest-gdps-during-covid",
+    "href": "posts/2026_7_16_data_viz_liz/index.html#comparing-highest-and-lowest-gdps-during-covid",
+    "title": "Global trends among GDP rankings and the willingness to help strangers",
+    "section": "Comparing highest and lowest GDP’s during covid",
+    "text": "Comparing highest and lowest GDP’s during covid\n\n\n\n\n\n\n\n\n\nThis difference is interesingly the most dramatic during 2020 and the covid-19 pandemic.\n\n\n\n\n\n\nThis plot prints out the data for the highest and lowest ten GDP’s for each year and where they fall on the scale of helping strangers."
+  },
+  {
+    "objectID": "posts/2026_7_16_data_viz_liz/index.html#statistical-analysis",
+    "href": "posts/2026_7_16_data_viz_liz/index.html#statistical-analysis",
+    "title": "Global trends among GDP rankings and the willingness to help strangers",
+    "section": "Statistical Analysis",
+    "text": "Statistical Analysis\n\n\n\nRegression: Helped a Stranger vs GDP per Capita (per 10,000)\n===============================================\n                        Dependent variable:    \n                    ---------------------------\n                      Willingness to Help (%)  \n-----------------------------------------------\nGDP per 10,000               -0.785***         \n                              (0.166)          \n                                               \nConstant                     55.929***         \n                              (0.455)          \n                                               \n-----------------------------------------------\nObservations                   1,346           \nR2                             0.016           \nAdjusted R2                    0.016           \nResidual Std. Error     13.283 (df = 1344)     \nF Statistic          22.479*** (df = 1; 1344)  \n===============================================\nNote:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01\n\n\n\n\n\n\n\n\n\n\n\nThere is a significant negative relationship between GDP per capita and willingness to help a stranger:\nFor every $10,000 increase in GDP per capita, the percentage of people helping a stranger tends to drop by about 0.8%.\nHowever, GDP explains only about 1.6% of the variation — so while the effect is real, it’s small."
   },
   {
     "objectID": "about.html",
@@ -54,6 +89,13 @@
     "title": "About",
     "section": "",
     "text": "Featuring posts by RCS staff on data science, research computing, and related tools and methods.\nWe share practical guidance, technical insights, and explorations of emerging ideas that support and inspire the HBS research community. Topics range from hands-on tutorials to reflections on workflows, reproducibility, and research best practices."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "HBS Research Computing Services Blog",
+    "section": "",
+    "text": "Testing New Blog Again\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nAug 5, 2026\n\n\nKatie Alsua\n\n\n\n\n\n\n\n\n\n\n\n\nGlobal trends among GDP rankings and the willingness to help strangers\n\n\n\nR\n\ndata visualization\n\n\n\n\n\n\n\n\n\nJul 16, 2026\n\n\nLiz Kernan, HBS Research Computing Services\n\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nFeb 6, 2026\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nTesting New Blog\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nFeb 3, 2026\n\n\nKatie Alsua\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nFeb 3, 2026\n\n\nTristan O’Malley\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/new-test-post/index.html",
@@ -96,47 +138,5 @@
     "title": "Post With Code",
     "section": "",
     "text": "This is a post with executable code.\n\n1 + 1\n\n[1] 2"
-  },
-  {
-    "objectID": "posts/2026_7_16_data_viz_liz/index.html",
-    "href": "posts/2026_7_16_data_viz_liz/index.html",
-    "title": "Global trends among GDP rankings and the willingness to help strangers",
-    "section": "",
-    "text": "I am interested in looking at the intersection of social behavior and wealth on a global scale. For this example, I am using world Gallup polling data to the following question: “Have you helped a stranger in the past month?” I then compared these figures to a country’s GDP over a ten year span from 2015-2024."
-  },
-  {
-    "objectID": "posts/2026_7_16_data_viz_liz/index.html#average-percentage-of-willingness-to-help-a-stranger-by-year",
-    "href": "posts/2026_7_16_data_viz_liz/index.html#average-percentage-of-willingness-to-help-a-stranger-by-year",
-    "title": "Global trends among GDP rankings and the willingness to help strangers",
-    "section": "Average percentage of willingness to help a stranger by year",
-    "text": "Average percentage of willingness to help a stranger by year\n\n\n\n\n\n\n\n\n\nThis is how respondents answered whether they’ve helped a stranger in the past month on average from 2015-2024. Notice that there is a big shift between pre and post-covid, as 2020 is highlighted in red."
-  },
-  {
-    "objectID": "posts/2026_7_16_data_viz_liz/index.html#average-percentage-of-willingness-to-help-a-stranger-among-countries-over-time",
-    "href": "posts/2026_7_16_data_viz_liz/index.html#average-percentage-of-willingness-to-help-a-stranger-among-countries-over-time",
-    "title": "Global trends among GDP rankings and the willingness to help strangers",
-    "section": "Average percentage of willingness to help a stranger among countries over time",
-    "text": "Average percentage of willingness to help a stranger among countries over time\n\n\n\n\n\n\nThis is a global visualization of how each country answered this question on average over the ten year span using a cool (and free) resource called Plotly. If you hover over each country, you should be able to see its affiliated percentage - and the globe spins!"
-  },
-  {
-    "objectID": "posts/2026_7_16_data_viz_liz/index.html#comparing-highest-and-lowest-gdps-between-2015-and-2024",
-    "href": "posts/2026_7_16_data_viz_liz/index.html#comparing-highest-and-lowest-gdps-between-2015-and-2024",
-    "title": "Global trends among GDP rankings and the willingness to help strangers",
-    "section": "Comparing highest and lowest GDP’s between 2015 and 2024",
-    "text": "Comparing highest and lowest GDP’s between 2015 and 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThere is a clear shift when comparing 2015-2024 in the percentages that have helped strangers. In 2024, countries with the lowest GDP’s helped strangers much more on average than the highest GDP’s."
-  },
-  {
-    "objectID": "posts/2026_7_16_data_viz_liz/index.html#comparing-highest-and-lowest-gdps-during-covid",
-    "href": "posts/2026_7_16_data_viz_liz/index.html#comparing-highest-and-lowest-gdps-during-covid",
-    "title": "Global trends among GDP rankings and the willingness to help strangers",
-    "section": "Comparing highest and lowest GDP’s during covid",
-    "text": "Comparing highest and lowest GDP’s during covid\n\n\n\n\n\n\n\n\n\nThis difference is interesingly the most dramatic during 2020 and the covid-19 pandemic.\n\n\n\n\n\n\nThis plot prints out the data for the highest and lowest ten GDP’s for each year and where they fall on the scale of helping strangers."
-  },
-  {
-    "objectID": "posts/2026_7_16_data_viz_liz/index.html#statistical-analysis",
-    "href": "posts/2026_7_16_data_viz_liz/index.html#statistical-analysis",
-    "title": "Global trends among GDP rankings and the willingness to help strangers",
-    "section": "Statistical Analysis",
-    "text": "Statistical Analysis\n\n\n\nRegression: Helped a Stranger vs GDP per Capita (per 10,000)\n===============================================\n                        Dependent variable:    \n                    ---------------------------\n                      Willingness to Help (%)  \n-----------------------------------------------\nGDP per 10,000               -0.785***         \n                              (0.166)          \n                                               \nConstant                     55.929***         \n                              (0.455)          \n                                               \n-----------------------------------------------\nObservations                   1,346           \nR2                             0.016           \nAdjusted R2                    0.016           \nResidual Std. Error     13.283 (df = 1344)     \nF Statistic          22.479*** (df = 1; 1344)  \n===============================================\nNote:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01\n\n\n\n\n\n\n\n\n\n\n\nThere is a significant negative relationship between GDP per capita and willingness to help a stranger:\nFor every $10,000 increase in GDP per capita, the percentage of people helping a stranger tends to drop by about 0.8%.\nHowever, GDP explains only about 1.6% of the variation — so while the effect is real, it’s small."
   }
 ]

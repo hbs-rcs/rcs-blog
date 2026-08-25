@@ -1,0 +1,430 @@
+/*-- scss:defaults --*/
+
+// Local aliases for the _brand.yml palette. Kept in sync by hand so the
+// component rules below can reference the neutrals brand.yml has no role for.
+$rcs-crimson:      #A51C30;
+$rcs-crimson-dark: #7E1526;
+$rcs-ink:          #1E2022;
+$rcs-slate:        #5F676E;
+$rcs-mist:         #E3E0DC;
+$rcs-parchment:    #FAF8F6;
+
+// Softer, more editorial geometry than cosmo's defaults.
+$border-radius:      4px;
+$border-radius-sm:   3px;
+$border-radius-lg:   6px;
+$border-color:       $rcs-mist;
+
+// Quoted font stacks with real fallbacks. brand.yml names the families (and
+// generates the Google Fonts import), but emits them bare and without
+// fallbacks -- these plain assignments override brand's `!default` values so
+// the site still reads correctly if Google Fonts is unreachable.
+$rcs-font-serif: "Spectral", Georgia, Cambria, "Times New Roman", serif;
+$rcs-font-sans:  "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$rcs-font-mono:  "Source Code Pro", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+
+$font-family-sans-serif: $rcs-font-sans;
+$font-family-serif:      $rcs-font-serif;
+$font-family-monospace:  $rcs-font-mono;
+$font-family-base:       $rcs-font-sans;
+$headings-font-family:   $rcs-font-serif;
+
+$headings-font-weight: 600;
+$lead-font-weight:     400;
+
+// Navbar: light ground, crimson accents, thin crimson rule underneath.
+$navbar-bg:                     #FFFFFF;
+$navbar-light-color:            $rcs-slate;
+$navbar-light-hover-color:      $rcs-crimson;
+$navbar-light-active-color:     $rcs-crimson;
+$navbar-light-brand-color:      $rcs-ink;
+$navbar-light-brand-hover-color: $rcs-crimson;
+
+// Footer
+$footer-bg: $rcs-parchment;
+$footer-fg: $rcs-slate;
+
+// Code
+$code-color:            $rcs-crimson-dark;
+$code-bg:               $rcs-parchment;
+$code-block-bg:         $rcs-parchment;
+$code-block-border-left: $rcs-crimson;
+
+// Tables
+$table-border-color: $rcs-mist;
+
+/*-- scss:rules --*/
+
+// ---------------------------------------------------------------- typography
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: 2.1rem; }
+h2 {
+  font-size: 1.55rem;
+  margin-top: 2.4rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid $rcs-mist;
+}
+h3 {
+  font-size: 1.25rem;
+  margin-top: 1.9rem;
+}
+
+// Give body copy a comfortable reading measure without cramping full-width
+// pages (the listing index uses `page-layout: full`).
+main.content > p,
+main.content > ul,
+main.content > ol,
+main.content > blockquote {
+  max-width: 46rem;
+}
+
+blockquote {
+  border-left: 3px solid $rcs-crimson;
+  padding: 0.15rem 0 0.15rem 1.15rem;
+  color: $rcs-slate;
+  font-style: italic;
+}
+
+// Underline links only on the offset baseline so descenders stay readable.
+a {
+  text-underline-offset: 0.16em;
+  text-decoration-thickness: 1px;
+
+  &:hover {
+    color: $rcs-crimson-dark;
+    text-decoration-thickness: 2px;
+  }
+}
+
+// Navigation links shouldn't carry body-copy underlines.
+.navbar a,
+.nav-footer a,
+.quarto-title-banner a,
+.quarto-post a.listing-title-link,
+.quarto-grid-item a {
+  text-decoration: none;
+}
+
+// ------------------------------------------------------------------- navbar
+
+.navbar {
+  border-bottom: 3px solid $rcs-crimson;
+  box-shadow: 0 1px 3px rgba($rcs-ink, 0.04);
+}
+
+.navbar-brand {
+  font-family: $rcs-font-serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.navbar-nav .nav-link {
+  font-weight: 600;
+  font-size: 0.94rem;
+  letter-spacing: 0.01em;
+}
+
+// ------------------------------------------------------- title block banner
+
+.quarto-title-banner {
+  background-color: $rcs-crimson;
+  background-image: linear-gradient(135deg, $rcs-crimson 0%, $rcs-crimson-dark 100%);
+  color: #FFFFFF;
+  padding-top: 2.6rem;
+  padding-bottom: 2.6rem;
+
+  .title,
+  h1,
+  .quarto-title-meta-contents,
+  .quarto-title-meta-heading,
+  .description,
+  p {
+    color: #FFFFFF;
+  }
+
+  .quarto-title-meta-heading {
+    opacity: 0.75;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.72rem;
+  }
+
+  .quarto-categories .quarto-category {
+    background-color: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.35);
+    color: #FFFFFF;
+    opacity: 1;
+  }
+}
+
+// ------------------------------------------------------------- post listing
+
+.quarto-listing {
+  margin-top: 1.5rem;
+}
+
+.quarto-post {
+  padding: 1.4rem 0;
+  border-bottom: 1px solid $rcs-mist;
+  transition: opacity 0.15s ease;
+
+  .listing-title {
+    font-family: $rcs-font-serif;
+    font-weight: 600;
+    font-size: 1.32rem;
+    line-height: 1.3;
+    margin-bottom: 0.35rem;
+
+    a {
+      color: $rcs-ink;
+      transition: color 0.15s ease;
+    }
+
+    &:hover a {
+      color: $rcs-crimson;
+    }
+  }
+
+  .listing-subtitle,
+  .listing-description {
+    color: $rcs-slate;
+  }
+
+  .metadata {
+    color: $rcs-slate;
+    font-size: 0.88rem;
+  }
+
+  .listing-author {
+    color: $rcs-slate;
+    font-size: 0.9rem;
+  }
+
+  .listing-date {
+    color: $rcs-slate;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+
+  .thumbnail img {
+    border: 1px solid $rcs-mist;
+    border-radius: $border-radius-lg;
+  }
+}
+
+// Category pills, both in listings and in the sidebar filter.
+.quarto-category,
+.listing-category {
+  background-color: $rcs-parchment;
+  border: 1px solid $rcs-mist;
+  border-radius: 999px;
+  padding: 0.13rem 0.62rem;
+  font-size: 0.74rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: $rcs-slate;
+  opacity: 1;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background-color: $rcs-crimson;
+    border-color: $rcs-crimson;
+    color: #FFFFFF;
+  }
+}
+
+.quarto-listing-category {
+  .category {
+    border-radius: 999px;
+    padding: 0.13rem 0.62rem;
+    color: $rcs-slate;
+
+    &.active {
+      background-color: $rcs-crimson;
+      color: #FFFFFF;
+      font-weight: 600;
+    }
+  }
+
+  .category-title {
+    font-family: $rcs-font-serif;
+    font-weight: 600;
+    color: $rcs-ink;
+  }
+}
+
+// ---------------------------------------------------------------- code
+
+div.sourceCode {
+  border: 1px solid $rcs-mist;
+  border-left: 3px solid $rcs-crimson;
+  border-radius: $border-radius;
+  background-color: $rcs-parchment;
+}
+
+pre.sourceCode {
+  padding: 0.85rem 1rem;
+  font-size: 0.86rem;
+}
+
+// Inline code: tinted, not boxed-in.
+p code:not(.sourceCode),
+li code:not(.sourceCode),
+td code:not(.sourceCode) {
+  background-color: $rcs-parchment;
+  border: 1px solid $rcs-mist;
+  border-radius: $border-radius-sm;
+  padding: 0.08em 0.34em;
+  color: $rcs-crimson-dark;
+}
+
+// R output blocks sit visually beneath their source block.
+pre:not(.sourceCode) {
+  background-color: #FFFFFF;
+  border: 1px solid $rcs-mist;
+  border-radius: $border-radius;
+  color: $rcs-slate;
+  font-size: 0.84rem;
+  padding: 0.75rem 1rem;
+}
+
+.code-copy-button {
+  color: $rcs-slate;
+
+  &:hover {
+    color: $rcs-crimson;
+  }
+}
+
+// ------------------------------------------------------------------ callouts
+
+.callout {
+  border-radius: $border-radius;
+  border-left-width: 4px;
+
+  .callout-title {
+    font-weight: 600;
+  }
+}
+
+.callout.callout-style-default .callout-title {
+  font-family: $rcs-font-serif;
+}
+
+// ------------------------------------------------------------ figures/tables
+
+.figure img,
+p > img,
+.quarto-figure img {
+  border-radius: $border-radius;
+  max-width: 100%;
+  height: auto;
+}
+
+figcaption,
+.figure-caption {
+  color: $rcs-slate;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+table {
+  font-size: 0.94rem;
+}
+
+thead th {
+  border-bottom: 2px solid $rcs-crimson !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.8rem;
+  color: $rcs-ink;
+}
+
+// ---------------------------------------------------------------------- toc
+
+nav[role="doc-toc"] {
+  > h2,
+  .toc-title {
+    font-family: $rcs-font-sans;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-weight: 700;
+    color: $rcs-slate;
+  }
+
+  ul li a {
+    color: $rcs-slate;
+    border-left: 2px solid transparent;
+    padding-left: 0.6rem;
+    text-decoration: none;
+
+    &:hover {
+      color: $rcs-crimson;
+      border-left-color: $rcs-mist;
+    }
+
+    &.active {
+      color: $rcs-crimson;
+      border-left-color: $rcs-crimson;
+      font-weight: 600;
+    }
+  }
+}
+
+// ------------------------------------------------------------------- footer
+
+.nav-footer {
+  border-top: 1px solid $rcs-mist;
+  font-size: 0.88rem;
+  color: $rcs-slate;
+
+  a {
+    color: $rcs-slate;
+
+    &:hover {
+      color: $rcs-crimson;
+    }
+  }
+}
+
+// --------------------------------------------------------- about page (jolla)
+
+.about-entity .about-image {
+  border-radius: 50%;
+  border: 4px solid $rcs-parchment;
+  box-shadow: 0 2px 10px rgba($rcs-ink, 0.10);
+}
+
+.about-links .about-link {
+  color: $rcs-slate;
+  border: 1px solid $rcs-mist;
+  border-radius: 999px;
+  padding: 0.3rem 0.9rem;
+  transition: all 0.15s ease;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $rcs-crimson;
+    border-color: $rcs-crimson;
+    color: #FFFFFF;
+  }
+}

@@ -1,0 +1,66 @@
+meta:
+  name:
+    full: HBS Research Computing Services
+    short: HBS RCS
+  link:
+    home: https://www.hbs.edu/research-computing-services/
+    github: https://github.com/hbs-rcs
+
+color:
+  palette:
+    crimson: "#A51C30"
+    crimson-dark: "#7E1526"
+    crimson-light: "#C8102E"
+    ink: "#1E2022"
+    slate: "#5F676E"
+    mist: "#E3E0DC"
+    parchment: "#FAF8F6"
+    white: "#FFFFFF"
+  foreground: ink
+  background: white
+  primary: crimson
+  secondary: slate
+  light: parchment
+  dark: ink
+  link: crimson
+
+# NOTE: keep these family names free of digits. Quarto emits the brand font
+# name into CSS unquoted, and a CSS identifier cannot start with a digit --
+# "Source Sans 3" would render the whole declaration invalid and silently fall
+# back to Times New Roman. Fallback stacks are set in theme.scss.
+typography:
+  fonts:
+    - family: Spectral
+      source: google
+      weight: [400, 600, 700]
+      style: [normal, italic]
+    - family: Source Sans Pro
+      source: google
+      weight: [300, 400, 600, 700]
+      style: [normal, italic]
+    - family: Source Code Pro
+      source: google
+      weight: [400, 600]
+      style: [normal]
+  base:
+    family: Source Sans Pro
+    size: 1.0625rem
+    line-height: 1.65
+  headings:
+    family: Spectral
+    weight: 600
+    line-height: 1.25
+    color: ink
+  monospace:
+    family: Source Code Pro
+    size: 0.875em
+  monospace-inline:
+    color: crimson-dark
+    background-color: parchment
+  monospace-block:
+    color: ink
+    background-color: parchment
+    line-height: 1.55
+  link:
+    color: crimson
+    decoration: underline

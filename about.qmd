@@ -4,15 +4,15 @@ image: profile.jpg
 about:
   template: jolla
   links:
-    - icon: twitter
-      text: Twitter
-      href: https://twitter.com
-    - icon: linkedin
-      text: LinkedIn
-      href: https://linkedin.com
+    - icon: globe
+      text: RCS Website
+      href: https://www.hbs.edu/research-computing-services/
     - icon: github
       text: Github
-      href: https://github.com
+      href: https://github.com/hbs-rcs
+    - icon: rss
+      text: RSS
+      href: index.xml
 ---
 
 Featuring posts by RCS staff on data science, research computing, and related tools and methods.

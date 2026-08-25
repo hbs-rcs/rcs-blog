@@ -8,7 +8,7 @@
 <title>HBS RCS Blog</title>
 <link>https://hbs-rcs.github.io/rcs-blog/</link>
 <atom:link href="https://hbs-rcs.github.io/rcs-blog/index.xml" rel="self" type="application/rss+xml"/>
-<description>A blog built with Quarto</description>
+<description>Posts by HBS Research Computing Services staff on data science, research computing, and related tools and methods.</description>
 <generator>quarto-1.9.38</generator>
 <lastBuildDate>Wed, 05 Aug 2026 04:00:00 GMT</lastBuildDate>
 <item>

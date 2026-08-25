@@ -148,6 +148,21 @@ GitHub Desktop at all.
 
 ------------------------------------------------------------------------
 
+## Changing how the site looks
+
+Styling lives in three files at the repo root:
+
+-   `_brand.yml` — colors and fonts (the HBS crimson identity)
+-   `theme.scss` — Bootstrap variables and component styling
+-   `styles.css` — loaded last; good for quick one-off overrides
+
+> **Note:** Quarto writes brand font names into CSS unquoted, and a CSS font
+> name can't start with a digit. Families like `Source Sans 3` or
+> `Source Serif 4` will silently fall back to Times New Roman. Stick to
+> digit-free family names in `_brand.yml`.
+
+------------------------------------------------------------------------
+
 ## Optional: Simple Post Template
 
 You can copy this into a new `index.qmd`:
