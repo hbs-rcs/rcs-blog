@@ -132,6 +132,22 @@ Once your pull request is merged, the site updates automatically and your post w
 
 ------------------------------------------------------------------------
 
+## What gets committed
+
+When you render, Quarto writes several folders. Some belong in git, some don't:
+
+| Folder | Commit it? | Why |
+|--------|-----------|-----|
+| `docs/` | **Yes** | The built site GitHub Pages serves. If you skip it, your post won't appear online. |
+| `_freeze/` | **Yes** | Stored code output, so others can render the site without your R packages or data. |
+| `.quarto/` | No | Build scratch space, rebuilt every render. |
+| `.Rproj.user/`, `.RData`, `.Rhistory` | No | Your personal RStudio session state. |
+
+The last two rows are handled by `.gitignore`, so you shouldn't see them in
+GitHub Desktop at all.
+
+------------------------------------------------------------------------
+
 ## Optional: Simple Post Template
 
 You can copy this into a new `index.qmd`:
