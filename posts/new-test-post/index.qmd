@@ -3,6 +3,7 @@ title: "Testing New Blog"
 author: "Katie Alsua"
 date: "2026-02-03"
 categories: [news]
+draft: true
 ---
 
 This is the first non-default post in a Quarto blog.

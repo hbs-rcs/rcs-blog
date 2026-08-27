@@ -4,6 +4,7 @@ author: "Katie Alsua"
 date: "2026-08-05"
 categories: [news]
 image: "blooming tree at hbs cropped.jpg"
+draft: true
 ---
 
 This is the second non-default post in a Quarto blog. Image?:
