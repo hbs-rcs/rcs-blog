@@ -132,6 +132,37 @@ Once your pull request is merged, the site updates automatically and your post w
 
 ------------------------------------------------------------------------
 
+## What gets committed
+
+When you render, Quarto writes several folders. Some belong in git, some don't:
+
+| Folder | Commit it? | Why |
+|--------|-----------|-----|
+| `docs/` | **Yes** | The built site GitHub Pages serves. If you skip it, your post won't appear online. |
+| `_freeze/` | **Yes** | Stored code output, so others can render the site without your R packages or data. |
+| `.quarto/` | No | Build scratch space, rebuilt every render. |
+| `.Rproj.user/`, `.RData`, `.Rhistory` | No | Your personal RStudio session state. |
+
+The last two rows are handled by `.gitignore`, so you shouldn't see them in
+GitHub Desktop at all.
+
+------------------------------------------------------------------------
+
+## Changing how the site looks
+
+Styling lives in three files at the repo root:
+
+-   `_brand.yml` — colors and fonts (the HBS crimson identity)
+-   `theme.scss` — Bootstrap variables and component styling
+-   `styles.css` — loaded last; good for quick one-off overrides
+
+> **Note:** Quarto writes brand font names into CSS unquoted, and a CSS font
+> name can't start with a digit. Families like `Source Sans 3` or
+> `Source Serif 4` will silently fall back to Times New Roman. Stick to
+> digit-free family names in `_brand.yml`.
+
+------------------------------------------------------------------------
+
 ## Optional: Simple Post Template
 
 You can copy this into a new `index.qmd`:

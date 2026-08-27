@@ -1,1 +1,7 @@
 /* css styles */
+
+/* Site styling lives in two places:
+     _brand.yml  -- colors and font families (the HBS identity)
+     theme.scss  -- Bootstrap variables and component rules
+   Prefer editing those. This file is loaded last, so it is a good place for
+   quick one-off overrides. */

@@ -1,0 +1,29 @@
+# --- R -----------------------------------------------------------------
+# Per-user RStudio state and saved console sessions. Purely local.
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+
+# knitr/rmarkdown chunk caches (e.g. index_cache/)
+*_cache/
+
+# --- Quarto ------------------------------------------------------------
+# Build scratch space, regenerated on every render.
+/.quarto/
+**/*.quarto_ipynb
+
+# NOTE: _freeze/ and docs/ are deliberately NOT ignored.
+#   _freeze/  stores executed code output, so contributors can render the
+#             site without your R packages or data.
+#   docs/     is the published site GitHub Pages serves.
+# Both must stay committed.
+
+# --- Claude Code -------------------------------------------------------
+# Shared config (.claude/launch.json) is committed so it works for everyone;
+# personal machine-specific overrides are not.
+.claude/settings.local.json
+
+# --- OS ----------------------------------------------------------------
+.DS_Store
+Thumbs.db

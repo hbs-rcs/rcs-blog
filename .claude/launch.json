@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "rcs-blog",
+      "runtimeExecutable": "quarto",
+      "runtimeArgs": ["preview", "--port", "4321", "--host", "127.0.0.1", "--no-browser"],
+      "port": 4321
+    }
+  ]
+}
