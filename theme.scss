@@ -414,7 +414,13 @@ nav[role="doc-toc"] {
   box-shadow: 0 2px 10px rgba($rcs-ink, 0.10);
 }
 
-.about-links .about-link {
+// Every about template ships its own `div.quarto-about-<template> .about-link`
+// rules, including a `:hover { color: $primary }`. That selector scores
+// (0,2,1) and so outranks a plain `.about-links .about-link:hover` at (0,2,0)
+// -- which left crimson text sitting on our crimson hover fill, i.e. invisible.
+// Leading with the attribute selector scores (0,3,1) and wins cleanly for
+// every template (jolla, trestles, marquee, solana, broadside).
+div[class*="quarto-about-"] .about-links .about-link {
   color: $rcs-slate;
   border: 1px solid $rcs-mist;
   border-radius: 999px;
@@ -422,9 +428,23 @@ nav[role="doc-toc"] {
   transition: all 0.15s ease;
   text-decoration: none;
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
     background-color: $rcs-crimson;
     border-color: $rcs-crimson;
     color: #FFFFFF;
+
+    // The icon and label are separate elements; pin them to the anchor's
+    // colour so no template rule can pull them back to crimson.
+    i,
+    i.bi,
+    .about-link-text {
+      color: inherit;
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid $rcs-crimson;
+    outline-offset: 2px;
   }
 }
