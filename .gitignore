@@ -13,6 +13,11 @@
 /.quarto/
 **/*.quarto_ipynb
 
+# Quarto's DEFAULT output dir. This project overrides it with
+# `output-dir: docs` in _quarto.yml, so anything appearing here is a stray
+# build from a config that skipped that setting -- never the published site.
+/_site/
+
 # NOTE: _freeze/ and docs/ are deliberately NOT ignored.
 #   _freeze/  stores executed code output, so contributors can render the
 #             site without your R packages or data.

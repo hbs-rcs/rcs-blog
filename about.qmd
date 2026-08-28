@@ -1,8 +1,13 @@
 ---
 title: "About"
-image: profile.jpg
+image: HBS-RCS-Horizontal-Wordmark-2C-RGB-1200px.png
 about:
   template: jolla
+  # The wordmark is 1200x318 (3.77:1). jolla's default round shape would crop
+  # it to the middle slice, so show it uncropped at a legible width.
+  image-shape: rectangle
+  image-width: 26em
+  image-alt: "Harvard Business School Research Computing Services"
   links:
     - icon: globe
       text: RCS Website
