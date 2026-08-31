@@ -2,7 +2,7 @@
 title: "Synthetic Controls: brief overview with practical recommmendations"
 author: "Victoria L. Prince"
 date: "2019-09-12"
-categories: [Methods, synthetic controls, causal inference]
+categories: [causal inference]
 bibliography: references.bib
 link-citations: true
 ---

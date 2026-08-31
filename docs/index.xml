@@ -674,9 +674,7 @@ Simonsohn, Uri, Joseph P Simmons, and Leif D Nelson. 2015. <em>Better p-Curves: 
 Simonsohn, Uri, Joseph P Simmons, and Leif D Nelson. 2020. <span>“Specification Curve Analysis.”</span> <em>Nature Human Behaviour</em> 4 (11): 1208–14.
 </div>
 </div></section></div> ]]></description>
-  <category>Methods</category>
-  <category>research reprodicibility</category>
-  <category>specification curve analysis</category>
+  <category>reproducibility</category>
   <category>Stata</category>
   <guid>https://hbs-rcs.github.io/rcs-blog/posts/2021-10-10_specification-curve-analysis/</guid>
   <pubDate>Sun, 10 Oct 2021 04:00:00 GMT</pubDate>
@@ -1079,8 +1077,6 @@ font-style: inherit;">glimpse</span>(ws_data)</span></code></pre></div></div>
 </section>
 
  ]]></description>
-  <category>Methods</category>
-  <category>synthetic controls</category>
   <category>causal inference</category>
   <guid>https://hbs-rcs.github.io/rcs-blog/posts/2019-09-12_synthetic-controls/</guid>
   <pubDate>Thu, 12 Sep 2019 04:00:00 GMT</pubDate>
@@ -2038,6 +2034,7 @@ font-style: inherit;">Q.SL.library =</span> Q.SL.library)</span>
 
  ]]></description>
   <category>statistics</category>
+  <category>causal inference</category>
   <category>R</category>
   <guid>https://hbs-rcs.github.io/rcs-blog/posts/2017-03-01_causal_tmle/</guid>
   <pubDate>Wed, 01 Mar 2017 05:00:00 GMT</pubDate>
@@ -2450,7 +2447,7 @@ font-style: inherit;">1</span>)</span>
 
 
  ]]></description>
-  <category>grid</category>
+  <category>HBSGrid</category>
   <guid>https://hbs-rcs.github.io/rcs-blog/posts/2016-11-17_bsub-cron/</guid>
   <pubDate>Thu, 17 Nov 2016 05:00:00 GMT</pubDate>
 </item>
@@ -2551,7 +2548,7 @@ font-style: inherit;">-c</span> /usr/local/apps/matlab/matlab_2015a/licenses/net
 </section>
 
  ]]></description>
-  <category>grid</category>
+  <category>HBSGrid</category>
   <guid>https://hbs-rcs.github.io/rcs-blog/posts/2016-11-17_matlab/</guid>
   <pubDate>Thu, 17 Nov 2016 05:00:00 GMT</pubDate>
 </item>
@@ -2802,7 +2799,7 @@ font-style: inherit;">"/usr/local/apps/R/packages"</span>])</span></code></pre><
 </section>
 
  ]]></description>
-  <category>grid</category>
+  <category>HBSGrid</category>
   <guid>https://hbs-rcs.github.io/rcs-blog/posts/2016-11-15_conda/</guid>
   <pubDate>Tue, 15 Nov 2016 05:00:00 GMT</pubDate>
 </item>

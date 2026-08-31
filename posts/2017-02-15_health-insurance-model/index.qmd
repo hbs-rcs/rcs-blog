@@ -3,6 +3,7 @@ title: "Health Insurance Model"
 author: "Andrew Marder"
 date: "2017-02-15"
 draft: true
+categories: [statistics, R]
 ---
 
 

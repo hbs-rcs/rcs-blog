@@ -1,7 +1,7 @@
 ---
 title: "Using Git on the Grid"
 date: "2017-02-28"
-categories: [grid]
+categories: [HBSGrid, programming]
 draft: true
 ---
 

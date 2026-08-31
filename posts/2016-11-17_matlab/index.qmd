@@ -2,7 +2,7 @@
 title: "Running Matlab on the Grid"
 author: "Andrew Marder"
 date: "2016-11-17"
-categories: [grid]
+categories: [HBSGrid]
 ---
 
 

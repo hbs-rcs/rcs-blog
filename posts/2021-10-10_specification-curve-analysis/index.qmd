@@ -2,7 +2,7 @@
 title: "Specification Curve Analysis: Overview and Stata Example"
 author: "Victoria L. Prince"
 date: "2021-10-10"
-categories: [Methods, research reprodicibility, specification curve analysis, Stata]
+categories: [reproducibility, Stata]
 bibliography: references.bib
 link-citations: true
 ---
