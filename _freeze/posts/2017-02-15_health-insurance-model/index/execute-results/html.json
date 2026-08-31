@@ -1,0 +1,15 @@
+{
+  "hash": "2421839e18ed6b8daba137c28e39e017",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Health Insurance Model\"\nauthor: \"Andrew Marder\"\ndate: \"2017-02-15\"\ndraft: true\n---\n\n\n\n::: {.cell}\n\n:::\n\n\nConsider an individual's choice of how much health insurance to buy. Imagine there are two goods the individual needs to choose between. She must choose how much health insurance to purchase $x_h$ and how much of a generic consumption good to consume $x_c$. She maximizes her utility from these two goods subject to her budget constraint (the total amount spent on both goods cannot exceed her after-tax wage $w$):\n\n$$\n\\begin{aligned}\n& \\underset{x_h, x_c}{\\text{maximize}}\n& & u(x_h, x_c) \\\\\n& \\text{subject to}\n& & p_h x_h + x_c \\le w.\n\\end{aligned}\n$$\n\nNotice that I have normalized the price of the generic good to one. \n\n\n::: {.cell}\n\n:::\n\n\nThe model above describes how an individual chooses health insurance absent any distortions. Now we consider the situation where an employer subsidizes an employee's health insurance. Imagine an employer paying a proportion $s$ of the employee's health insurance premiums. This would lower the effective price of health insurance to $(1 - s) p_h$ and increase the amount of health insurance consumed.\n\n\n::: {.cell}\n\n:::\n\n\nIf the government no longer allows companies to subsidize health insurance with pre-tax dollars it would be more efficient for the employer to stop subsidizing insurance and instead increase the employee's wage by the dollar amount of the subsidy $s p_h x_h^1$.\n\n\n::: {.cell}\n\n:::\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
