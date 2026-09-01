@@ -322,96 +322,110 @@ div.csl-indent {
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>            }</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        }</span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>* plotting a SC with foreign <span class="kw">as</span> a parameter <span class="kw">of</span> interest</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>speccurve *, param(foreign) controls <span class="bn">title</span>(SCA <span class="kw">for</span> the effect <span class="kw">of</span> foreigh)</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> <span class="st">"speccurve1.svg"</span>, <span class="kw">replace</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>(1978 automobile data)
-
-
-command eststo is unrecognized
-r(199);
-
-r(199);</code></pre>
+<pre><code>(1978 automobile data)</code></pre>
 </div>
+</div>
+<p><code>speccurve</code> is a community-contributed command rather than part of Stata, so the plotting step below is shown but not executed when the site is built. The curve it produces is the figure that follows.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>* plotting a SC with foreign <span class="kw">as</span> a parameter <span class="kw">of</span> interest</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>speccurve *, param(foreign) controls <span class="bn">title</span>(SCA <span class="kw">for</span> the effect <span class="kw">of</span> foreigh)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> <span class="st">"speccurve1.svg"</span>, <span class="kw">replace</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The code above produced the following specification curve:</p>
 <p><img src="speccurve1.svg" class="img-fluid"></p>
 <p>Looks like including the <code>weight</code> variable in the model had a notable effect on the coefficient for <code>foreign</code>. Function <code>speccurve</code> is somewhat limited in that it doesn’t work with models that have factors as controls. Next, I show a workaround for the latter case:</p>
 <div class="cell" data-collectcode="true">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">clear</span> <span class="ot">all</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">sysuse</span> auto, <span class="kw">clear</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">egen</span> headroom_c = <span class="fu">group</span>(headroom)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>loc no=0</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="kw">foreach</span> <span class="fu">m</span> <span class="kw">in</span> <span class="st">""</span> <span class="st">"mpg"</span> {</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">foreach</span> tr <span class="kw">in</span> <span class="st">""</span> <span class="st">"trunk"</span> {</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="kw">foreach</span> wt <span class="kw">in</span> <span class="st">""</span> <span class="st">"weight"</span> {</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>            <span class="kw">foreach</span> <span class="fu">ln</span> <span class="kw">in</span> <span class="st">""</span> <span class="st">"length"</span> {</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>                <span class="kw">foreach</span> hr <span class="kw">in</span> <span class="st">""</span> <span class="st">"headroom"</span> <span class="st">"i.headroom_c"</span>{</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">qui</span> <span class="kw">reg</span> price foreign <span class="ot">`m'</span> <span class="ot">`tr'</span> <span class="ot">`wt'</span> <span class="ot">`ln'</span> <span class="ot">`hr'</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>                    </span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">qui</span> estadd <span class="fu">scalar</span> mpgv = 0, <span class="kw">replace</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">qui</span> estadd <span class="fu">scalar</span> trunkv = 0, <span class="kw">replace</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">qui</span> estadd <span class="fu">scalar</span> weightv = 0, <span class="kw">replace</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">qui</span> estadd <span class="fu">scalar</span> lengthv = 0, <span class="kw">replace</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">foreach</span> vr <span class="kw">in</span> <span class="fu">m</span> tr wt <span class="fu">ln</span> {</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>                        <span class="kw">if</span> <span class="st">"``vr''"</span>!=<span class="st">""</span> <span class="kw">qui</span> estadd <span class="fu">scalar</span> <span class="ot">``vr'</span>'v = 1, <span class="kw">replace</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>                    }</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>                    </span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">qui</span> estadd <span class="fu">scalar</span> headroomv = 0</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">qui</span> estadd <span class="fu">scalar</span> iheadroom_cv = 0</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">local</span> vname = <span class="fu">subinstr</span>(<span class="st">"`hr'"</span>, <span class="st">"."</span>, <span class="st">""</span>, .)</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">qui</span> estadd <span class="fu">scalar</span> <span class="ot">`vname'</span>v = 1, <span class="kw">replace</span> </span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>                    </span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>                    eststo md<span class="ot">`no'</span></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>                    loc ++no</span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>                }</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>            }</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>* The code below produces an <span class="kw">error</span>:</span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>*speccurve *, param(foreign) controls <span class="bn">title</span>(SCA <span class="kw">for</span> the effect <span class="kw">of</span> foreigh)</span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>* Workaround:</span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>speccurve *, param(foreign) <span class="dv">level</span>(95) graphopts(<span class="bn">legend</span>(pos(1))) <span class="bn">title</span>(SCA <span class="kw">for</span> auto dataset) panel(mpgv trunkv weightv lengthv headroomv iheadroom_cv)</span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> <span class="st">"speccurve2.svg"</span>, <span class="kw">replace</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">clear</span> <span class="ot">all</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">sysuse</span> auto, <span class="kw">clear</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">egen</span> headroom_c = <span class="fu">group</span>(headroom)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>loc no=0</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="kw">foreach</span> <span class="fu">m</span> <span class="kw">in</span> <span class="st">""</span> <span class="st">"mpg"</span> {</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">foreach</span> tr <span class="kw">in</span> <span class="st">""</span> <span class="st">"trunk"</span> {</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="kw">foreach</span> wt <span class="kw">in</span> <span class="st">""</span> <span class="st">"weight"</span> {</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>            <span class="kw">foreach</span> <span class="fu">ln</span> <span class="kw">in</span> <span class="st">""</span> <span class="st">"length"</span> {</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>                <span class="kw">foreach</span> hr <span class="kw">in</span> <span class="st">""</span> <span class="st">"headroom"</span> <span class="st">"i.headroom_c"</span>{</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">qui</span> <span class="kw">reg</span> price foreign <span class="ot">`m'</span> <span class="ot">`tr'</span> <span class="ot">`wt'</span> <span class="ot">`ln'</span> <span class="ot">`hr'</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>                    </span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">qui</span> estadd <span class="fu">scalar</span> mpgv = 0, <span class="kw">replace</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">qui</span> estadd <span class="fu">scalar</span> trunkv = 0, <span class="kw">replace</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">qui</span> estadd <span class="fu">scalar</span> weightv = 0, <span class="kw">replace</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">qui</span> estadd <span class="fu">scalar</span> lengthv = 0, <span class="kw">replace</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">foreach</span> vr <span class="kw">in</span> <span class="fu">m</span> tr wt <span class="fu">ln</span> {</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>                        <span class="kw">if</span> <span class="st">"``vr''"</span>!=<span class="st">""</span> <span class="kw">qui</span> estadd <span class="fu">scalar</span> <span class="ot">``vr'</span>'v = 1, <span class="kw">replace</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>                    }</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>                    </span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">qui</span> estadd <span class="fu">scalar</span> headroomv = 0</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">qui</span> estadd <span class="fu">scalar</span> iheadroom_cv = 0</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">local</span> vname = <span class="fu">subinstr</span>(<span class="st">"`hr'"</span>, <span class="st">"."</span>, <span class="st">""</span>, .)</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">qui</span> estadd <span class="fu">scalar</span> <span class="ot">`vname'</span>v = 1, <span class="kw">replace</span> </span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>                    </span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>                    eststo md<span class="ot">`no'</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>                    loc ++no</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>                }</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>(1978 automobile data)
-
-
-
-command estadd is unrecognized
-r(199);
-
-r(199);</code></pre>
+<pre><code>(1978 automobile data)</code></pre>
 </div>
+</div>
+<p>As above, the plotting step is shown but not executed:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>* The code below produces an <span class="kw">error</span>:</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>*speccurve *, param(foreign) controls <span class="bn">title</span>(SCA <span class="kw">for</span> the effect <span class="kw">of</span> foreigh)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>* Workaround:</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>speccurve *, param(foreign) <span class="dv">level</span>(95) graphopts(<span class="bn">legend</span>(pos(1))) <span class="bn">title</span>(SCA <span class="kw">for</span> auto dataset) panel(mpgv trunkv weightv lengthv headroomv iheadroom_cv)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> <span class="st">"speccurve2.svg"</span>, <span class="kw">replace</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The code implements models that have <code>headroom</code> included as a factor or as a continuous variable. Note that the first call for <code>speccurve</code> would produce an error due to a bug in the function. However, the second call produces the following specification curve:</p>
 <p><img src="speccurve2.svg" class="img-fluid"></p>
 <p>One can also output a table with numerical results:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">matlist</span> <span class="fu">r</span>(<span class="kw">table</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">matlist</span> <span class="fu">r</span>(<span class="kw">table</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>command estadd is unrecognized
-r(199);
+<pre><code>             |   foreign        mpg      trunk     weight     length 
+-------------+-------------------------------------------------------
+           b |  3079.179   4.586057   93.83551   5.874593  -97.49601 
+          se |  718.0138   73.54331   100.3121   1.098792   39.71523 
+           t |  4.288468   .0623586   .9354356   5.346411  -2.454877 
+      pvalue |  .0000652   .9504812   .3532524   1.42e-06   .0169605 
+          ll |  1643.422  -142.4729  -106.7509   3.677423  -176.9115 
+          ul |  4514.937    151.645    294.422   8.071763   -18.0805 
+          df |        61         61         61         61         61 
+        crit |  1.999624   1.999624   1.999624   1.999624   1.999624 
+       eform |         0          0          0          0          0 
 
-             |   foreign      _cons 
--------------+---------------------
-           b |  312.2587   6072.423 
-          se |  754.4488    411.363 
-           t |  .4138899   14.76171 
-      pvalue |  .6801851   1.80e-23 
-          ll | -1191.708   5252.386 
-          ul |  1816.225    6892.46 
-          df |        72         72 
-        crit |  1.993464   1.993464 
-       eform |         0          0 </code></pre>
+             |        1b.         2.         3.         4.         5.
+             | headroo~c  headroo~c  headroo~c  headroo~c  headroo~c 
+-------------+-------------------------------------------------------
+           b |         0  -1724.262  -375.8654  -1809.316  -1606.084 
+          se |         .   1233.477   1253.896   1288.463   1362.702 
+           t |         .  -1.397888   -.299758  -1.404244  -1.178603 
+      pvalue |         .   .1672095   .7653808   .1653175   .2431335 
+          ll |         .  -4190.751  -2883.186  -4385.757  -4330.975 
+          ul |         .   742.2271   2131.455   767.1247   1118.806 
+          df |        61         61         61         61         61 
+        crit |  1.999624   1.999624   1.999624   1.999624   1.999624 
+       eform |         0          0          0          0          0 
+
+             |         6.         7.         8.           
+             | headroo~c  headroo~c  headroo~c      _cons 
+-------------+--------------------------------------------
+           b | -2438.564  -2855.264  -3483.847   5994.235 
+          se |  1562.642    1643.75   2395.314    5811.76 
+           t | -1.560539  -1.737042  -1.454443   1.031397 
+      pvalue |  .1238061   .0874271     .15095   .3064266 
+          ll | -5563.259  -6142.145  -8273.573  -5627.098 
+          ul |  686.1318   431.6178   1305.879   17615.57 
+          df |        61         61         61         61 
+        crit |  1.999624   1.999624   1.999624   1.999624 
+       eform |         0          0          0          0 </code></pre>
 </div>
 </div>
 </section>

@@ -322,16 +322,21 @@ font-style: inherit;">`no'</span></span>
 <span id="cb1-16">            }</span>
 <span id="cb1-17">        }</span>
 <span id="cb1-18">    }</span>
-<span id="cb1-19">}</span>
-<span id="cb1-20"></span>
-<span id="cb1-21">* plotting a SC with foreign <span class="kw" style="color: #003B4F;
+<span id="cb1-19">}</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(1978 automobile data)</code></pre>
+</div>
+</div>
+<p><code>speccurve</code> is a community-contributed command rather than part of Stata, so the plotting step below is shown but not executed when the site is built. The curve it produces is the figure that follows.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1">* plotting a SC with foreign <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">as</span> a parameter <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">of</span> interest</span>
-<span id="cb1-22">speccurve *, param(foreign) controls <span class="bn" style="color: #AD0000;
+<span id="cb3-2">speccurve *, param(foreign) controls <span class="bn" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">title</span>(SCA <span class="kw" style="color: #003B4F;
 background-color: null;
@@ -340,7 +345,7 @@ font-style: inherit;">for</span> the effect <span class="kw" style="color: #003B
 background-color: null;
 font-weight: bold;
 font-style: inherit;">of</span> foreigh)</span>
-<span id="cb1-23"><span class="kw" style="color: #003B4F;
+<span id="cb3-3"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">graph</span> <span class="kw" style="color: #003B4F;
@@ -352,43 +357,34 @@ font-style: inherit;">"speccurve1.svg"</span>, <span class="kw" style="color: #0
 background-color: null;
 font-weight: bold;
 font-style: inherit;">replace</span></span></code></pre></div></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>(1978 automobile data)
-
-
-command eststo is unrecognized
-r(199);
-
-r(199);</code></pre>
-</div>
 </div>
 <p>The code above produced the following specification curve:</p>
 <p><img src="https://hbs-rcs.github.io/rcs-blog/posts/2021-10-10_specification-curve-analysis/speccurve1.svg" class="img-fluid"></p>
 <p>Looks like including the <code>weight</code> variable in the model had a notable effect on the coefficient for <code>foreign</code>. Function <code>speccurve</code> is somewhat limited in that it doesn’t work with models that have factors as controls. Next, I show a workaround for the latter case:</p>
 <div class="cell" data-collectcode="true">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><span class="kw" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb4-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">clear</span> <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">all</span></span>
-<span id="cb3-2"><span class="kw" style="color: #003B4F;
+<span id="cb4-2"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">sysuse</span> auto, <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">clear</span></span>
-<span id="cb3-3"></span>
-<span id="cb3-4"><span class="kw" style="color: #003B4F;
+<span id="cb4-3"></span>
+<span id="cb4-4"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">egen</span> headroom_c = <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">group</span>(headroom)</span>
-<span id="cb3-5">loc no=0</span>
-<span id="cb3-6"></span>
-<span id="cb3-7"><span class="kw" style="color: #003B4F;
+<span id="cb4-5">loc no=0</span>
+<span id="cb4-6"></span>
+<span id="cb4-7"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">foreach</span> <span class="fu" style="color: #4758AB;
@@ -401,7 +397,7 @@ background-color: null;
 font-style: inherit;">""</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"mpg"</span> {</span>
-<span id="cb3-8">    <span class="kw" style="color: #003B4F;
+<span id="cb4-8">    <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">foreach</span> tr <span class="kw" style="color: #003B4F;
@@ -412,7 +408,7 @@ background-color: null;
 font-style: inherit;">""</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"trunk"</span> {</span>
-<span id="cb3-9">        <span class="kw" style="color: #003B4F;
+<span id="cb4-9">        <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">foreach</span> wt <span class="kw" style="color: #003B4F;
@@ -423,7 +419,7 @@ background-color: null;
 font-style: inherit;">""</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"weight"</span> {</span>
-<span id="cb3-10">            <span class="kw" style="color: #003B4F;
+<span id="cb4-10">            <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">foreach</span> <span class="fu" style="color: #4758AB;
@@ -436,7 +432,7 @@ background-color: null;
 font-style: inherit;">""</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"length"</span> {</span>
-<span id="cb3-11">                <span class="kw" style="color: #003B4F;
+<span id="cb4-11">                <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">foreach</span> hr <span class="kw" style="color: #003B4F;
@@ -449,7 +445,7 @@ background-color: null;
 font-style: inherit;">"headroom"</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"i.headroom_c"</span>{</span>
-<span id="cb3-12">                    <span class="kw" style="color: #003B4F;
+<span id="cb4-12">                    <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">qui</span> <span class="kw" style="color: #003B4F;
@@ -466,8 +462,8 @@ background-color: null;
 font-style: inherit;">`ln'</span> <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">`hr'</span></span>
-<span id="cb3-13">                    </span>
-<span id="cb3-14">                    <span class="kw" style="color: #003B4F;
+<span id="cb4-13">                    </span>
+<span id="cb4-14">                    <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">qui</span> estadd <span class="fu" style="color: #4758AB;
@@ -476,7 +472,7 @@ font-style: inherit;">scalar</span> mpgv = 0, <span class="kw" style="color: #00
 background-color: null;
 font-weight: bold;
 font-style: inherit;">replace</span></span>
-<span id="cb3-15">                    <span class="kw" style="color: #003B4F;
+<span id="cb4-15">                    <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">qui</span> estadd <span class="fu" style="color: #4758AB;
@@ -485,7 +481,7 @@ font-style: inherit;">scalar</span> trunkv = 0, <span class="kw" style="color: #
 background-color: null;
 font-weight: bold;
 font-style: inherit;">replace</span></span>
-<span id="cb3-16">                    <span class="kw" style="color: #003B4F;
+<span id="cb4-16">                    <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">qui</span> estadd <span class="fu" style="color: #4758AB;
@@ -494,7 +490,7 @@ font-style: inherit;">scalar</span> weightv = 0, <span class="kw" style="color: 
 background-color: null;
 font-weight: bold;
 font-style: inherit;">replace</span></span>
-<span id="cb3-17">                    <span class="kw" style="color: #003B4F;
+<span id="cb4-17">                    <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">qui</span> estadd <span class="fu" style="color: #4758AB;
@@ -503,7 +499,7 @@ font-style: inherit;">scalar</span> lengthv = 0, <span class="kw" style="color: 
 background-color: null;
 font-weight: bold;
 font-style: inherit;">replace</span></span>
-<span id="cb3-18">                    <span class="kw" style="color: #003B4F;
+<span id="cb4-18">                    <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">foreach</span> vr <span class="kw" style="color: #003B4F;
@@ -514,7 +510,7 @@ background-color: null;
 font-style: inherit;">m</span> tr wt <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">ln</span> {</span>
-<span id="cb3-19">                        <span class="kw" style="color: #003B4F;
+<span id="cb4-19">                        <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">if</span> <span class="st" style="color: #20794D;
@@ -532,21 +528,21 @@ font-style: inherit;">``vr'</span>'v = 1, <span class="kw" style="color: #003B4F
 background-color: null;
 font-weight: bold;
 font-style: inherit;">replace</span></span>
-<span id="cb3-20">                    }</span>
-<span id="cb3-21">                    </span>
-<span id="cb3-22">                    <span class="kw" style="color: #003B4F;
+<span id="cb4-20">                    }</span>
+<span id="cb4-21">                    </span>
+<span id="cb4-22">                    <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">qui</span> estadd <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">scalar</span> headroomv = 0</span>
-<span id="cb3-23">                    <span class="kw" style="color: #003B4F;
+<span id="cb4-23">                    <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">qui</span> estadd <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">scalar</span> iheadroom_cv = 0</span>
-<span id="cb3-24">                    <span class="kw" style="color: #003B4F;
+<span id="cb4-24">                    <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">local</span> vname = <span class="fu" style="color: #4758AB;
@@ -558,7 +554,7 @@ background-color: null;
 font-style: inherit;">"."</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">""</span>, .)</span>
-<span id="cb3-25">                    <span class="kw" style="color: #003B4F;
+<span id="cb4-25">                    <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">qui</span> estadd <span class="fu" style="color: #4758AB;
@@ -569,22 +565,27 @@ font-style: inherit;">`vname'</span>v = 1, <span class="kw" style="color: #003B4
 background-color: null;
 font-weight: bold;
 font-style: inherit;">replace</span> </span>
-<span id="cb3-26">                    </span>
-<span id="cb3-27">                    eststo md<span class="ot" style="color: #003B4F;
+<span id="cb4-26">                    </span>
+<span id="cb4-27">                    eststo md<span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">`no'</span></span>
-<span id="cb3-28">                    loc ++no</span>
-<span id="cb3-29">                }</span>
-<span id="cb3-30">            }</span>
-<span id="cb3-31">        }</span>
-<span id="cb3-32">    }</span>
-<span id="cb3-33">}</span>
-<span id="cb3-34"></span>
-<span id="cb3-35">* The code below produces an <span class="kw" style="color: #003B4F;
+<span id="cb4-28">                    loc ++no</span>
+<span id="cb4-29">                }</span>
+<span id="cb4-30">            }</span>
+<span id="cb4-31">        }</span>
+<span id="cb4-32">    }</span>
+<span id="cb4-33">}</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(1978 automobile data)</code></pre>
+</div>
+</div>
+<p>As above, the plotting step is shown but not executed:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb6-1">* The code below produces an <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">error</span>:</span>
-<span id="cb3-36">*speccurve *, param(foreign) controls <span class="bn" style="color: #AD0000;
+<span id="cb6-2">*speccurve *, param(foreign) controls <span class="bn" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">title</span>(SCA <span class="kw" style="color: #003B4F;
 background-color: null;
@@ -593,9 +594,9 @@ font-style: inherit;">for</span> the effect <span class="kw" style="color: #003B
 background-color: null;
 font-weight: bold;
 font-style: inherit;">of</span> foreigh)</span>
-<span id="cb3-37"></span>
-<span id="cb3-38">* Workaround:</span>
-<span id="cb3-39">speccurve *, param(foreign) <span class="dv" style="color: #AD0000;
+<span id="cb6-3"></span>
+<span id="cb6-4">* Workaround:</span>
+<span id="cb6-5">speccurve *, param(foreign) <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">level</span>(95) graphopts(<span class="bn" style="color: #AD0000;
 background-color: null;
@@ -605,7 +606,7 @@ font-style: inherit;">title</span>(SCA <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">for</span> auto dataset) panel(mpgv trunkv weightv lengthv headroomv iheadroom_cv)</span>
-<span id="cb3-40"><span class="kw" style="color: #003B4F;
+<span id="cb6-6"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">graph</span> <span class="kw" style="color: #003B4F;
@@ -617,22 +618,12 @@ font-style: inherit;">"speccurve2.svg"</span>, <span class="kw" style="color: #0
 background-color: null;
 font-weight: bold;
 font-style: inherit;">replace</span></span></code></pre></div></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>(1978 automobile data)
-
-
-
-command estadd is unrecognized
-r(199);
-
-r(199);</code></pre>
-</div>
 </div>
 <p>The code implements models that have <code>headroom</code> included as a factor or as a continuous variable. Note that the first call for <code>speccurve</code> would produce an error due to a bug in the function. However, the second call produces the following specification curve:</p>
 <p><img src="https://hbs-rcs.github.io/rcs-blog/posts/2021-10-10_specification-curve-analysis/speccurve2.svg" class="img-fluid"></p>
 <p>One can also output a table with numerical results:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><span class="kw" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">matlist</span> <span class="fu" style="color: #4758AB;
@@ -642,20 +633,43 @@ background-color: null;
 font-weight: bold;
 font-style: inherit;">table</span>)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>command estadd is unrecognized
-r(199);
+<pre><code>             |   foreign        mpg      trunk     weight     length 
+-------------+-------------------------------------------------------
+           b |  3079.179   4.586057   93.83551   5.874593  -97.49601 
+          se |  718.0138   73.54331   100.3121   1.098792   39.71523 
+           t |  4.288468   .0623586   .9354356   5.346411  -2.454877 
+      pvalue |  .0000652   .9504812   .3532524   1.42e-06   .0169605 
+          ll |  1643.422  -142.4729  -106.7509   3.677423  -176.9115 
+          ul |  4514.937    151.645    294.422   8.071763   -18.0805 
+          df |        61         61         61         61         61 
+        crit |  1.999624   1.999624   1.999624   1.999624   1.999624 
+       eform |         0          0          0          0          0 
 
-             |   foreign      _cons 
--------------+---------------------
-           b |  312.2587   6072.423 
-          se |  754.4488    411.363 
-           t |  .4138899   14.76171 
-      pvalue |  .6801851   1.80e-23 
-          ll | -1191.708   5252.386 
-          ul |  1816.225    6892.46 
-          df |        72         72 
-        crit |  1.993464   1.993464 
-       eform |         0          0 </code></pre>
+             |        1b.         2.         3.         4.         5.
+             | headroo~c  headroo~c  headroo~c  headroo~c  headroo~c 
+-------------+-------------------------------------------------------
+           b |         0  -1724.262  -375.8654  -1809.316  -1606.084 
+          se |         .   1233.477   1253.896   1288.463   1362.702 
+           t |         .  -1.397888   -.299758  -1.404244  -1.178603 
+      pvalue |         .   .1672095   .7653808   .1653175   .2431335 
+          ll |         .  -4190.751  -2883.186  -4385.757  -4330.975 
+          ul |         .   742.2271   2131.455   767.1247   1118.806 
+          df |        61         61         61         61         61 
+        crit |  1.999624   1.999624   1.999624   1.999624   1.999624 
+       eform |         0          0          0          0          0 
+
+             |         6.         7.         8.           
+             | headroo~c  headroo~c  headroo~c      _cons 
+-------------+--------------------------------------------
+           b | -2438.564  -2855.264  -3483.847   5994.235 
+          se |  1562.642    1643.75   2395.314    5811.76 
+           t | -1.560539  -1.737042  -1.454443   1.031397 
+      pvalue |  .1238061   .0874271     .15095   .3064266 
+          ll | -5563.259  -6142.145  -8273.573  -5627.098 
+          ul |  686.1318   431.6178   1305.879   17615.57 
+          df |        61         61         61         61 
+        crit |  1.999624   1.999624   1.999624   1.999624 
+       eform |         0          0          0          0 </code></pre>
 </div>
 </div>
 </section>
@@ -1031,10 +1045,10 @@ font-style: inherit;">glimpse</span>(ws_data)</span></code></pre></div></div>
 <p>Recently, I found myself researching the latest developments on the topic of Synthetic Controls (SC) for one of the projects. I had the pleasure of learning about the method from its co-author <a href="https://web.stanford.edu/~jhain/">Prof.&nbsp;Jens Hainmueller</a> back in 2011, when it had just started gaining momentum. Wondering what new insights have been gathered over the last 8 years by applied researchers utilizing this method for causal inference problems, I outlined interesting highlights in this post. <!-- In another post I give an annotated Stata example of automating the method for more than one treated unit. --></p>
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>The method was first introduced in <span class="citation" data-cites="Abadie_Economic_Costs_2003">(<strong>Abadie_Economic_Costs_2003?</strong>)</span> to estimate a causal effect of a political conflict on region’s per capita GDP. In the spirit of classical matching methods for causal inference (<span class="citation" data-cites="rosenbaum2002overt">(<strong>rosenbaum2002overt?</strong>)</span>), the authors proposed a procedure for finding a group of control regions such that their <em>weighted average</em> would match the specified pre-intervention characteristics (including the evolution of the outcome) of the affected region.</p>
+<p>The method was first introduced in <span class="citation" data-cites="Abadie_Economic_Costs_2003">Abadie and Gardeazabal (2003)</span> to estimate a causal effect of a political conflict on region’s per capita GDP. In the spirit of classical matching methods for causal inference (<span class="citation" data-cites="rosenbaum2002overt">Rosenbaum (2002)</span>), the authors proposed a procedure for finding a group of control regions such that their <em>weighted average</em> would match the specified pre-intervention characteristics (including the evolution of the outcome) of the affected region.</p>
 <p>Here is a more technical description: suppose that we observe <img src="https://latex.codecogs.com/png.latex?J+1"> units in time periods <img src="https://latex.codecogs.com/png.latex?1,2,...,%20T"> and unit #1 is exposed to the intervention during periods <img src="https://latex.codecogs.com/png.latex?T_0+1,%20...,T">. Let <img src="https://latex.codecogs.com/png.latex?Y%5EC_%7Bjt%7D"> be the outcome that would be observed (i.e., the <a href="https://en.wikipedia.org/wiki/Rubin_causal_model">potential outcome</a>) for unit <img src="https://latex.codecogs.com/png.latex?j"> at time <img src="https://latex.codecogs.com/png.latex?t"> in the absence of the intervention. For units 2 through <img src="https://latex.codecogs.com/png.latex?J+1">, the observed outcome <img src="https://latex.codecogs.com/png.latex?Y_%7Bjt%7D"> is equivalent to <img src="https://latex.codecogs.com/png.latex?Y%5EC_%7Bjt%7D">. On the other hand, let <img src="https://latex.codecogs.com/png.latex?Y%5EI_%7Bjt%7D"> be the potential outcome under the intervention. Therefore, <img src="https://latex.codecogs.com/png.latex?Y_%7B1t%7D=Y%5EI_%7B1t%7D"> for <img src="https://latex.codecogs.com/png.latex?t=T_0+1,%20...,T">.</p>
 <p>Our goal is to estimate the <em>causal treatment effect on the treated</em> unit: <img src="https://latex.codecogs.com/png.latex?%0A%5Calpha_%7B1t%7D%20=%20Y%5EI_%7Bjt%7D%20-%20Y%5EC_%7Bjt%7D,%20%5Ctext%7Bfor%20%7D%20t=T_0+1,...,%20T.%0A"> Suppose we also observe a vector of <img src="https://latex.codecogs.com/png.latex?R"> covariates for each unit <img src="https://latex.codecogs.com/png.latex?j">, <img src="https://latex.codecogs.com/png.latex?%5Ctextbf%7BZ%7D_j">, that are <em>predictive of the outcome</em> and “unaffected by the treatment”. The SC method assumes that we are able to find a set of nonnegative weights <img src="https://latex.codecogs.com/png.latex?%5Ctextbf%7BW%7D=(w_2,...,w_%7BJ+1%7D)'"> that sum up to 1 and satisfy the following <img src="https://latex.codecogs.com/png.latex?(R+T_0)"> conditions <em>exactly</em>: <img src="https://latex.codecogs.com/png.latex?%0A%5Csum_%7Bj=2%7D%5E%7BJ+1%7Dw_j%5Ctextbf%7BZ%7D_j=%5Ctextbf%7BZ%7D_1%5Ctext%7B%20and%20%7D%5Csum_%7Bj=2%7D%5E%7BJ+1%7Dw_jY_%7Bjt%7D=Y_%7B1t%7D,%20%5Ctext%7B%20for%20%7Dt=1,...,T_0.%0A"></p>
-<p>In practice, of course, it is unlikely that we would find exact matches for all available characteristics. Therefore, we find weights that minimize a chosen measure of discrepancy. Let <img src="https://latex.codecogs.com/png.latex?%5Ctextbf%7BX%7D_1"> be a <img src="https://latex.codecogs.com/png.latex?(R+T_0)%5Ctimes%201"> vector of pre-intervention characteristics for the treated unit. Similarly, <img src="https://latex.codecogs.com/png.latex?%5Ctextbf%7BX%7D_0"> is a <img src="https://latex.codecogs.com/png.latex?(R+T_0)%20%5Ctimes%20J"> matrix of the same variables for the donor pool. The original paper (<span class="citation" data-cites="abadie2010synthetic">(<strong>abadie2010synthetic?</strong>)</span>) minimizes the following distance measure: <img src="https://latex.codecogs.com/png.latex?%0A%7C%7C%5Ctextbf%7BX%7D_1-%5Ctextbf%7BX%7D_0%5Ctextbf%7BW%7D%7C%7C_%7B%5Ctextbf%7BV%7D%7D%20=%20%5Csqrt%7B(%5Ctextbf%7BX%7D_1-%5Ctextbf%7BX%7D_0%5Ctextbf%7BW%7D)'%5Ctextbf%7BV%7D(%5Ctextbf%7BX%7D_1-%5Ctextbf%7BX%7D_0%5Ctextbf%7BW%7D)%7D%20%5Cqquad%5Cqquad(1)%0A"> In words, SC calculation produces two outputs: matrix <img src="https://latex.codecogs.com/png.latex?%5Ctextbf%7BV%7D">, which weighs variables included in the minimization differently depending on how well they predict pre-intervention outcomes, and an array of weights <img src="https://latex.codecogs.com/png.latex?%5Ctextbf%7BW%7D"> for control units.</p>
+<p>In practice, of course, it is unlikely that we would find exact matches for all available characteristics. Therefore, we find weights that minimize a chosen measure of discrepancy. Let <img src="https://latex.codecogs.com/png.latex?%5Ctextbf%7BX%7D_1"> be a <img src="https://latex.codecogs.com/png.latex?(R+T_0)%5Ctimes%201"> vector of pre-intervention characteristics for the treated unit. Similarly, <img src="https://latex.codecogs.com/png.latex?%5Ctextbf%7BX%7D_0"> is a <img src="https://latex.codecogs.com/png.latex?(R+T_0)%20%5Ctimes%20J"> matrix of the same variables for the donor pool. The original paper (<span class="citation" data-cites="abadie2010synthetic">Abadie et al. (2010)</span>) minimizes the following distance measure: <img src="https://latex.codecogs.com/png.latex?%0A%7C%7C%5Ctextbf%7BX%7D_1-%5Ctextbf%7BX%7D_0%5Ctextbf%7BW%7D%7C%7C_%7B%5Ctextbf%7BV%7D%7D%20=%20%5Csqrt%7B(%5Ctextbf%7BX%7D_1-%5Ctextbf%7BX%7D_0%5Ctextbf%7BW%7D)'%5Ctextbf%7BV%7D(%5Ctextbf%7BX%7D_1-%5Ctextbf%7BX%7D_0%5Ctextbf%7BW%7D)%7D%20%5Cqquad%5Cqquad(1)%0A"> In words, SC calculation produces two outputs: matrix <img src="https://latex.codecogs.com/png.latex?%5Ctextbf%7BV%7D">, which weighs variables included in the minimization differently depending on how well they predict pre-intervention outcomes, and an array of weights <img src="https://latex.codecogs.com/png.latex?%5Ctextbf%7BW%7D"> for control units.</p>
 <p>There are various ways to choose <img src="https://latex.codecogs.com/png.latex?%5Ctextbf%7BV%7D">, including subjective assessment of predictive power of <img src="https://latex.codecogs.com/png.latex?%5Ctextbf%7BX%7D">, regression, minimize prediction error, or cross-validation. When <img src="https://latex.codecogs.com/png.latex?%5Ctextbf%7BV%7D"> is set to <img src="https://latex.codecogs.com/png.latex?%5Ctextbf%7BI%7D">, the identity matrix, then all characteristics are assumed to have equal weights, and the distance defined in (1) can be interpreted as the usual Euclidean distance between points <img src="https://latex.codecogs.com/png.latex?%5Ctextbf%7BX%7D_1"> and <img src="https://latex.codecogs.com/png.latex?%5Ctextbf%7BX%7D_0%5Ctextbf%7BW%7D"> on a <img src="https://latex.codecogs.com/png.latex?(R+T_0)">-dimensional space.</p>
 <p>Note that, once we have a synthetic control for the treated unit, the method permits estimation of a treatment effect for each post-treatment time period <img src="https://latex.codecogs.com/png.latex?t=T_0+1,...,%20T">, as long as we observe the corresponding outcome for all controls. However, it is more common to report an aggregated post-treatment effect, e.g., <img src="https://latex.codecogs.com/png.latex?%5Csum_%7Bt=T_0+1%7D%5ET%20%5Calpha_%7B1t%7D/(T-T_0)">.</p>
 </section>
@@ -1043,10 +1057,10 @@ font-style: inherit;">glimpse</span>(ws_data)</span></code></pre></div></div>
 <p>There are several attractive features of the SC method:</p>
 <ul>
 <li><p>It provides a systematic data-driven way of assigning weights to control units to provide a close synthetic match to a treated unit, especially if none of the observed control units fit the bill.</p></li>
-<li><p>When potential outcomes are related linearly to observed and unobserved covariates (or <em>factors</em>), <span class="citation" data-cites="abadie2010synthetic">(<strong>abadie2010synthetic?</strong>)</span> showed that the estimated causal effect is unbiased even when there are unobserved confounding factors that vary with time (though, this feature as well as many other theoretical properties of the SC method rely on availability of a <em>large number of preintervention outcomes</em>.)</p></li>
-<li><p>There is an <em>interesting parallel between a linear regression and the SC method</em>: it turns out that, when estimating a counterfactual outcome using a naive regression approach, i.e., regressing <img src="https://latex.codecogs.com/png.latex?Y_%7Bjt%7D"> on <img src="https://latex.codecogs.com/png.latex?%5Ctextbf%7BX%7D_0"> post-treatment for controls (<img src="https://latex.codecogs.com/png.latex?t=T_0,...,T">, <img src="https://latex.codecogs.com/png.latex?j=2,...,J">) and then using this model together with <img src="https://latex.codecogs.com/png.latex?%5Ctextbf%7BX%7D_1"> to predict <img src="https://latex.codecogs.com/png.latex?Y%5EC_%7B1t%7D">, we can also rewrite the result as a linear combination of untreated units (see <span class="citation" data-cites="abadie2015comparative">(<strong>abadie2015comparative?</strong>)</span> for a proof) with weights that sum up to one. However, a conceptual difference lies in the fact that regression weights are <em>unrestricted</em> - they may be negative or greater than one. “As a result, estimates of counterfactuals based on linear regression may extrapolate beyond the support of comparison units.” In fact, as suggested in <span class="citation" data-cites="abadie2015comparative">(<strong>abadie2015comparative?</strong>)</span>, one way to assess the extent of the extrapolation is to calculate the regression weights explicitly!</p></li>
-<li><p>It can be shown that the SC method is a special case of a “sideways” Lasso regression with a fixed value of its threshold parameter to <img src="https://latex.codecogs.com/png.latex?1"> and an additional restriction on coefficients to be nonnegative and sum up to one (<span class="citation" data-cites="kinn2018synthetic">(<strong>kinn2018synthetic?</strong>)</span>). The “sideways” regression refers to one where units are acting as covariates, and the time periods (and covariates <img src="https://latex.codecogs.com/png.latex?%5Ctextbf%7BZ%7D">) serve as new “units” (e.g., observation <img src="https://latex.codecogs.com/png.latex?Y_%7B1t%7D"> is regressed on <img src="https://latex.codecogs.com/png.latex?Y_%7B2t%7D,%20%5Cdots,%20Y_%7B(J+1)t%7D"> for <img src="https://latex.codecogs.com/png.latex?t=1,%20%5Cdots,%20T_0">).</p></li>
-<li><p>The SC method was originally developed for one treated unit. However, if multiple units are affected by the event of interest, the method can be applied to each unit separately and the treatment effect summarized by computing an Average Treatment Effect on the Treated (ATT) as demonstrated in <span class="citation" data-cites="kreif2016examination">(<strong>kreif2016examination?</strong>)</span>.</p></li>
+<li><p>When potential outcomes are related linearly to observed and unobserved covariates (or <em>factors</em>), <span class="citation" data-cites="abadie2010synthetic">Abadie et al. (2010)</span> showed that the estimated causal effect is unbiased even when there are unobserved confounding factors that vary with time (though, this feature as well as many other theoretical properties of the SC method rely on availability of a <em>large number of preintervention outcomes</em>.)</p></li>
+<li><p>There is an <em>interesting parallel between a linear regression and the SC method</em>: it turns out that, when estimating a counterfactual outcome using a naive regression approach, i.e., regressing <img src="https://latex.codecogs.com/png.latex?Y_%7Bjt%7D"> on <img src="https://latex.codecogs.com/png.latex?%5Ctextbf%7BX%7D_0"> post-treatment for controls (<img src="https://latex.codecogs.com/png.latex?t=T_0,...,T">, <img src="https://latex.codecogs.com/png.latex?j=2,...,J">) and then using this model together with <img src="https://latex.codecogs.com/png.latex?%5Ctextbf%7BX%7D_1"> to predict <img src="https://latex.codecogs.com/png.latex?Y%5EC_%7B1t%7D">, we can also rewrite the result as a linear combination of untreated units (see <span class="citation" data-cites="abadie2015comparative">Abadie et al. (2015)</span> for a proof) with weights that sum up to one. However, a conceptual difference lies in the fact that regression weights are <em>unrestricted</em> - they may be negative or greater than one. “As a result, estimates of counterfactuals based on linear regression may extrapolate beyond the support of comparison units.” In fact, as suggested in <span class="citation" data-cites="abadie2015comparative">Abadie et al. (2015)</span>, one way to assess the extent of the extrapolation is to calculate the regression weights explicitly!</p></li>
+<li><p>It can be shown that the SC method is a special case of a “sideways” Lasso regression with a fixed value of its threshold parameter to <img src="https://latex.codecogs.com/png.latex?1"> and an additional restriction on coefficients to be nonnegative and sum up to one (<span class="citation" data-cites="kinn2018synthetic">Kinn (2018)</span>). The “sideways” regression refers to one where units are acting as covariates, and the time periods (and covariates <img src="https://latex.codecogs.com/png.latex?%5Ctextbf%7BZ%7D">) serve as new “units” (e.g., observation <img src="https://latex.codecogs.com/png.latex?Y_%7B1t%7D"> is regressed on <img src="https://latex.codecogs.com/png.latex?Y_%7B2t%7D,%20%5Cdots,%20Y_%7B(J+1)t%7D"> for <img src="https://latex.codecogs.com/png.latex?t=1,%20%5Cdots,%20T_0">).</p></li>
+<li><p>The SC method was originally developed for one treated unit. However, if multiple units are affected by the event of interest, the method can be applied to each unit separately and the treatment effect summarized by computing an Average Treatment Effect on the Treated (ATT) as demonstrated in <span class="citation" data-cites="kreif2016examination">Kreif et al. (2016)</span>.</p></li>
 </ul>
 <!-- An example of this procedure in Stata is shown here. -->
 </section>
@@ -1056,11 +1070,11 @@ font-style: inherit;">glimpse</span>(ws_data)</span></code></pre></div></div>
 <ul>
 <li><p>There are many (sometimes, conflicting!) recommendations on what should be included as part of <img src="https://latex.codecogs.com/png.latex?%5Ctextbf%7BX%7D_0"> and <img src="https://latex.codecogs.com/png.latex?%5Ctextbf%7BX%7D_1">, and I think the jury is still out. Of course, there is no doubt that the chosen covariates should be predictive of the outcome. That said, it is a bit less apparent how to strike a balance between the length of the pretreatment outcome window and a set of background characteristics that should be used to construct <img src="https://latex.codecogs.com/png.latex?%5Ctextbf%7BX%7D"> matrices.</p>
 <ul>
-<li><p>On one hand, many theoretical properties of the procedure were derived asymptotically, assuming infinite pretreatment window. Moreover, <span class="citation" data-cites="botosaru2019covariates">(<strong>botosaru2019covariates?</strong>)</span> show that a “perfect balance on pre-treatment outcomes does not generally imply an approximate balance for all covariates, even when they are all relevant”, concluding that, “although there may be advantages to balancing on covariates to construct the SC estimator, a perfect balance on covariates should not be required for the SC method as long as there is a perfect balance on a long set of pre-treatment outcomes.”</p></li>
-<li><p>On the other hand <span class="citation" data-cites="kaul2015synthetic">(<strong>kaul2015synthetic?</strong>)</span> argues that one should not use covariates simultaneously with <em>all</em> available preintervention outcomes, as, under certain conditions, this may renders covariates to be irrelevant. With that, <span class="citation" data-cites="abadie2015comparative">(<strong>abadie2015comparative?</strong>)</span> states that “it is of crucial importance that synthetic controls closely reproduce the values that variables with a large predictive power on the outcome of interest take for the unit affected by the intervention.” Thus, it is important that the chosen covariates are allowed to influence the estimated synthetic control.</p></li>
+<li><p>On one hand, many theoretical properties of the procedure were derived asymptotically, assuming infinite pretreatment window. Moreover, <span class="citation" data-cites="botosaru2019covariates">Botosaru and Ferman (2019)</span> show that a “perfect balance on pre-treatment outcomes does not generally imply an approximate balance for all covariates, even when they are all relevant”, concluding that, “although there may be advantages to balancing on covariates to construct the SC estimator, a perfect balance on covariates should not be required for the SC method as long as there is a perfect balance on a long set of pre-treatment outcomes.”</p></li>
+<li><p>On the other hand <span class="citation" data-cites="kaul2015synthetic">Kaul et al. (2015)</span> argues that one should not use covariates simultaneously with <em>all</em> available preintervention outcomes, as, under certain conditions, this may renders covariates to be irrelevant. With that, <span class="citation" data-cites="abadie2015comparative">Abadie et al. (2015)</span> states that “it is of crucial importance that synthetic controls closely reproduce the values that variables with a large predictive power on the outcome of interest take for the unit affected by the intervention.” Thus, it is important that the chosen covariates are allowed to influence the estimated synthetic control.</p></li>
 </ul></li>
-<li><p>One should always inspect the quality of the match and discard synthetic controls that do not closely trace the preintervention outcome. However, there is still debate whether a perfect balance on pre-treatment covariates is strictly necessary (<span class="citation" data-cites="botosaru2017role">(<strong>botosaru2017role?</strong>)</span>).</p></li>
-<li><p><span class="citation" data-cites="abadie2010synthetic">(<strong>abadie2010synthetic?</strong>)</span> emphasizes that SC method should be avoided in cases where the treated unit lies outside the distribution of control units. In other words, values of pretreatment variables for the affected unit cannot be outside any linear combination of the donor pool values. If no convex combination of control units can reconstruct the treated unit then counterfactual estimates could be severely biased. In practice, one can start with inspecting the ranges of outcomes and covariates during the pre-treatment period among controls and making sure that they at least overlap with those for the treated unit.</p></li>
+<li><p>One should always inspect the quality of the match and discard synthetic controls that do not closely trace the preintervention outcome. However, there is still debate whether a perfect balance on pre-treatment covariates is strictly necessary (<span class="citation" data-cites="botosaru2017role">Botosaru and Ferman (2017)</span>).</p></li>
+<li><p><span class="citation" data-cites="abadie2010synthetic">Abadie et al. (2010)</span> emphasizes that SC method should be avoided in cases where the treated unit lies outside the distribution of control units. In other words, values of pretreatment variables for the affected unit cannot be outside any linear combination of the donor pool values. If no convex combination of control units can reconstruct the treated unit then counterfactual estimates could be severely biased. In practice, one can start with inspecting the ranges of outcomes and covariates during the pre-treatment period among controls and making sure that they at least overlap with those for the treated unit.</p></li>
 <li><p>In addition to the extrapolation issues, we should watch out for possible interpolation bias by making sure that the variables used to compute the weights have values among the donor pool units that are similar to those observed for the affected unit. To reduce interpolation biases, it is recommended to restrict the donor pool to units that are “similar” to the treated one(s).</p></li>
 <li><p>Implicit in the notation above is the usual assumption of <em>no interference</em> between units - or that outcomes of the untreated units are not affected by the intervention implemented in the treated unit. For example, the policy in the affected region cannot affect the outcome in the pool of donor regions.</p></li>
 <li><p>Finally, when dealing with multiple outcomes, a procedure that uses distance measure given in (1) will likely construct a different synthetic control for each outcome, even if the same set of pretreatment characteristics is being matched on. This is due to the fact that the weighting matrix <img src="https://latex.codecogs.com/png.latex?%5Ctextbf%7BV%7D"> is computed separately for each outcome. If we preset <img src="https://latex.codecogs.com/png.latex?%5Ctextbf%7BV%7D"> to an identity (or any other positive-definite) matrix and use the same pretreatment outcome values to construct <img src="https://latex.codecogs.com/png.latex?%5Ctextbf%7BX%7D_0"> and <img src="https://latex.codecogs.com/png.latex?%5Ctextbf%7BX%7D_1">, the same synthetic control will be constructed for each unit regardless of the outcome considered.</p>
@@ -1071,12 +1085,41 @@ font-style: inherit;">glimpse</span>(ws_data)</span></code></pre></div></div>
 <p>This list is by no means exhaustive. I’m sure, as the SC method matures, our understanding of its strengths and limitations as well as advice on practical implementation will continue evolving.</p>
 </section>
 <section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
+
+
 
 
 </section>
 
- ]]></description>
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-abadie2010synthetic" class="csl-entry">
+Abadie, Alberto, Alexis Diamond, and Jens Hainmueller. 2010. <span>“Synthetic Control Methods for Comparative Case Studies: Estimating the Effect of Californias Tobacco Control Program.”</span> <em>Journal of the American Statistical Association</em> 105 (490): 493–505.
+</div>
+<div id="ref-abadie2015comparative" class="csl-entry">
+Abadie, Alberto, Alexis Diamond, and Jens Hainmueller. 2015. <span>“Comparative Politics and the Synthetic Control Method.”</span> <em>American Journal of Political Science</em> 59 (2): 495–510.
+</div>
+<div id="ref-Abadie_Economic_Costs_2003" class="csl-entry">
+Abadie, Alberto, and Javier Gardeazabal. 2003. <span>“The Economic Costs of Conflict: A Case Study of the Basque Country.”</span> <em>American Economic Review</em> 93 (1): 113–32. <a href="https://doi.org/10.1257/000282803321455188">https://doi.org/10.1257/000282803321455188</a>.
+</div>
+<div id="ref-botosaru2017role" class="csl-entry">
+Botosaru, Irene, and Bruno Ferman. 2017. <em>On the Role of Covariates in the Synthetic Control Method</em>. <a href="https://mpra.ub.uni-muenchen.de/81940/">https://mpra.ub.uni-muenchen.de/81940/</a>.
+</div>
+<div id="ref-botosaru2019covariates" class="csl-entry">
+Botosaru, Irene, and Bruno Ferman. 2019. <span>“<span class="nocase">On the role of covariates in the synthetic control method</span>.”</span> <em>The Econometrics Journal</em> 22 (2): 117–30. <a href="https://doi.org/10.1093/ectj/utz001">https://doi.org/10.1093/ectj/utz001</a>.
+</div>
+<div id="ref-kaul2015synthetic" class="csl-entry">
+Kaul, Ashok, Stefan Klößner, Gregor Pfeifer, and Manuel Schieler. 2015. <em>Synthetic Control Methods: Never Use All Pre-Intervention Outcomes Together with Covariates</em>.
+</div>
+<div id="ref-kinn2018synthetic" class="csl-entry">
+Kinn, Daniel. 2018. <span>“Synthetic Control Methods and Big Data.”</span> <em>arXiv Preprint arXiv:1803.00096</em>.
+</div>
+<div id="ref-kreif2016examination" class="csl-entry">
+Kreif, Noémi, Richard Grieve, Dominik Hangartner, Alex James Turner, Silviya Nikolova, and Matt Sutton. 2016. <span>“Examination of the Synthetic Control Method for Evaluating Health Policies with Multiple Treated Units.”</span> <em>Health Economics</em> 25 (12): 1514–28.
+</div>
+<div id="ref-rosenbaum2002overt" class="csl-entry">
+Rosenbaum, Paul R. 2002. <span>“Overt Bias in Observational Studies.”</span> In <em>Observational Studies</em>. Springer.
+</div>
+</div></section></div> ]]></description>
   <category>causal inference</category>
   <guid>https://hbs-rcs.github.io/rcs-blog/posts/2019-09-12_synthetic-controls/</guid>
   <pubDate>Thu, 12 Sep 2019 04:00:00 GMT</pubDate>
@@ -2111,7 +2154,63 @@ font-style: inherit;">r</span></span>
 <span id="cb1-3">margins union#black</span>
 <span id="cb1-4">margins union#black, pwcompare</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>request ignored because of batch mode</code></pre>
+<pre><code>(NLS Women 14-24 in 1968)
+
+
+Linear regression                               Number of obs     =      1,244
+                                                F(3, 1240)        =      34.76
+                                                Prob &gt; F          =     0.0000
+                                                R-squared         =     0.0762
+                                                Root MSE          =     .37699
+
+------------------------------------------------------------------------------
+             |               Robust
+     ln_wage | Coefficient  std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+     1.union |   .2045053   .0291682     7.01   0.000     .1472808    .2617298
+     1.black |  -.1709034   .0308067    -5.55   0.000    -.2313425   -.1104644
+             |
+ union#black |
+        1 1  |   .0386275   .0516609     0.75   0.455     -.062725      .13998
+             |
+       _cons |   1.657525   .0138278   119.87   0.000     1.630396    1.684653
+------------------------------------------------------------------------------
+
+
+Adjusted predictions                                     Number of obs = 1,244
+Model VCE: Robust
+
+Expression: Linear prediction, predict()
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |     Margin   std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+ union#black |
+        0 0  |   1.657525   .0138278   119.87   0.000     1.630396    1.684653
+        0 1  |   1.486621    .027529    54.00   0.000     1.432613     1.54063
+        1 0  |    1.86203   .0256822    72.50   0.000     1.811644    1.912415
+        1 1  |   1.729754   .0325611    53.12   0.000     1.665873    1.793635
+------------------------------------------------------------------------------
+
+
+Pairwise comparisons of adjusted predictions             Number of obs = 1,244
+Model VCE: Robust
+
+Expression: Linear prediction, predict()
+
+-----------------------------------------------------------------
+                |            Delta-method         Unadjusted
+                |   Contrast   std. err.     [95% conf. interval]
+----------------+------------------------------------------------
+    union#black |
+(0 1) vs (0 0)  |  -.1709034   .0308067     -.2313425   -.1104644
+(1 0) vs (0 0)  |   .2045053   .0291682      .1472808    .2617298
+(1 1) vs (0 0)  |   .0722294   .0353756      .0028268     .141632
+(1 0) vs (0 1)  |   .3754087   .0376487      .3015466    .4492709
+(1 1) vs (0 1)  |   .2431328   .0426388      .1594807     .326785
+(1 1) vs (1 0)  |  -.1322759   .0414705     -.2136359   -.0509159
+-----------------------------------------------------------------</code></pre>
 </div>
 </div>
 <p>What we get by using “margins union#black” is the four cell means of <img src="https://latex.codecogs.com/png.latex?E(Y)">, in this case, log of wage. Then “margins union#black, pwcompare” tells us all pairwise comparison of these four cell means. Instead of only paying attention to the interaction coefficient, in this case we might be interested in some comparisons of the four different situations of union and black. In fact, in this example, despite the interaction term being insignificant, all six comparisons of the cell means turn out to have 95% confidence intervals that do not include zero.</p>
@@ -2166,15 +2265,88 @@ font-weight: bold;
 font-style: inherit;">graph</span> <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
-font-style: inherit;">export</span> marginsplot.eps, <span class="kw" style="color: #003B4F;
+font-style: inherit;">export</span> marginsplot.png, <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
-font-style: inherit;">replace</span></span></code></pre></div></div>
+font-style: inherit;">replace</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">width</span>(1600)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>request ignored because of batch mode</code></pre>
+<pre><code>(1978 automobile data)
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+         mpg |         74     21.2973    5.785503         12         41
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+mpg_centered |         74   -4.03e-08    5.785503  -9.297297    19.7027
+
+      Source |       SS           df       MS      Number of obs   =        74
+-------------+----------------------------------   F(3, 70)        =      9.48
+       Model |   183435285         3  61145094.9   Prob &gt; F        =    0.0000
+    Residual |   451630112        70  6451858.74   R-squared       =    0.2888
+-------------+----------------------------------   Adj R-squared   =    0.2584
+       Total |   635065396        73  8699525.97   Root MSE        =    2540.1
+
+------------------------------------------------------------------------------
+       price | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+     foreign |
+    Foreign  |   1666.519    717.217     2.32   0.023     236.0751    3096.963
+mpg_centered |  -329.2551   74.98545    -4.39   0.000    -478.8088   -179.7013
+             |
+     foreign#|
+          c. |
+mpg_centered |
+    Foreign  |   78.88826   112.4812     0.70   0.485    -145.4485     303.225
+             |
+       _cons |   5588.295   369.0945    15.14   0.000     4852.159    6324.431
+------------------------------------------------------------------------------
+
+
+Adjusted predictions                                        Number of obs = 74
+Model VCE: OLS
+
+Expression: Linear prediction, predict()
+1._at: mpg_centered = -3
+2._at: mpg_centered = -2
+3._at: mpg_centered = -1
+4._at: mpg_centered =  0
+5._at: mpg_centered =  1
+6._at: mpg_centered =  2
+7._at: mpg_centered =  3
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |     Margin   std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+ _at#foreign |
+ 1#Domestic  |    6576.06    370.446    17.75   0.000     5837.229    7314.891
+  1#Foreign  |   8005.915   766.8178    10.44   0.000     6476.545    9535.284
+ 2#Domestic  |   6246.805   354.4734    17.62   0.000      5539.83     6953.78
+  2#Foreign  |   7755.548   709.9327    10.92   0.000     6339.632    9171.464
+ 3#Domestic  |    5917.55   354.0032    16.72   0.000     5211.513    6623.587
+  3#Foreign  |   7505.181   658.8306    11.39   0.000     6191.185    8819.177
+ 4#Domestic  |   5588.295   369.0945    15.14   0.000     4852.159    6324.431
+  4#Foreign  |   7254.814   614.9548    11.80   0.000     6028.325    8481.303
+ 5#Domestic  |    5259.04    397.981    13.21   0.000     4465.292    6052.788
+  5#Foreign  |   7004.447   579.9479    12.08   0.000     5847.778    8161.117
+ 6#Domestic  |   4929.785   437.9413    11.26   0.000     4056.338    5803.231
+  6#Foreign  |   6754.081   555.4891    12.16   0.000     5646.192    7861.969
+ 7#Domestic  |    4600.53    486.253     9.46   0.000     3630.729    5570.331
+  7#Foreign  |   6503.714   543.0057    11.98   0.000     5420.723    7586.704
+------------------------------------------------------------------------------
+
+
+Variables that uniquely identify margins: mpg_centered foreign
+
+(file marginsplot.png not found)
+file marginsplot.png saved as PNG format</code></pre>
 </div>
 </div>
-<p><img src="https://hbs-rcs.github.io/rcs-blog/post/2017-02-16-interpret_interaction_files/marginsplot.png" class="img-fluid"></p>
+<p><img src="https://hbs-rcs.github.io/rcs-blog/posts/2017-02-14_interpret_interaction/marginsplot.png" class="img-fluid"></p>
 <p>In this example, the graph shows the predicted price for foreign and domestic cars at different level of mpg.</p>
 
 
@@ -2231,7 +2403,92 @@ background-color: null;
 font-weight: bold;
 font-style: inherit;">dydx</span>(mpg)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>request ignored because of batch mode</code></pre>
+<pre><code>(1978 automobile data)
+
+
+Panel variable: rep78 (unbalanced)
+
+
+Fixed-effects (within) regression               Number of obs     =         69
+Group variable: rep78                           Number of groups  =          5
+
+R-squared:                                      Obs per group:
+     Within  = 0.2570                                         min =          2
+     Between = 0.0653                                         avg =       13.8
+     Overall = 0.2237                                         max =         30
+
+                                                F(3,61)           =       7.03
+corr(u_i, Xb) = -0.4133                         Prob &gt; F          =     0.0004
+
+------------------------------------------------------------------------------
+       price | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         mpg |  -98.12003   226.8708    -0.43   0.667    -551.7763    355.5362
+       trunk |   295.0544   343.3934     0.86   0.394    -391.6032     981.712
+             |
+       c.mpg#|
+     c.trunk |  -12.23318   15.94713    -0.77   0.446    -44.12143    19.65506
+             |
+       _cons |    7574.85   5321.325     1.42   0.160    -3065.797     18215.5
+-------------+----------------------------------------------------------------
+     sigma_u |   992.2156
+     sigma_e |  2631.2869
+         rho |  .12449059   (fraction of variance due to u_i)
+------------------------------------------------------------------------------
+F test that all u_i=0: F(4, 61) = 0.86                       Prob &gt; F = 0.4948
+
+
+Average marginal effects                                    Number of obs = 69
+Model VCE: Conventional
+
+Expression: Linear prediction, predict()
+dy/dx wrt:  mpg
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   std. err.      z    P&gt;|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         mpg |  -268.4981   74.12513    -3.62   0.000    -413.7807   -123.2156
+------------------------------------------------------------------------------
+
+      Source |       SS           df       MS      Number of obs   =        69
+-------------+----------------------------------   F(7, 61)        =      3.19
+       Model |   154453046         7  22064720.8   Prob &gt; F        =    0.0061
+    Residual |   422343913        61  6923670.71   R-squared       =    0.2678
+-------------+----------------------------------   Adj R-squared   =    0.1838
+       Total |   576796959        68  8482308.22   Root MSE        =    2631.3
+
+------------------------------------------------------------------------------
+       price | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         mpg |  -98.12003   226.8708    -0.43   0.667    -551.7763    355.5362
+       trunk |   295.0544   343.3934     0.86   0.394    -391.6032     981.712
+             |
+       c.mpg#|
+     c.trunk |  -12.23318   15.94713    -0.77   0.446    -44.12143    19.65506
+             |
+       rep78 |
+          2  |   438.0002   2161.922     0.20   0.840    -3885.031    4761.031
+          3  |   987.1363   2022.606     0.49   0.627    -3057.315    5031.587
+          4  |   1240.944   2046.417     0.61   0.547     -2851.12    5333.008
+          5  |    2605.83   2161.837     1.21   0.233    -1717.031    6928.691
+             |
+       _cons |   6355.731   5209.899     1.22   0.227    -4062.105    16773.57
+------------------------------------------------------------------------------
+
+
+Average marginal effects                                    Number of obs = 69
+Model VCE: OLS
+
+Expression: Linear prediction, predict()
+dy/dx wrt:  mpg
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         mpg |  -268.4981   74.12513    -3.62   0.001    -416.7205   -120.2758
+------------------------------------------------------------------------------</code></pre>
 </div>
 </div>
 <p>All is fine.</p>
@@ -2276,7 +2533,101 @@ background-color: null;
 font-weight: bold;
 font-style: inherit;">dydx</span>(mpg)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>request ignored because of batch mode</code></pre>
+<pre><code>(1978 automobile data)
+
+
+Panel variable: rep78 (unbalanced)
+
+
+Iteration 0:   log likelihood = -39282.052  
+Iteration 1:   log likelihood = -27527.055  
+Iteration 2:   log likelihood = -27518.944  
+Iteration 3:   log likelihood = -27518.944  
+
+Conditional fixed-effects Poisson regression       Number of obs    =       69
+Group variable: rep78                              Number of groups =        5
+
+                                                   Obs per group:
+                                                                min =        2
+                                                                avg =     13.8
+                                                                max =       30
+
+                                                   Wald chi2(2)     = 22890.68
+Log likelihood = -27518.944                        Prob &gt; chi2      =   0.0000
+
+------------------------------------------------------------------------------
+       price | Coefficient  Std. err.      z    P&gt;|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         mpg |  -.0450221   .0003814  -118.05   0.000    -.0457696   -.0442746
+       trunk |   .0047349   .0004772     9.92   0.000     .0037996    .0056702
+------------------------------------------------------------------------------
+
+
+Average marginal effects                                    Number of obs = 69
+Model VCE: OIM
+
+Expression: Linear prediction, predict()
+dy/dx wrt:  mpg
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   std. err.      z    P&gt;|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         mpg |  -.0450221   .0003814  -118.05   0.000    -.0457696   -.0442746
+------------------------------------------------------------------------------
+
+
+Average marginal effects                                    Number of obs = 69
+Model VCE: OIM
+
+Expression: Predicted number of events (assuming u_i=0), predict(nu0)
+dy/dx wrt:  mpg
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   std. err.      z    P&gt;|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         mpg |  -.0190939   .0001245  -153.35   0.000    -.0193379   -.0188498
+------------------------------------------------------------------------------
+
+
+Iteration 0:   log likelihood = -27550.942  
+Iteration 1:   log likelihood = -27550.912  
+Iteration 2:   log likelihood = -27550.912  
+
+Poisson regression                                    Number of obs =       69
+                                                      LR chi2(6)    = 24962.86
+                                                      Prob &gt; chi2   =   0.0000
+Log likelihood = -27550.912                           Pseudo R2     =   0.3118
+
+------------------------------------------------------------------------------
+       price | Coefficient  Std. err.      z    P&gt;|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         mpg |  -.0450221   .0003814  -118.05   0.000    -.0457696   -.0442746
+       trunk |   .0047349   .0004772     9.92   0.000     .0037996    .0056702
+             |
+       rep78 |
+          2  |   .1476657   .0117935    12.52   0.000     .1245509    .1707805
+          3  |   .2295466   .0111741    20.54   0.000     .2076458    .2514474
+          4  |   .2726354   .0112656    24.20   0.000     .2505552    .2947155
+          5  |   .4682657   .0115137    40.67   0.000     .4456992    .4908321
+             |
+       _cons |   9.323117   .0149274   624.57   0.000      9.29386    9.352374
+------------------------------------------------------------------------------
+
+
+Average marginal effects                                    Number of obs = 69
+Model VCE: OIM
+
+Expression: Predicted number of events, predict()
+dy/dx wrt:  mpg
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   std. err.      z    P&gt;|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         mpg |  -276.7079   2.382193  -116.16   0.000    -281.3769   -272.0389
+------------------------------------------------------------------------------</code></pre>
 </div>
 </div>
 <p>In this example, “xtpoisson, fe” and “poisson i.rep78” returns the same results. Fixed effect Poisson model (sometimes called conditional fixed effect Poisson) is the same models as a Poisson model with dummies, just like a linear model (OLS with dummies is the same as fixed effect OLS). Poisson model and OLS are unique in this sense that there is no “incidental paramater” problem.</p>
