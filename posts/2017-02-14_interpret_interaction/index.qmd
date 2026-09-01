@@ -5,6 +5,27 @@ date: "2017-02-14"
 categories: [statistics, Stata]
 ---
 
+```{r}
+#| echo: false
+#| message: false
+# knitr's built-in `engine = "stata"` does not work on Windows: StataMP-64.exe
+# is a GUI application, so the call returns before Stata has written its log and
+# knitr reads an empty file ("request ignored because of batch mode"). The
+# Statamarkdown engine waits for Stata to finish, so the {stata} chunks below
+# use it -- same as the specification-curve post.
+library(Statamarkdown)
+
+# Statamarkdown picks the newest Stata it finds. On the machine this was
+# migrated on that is StataNow19, whose batch-mode graphics are broken:
+# marginsplot fails with "twoway is not a valid graph subcommand" (r(198)) and
+# writes corrupted bytes into the log, which then breaks knitr's UTF-8 decoding.
+# Stata 17 renders the same code correctly. Set STATA_EXE to override; if the
+# path below is absent we fall through to Statamarkdown's auto-detection.
+stata_exe <- Sys.getenv("STATA_EXE", "C:/Program Files/Stata17/StataMP-64.exe")
+if (file.exists(stata_exe)) {
+  knitr::opts_chunk$set(engine.path = list(stata = stata_exe))
+}
+```
 
 # Interaction with two binary variables
 
@@ -52,7 +73,7 @@ In some other situations, the three coefficients are equally important.  It depe
 
 Let's take a look from a sample example in Stata:
 
-```{r stata-chunk, engine='stata', engine.path='C:/Program Files/Stata17/StataMP-64.exe'}
+```{stata}
 webuse union3
 reg ln_wage i.union##i.black, r
 margins union#black
@@ -83,7 +104,7 @@ When we have dummy variable interacting with continuous variable, only continuou
 Again, Stata's margins command is helpful.
 
 
-```{r stata-chunk2, engine='stata', engine.path='C:/Program Files/Stata17/StataMP-64.exe'}
+```{stata}
 sysuse auto
 sum mpg
 gen mpg_centered=mpg-r(mean)
@@ -91,16 +112,9 @@ sum mpg_centered
 reg price i.foreign##c.mpg_centered
 margins foreign, at(mpg_centered=(-3 (1) 3))
 marginsplot
-graph export marginsplot.eps, replace
+graph export marginsplot.png, replace width(1600)
 ```
 
-```{r, echo=FALSE, results="hide", engine='stata', engine.path='C:/Program Files/Stata17/StataMP-64.exe'}
-!convert -density 125 marginsplot.eps marginsplot.png
-!rm marginsplot.eps
-!mkdir -p ../../static/post/2017-02-16-interpret_interaction_files
-!mv marginsplot.png ../../static/post/2017-02-16-interpret_interaction_files/
-```
-
-![](/post/2017-02-16-interpret_interaction_files/marginsplot.png)
+![](marginsplot.png)
 
 In this example, the graph shows the predicted price for foreign and domestic cars at different level of mpg.

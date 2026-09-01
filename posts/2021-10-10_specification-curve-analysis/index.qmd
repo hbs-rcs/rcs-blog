@@ -60,6 +60,14 @@ It looks like most major statistical programming language have some version of t
 
 ```{r, echo=FALSE, message=FALSE}
 library(Statamarkdown)
+
+# Pin the Stata version, as in the other Stata posts: the newest install here
+# (StataNow19) has broken batch-mode graphics. Set STATA_EXE to override; if the
+# path below is absent, Statamarkdown's auto-detection takes over.
+stata_exe <- Sys.getenv("STATA_EXE", "C:/Program Files/Stata17/StataMP-64.exe")
+if (file.exists(stata_exe)) {
+  knitr::opts_chunk$set(engine.path = list(stata = stata_exe))
+}
 ```
 
 Next, I show an example in Stata that loops through several model specifications and then uses the [speccurve](https://github.com/martin-andresen/speccurve) function in Stata to plot the curve. Before running this code, make sure that the function is installed in Stata by running the following line:
@@ -89,6 +97,13 @@ foreach m in "" "mpg" {
 	}
 }
 
+```
+
+`speccurve` is a community-contributed command rather than part of Stata, so
+the plotting step below is shown but not executed when the site is built. The
+curve it produces is the figure that follows.
+
+```{stata, eval=FALSE}
 * plotting a SC with foreign as a parameter of interest
 speccurve *, param(foreign) controls title(SCA for the effect of foreigh)
 graph export "speccurve1.svg", replace
@@ -135,6 +150,11 @@ foreach m in "" "mpg" {
 	}
 }
 
+```
+
+As above, the plotting step is shown but not executed:
+
+```{stata, eval=FALSE}
 * The code below produces an error:
 *speccurve *, param(foreign) controls title(SCA for the effect of foreigh)
 

@@ -148,6 +148,29 @@ GitHub Desktop at all.
 
 ------------------------------------------------------------------------
 
+## Editing a post that contains code
+
+This project sets `freeze: true` for everything in `posts/`, which means Quarto
+**never re-runs code on its own** — it replays the stored results in `_freeze/`.
+
+That is what lets anyone rebuild the site without your setup. Rendering the
+whole site starts no R or Stata process at all, so you do not need the packages
+a post used (or Stata, for the Stata posts) just to publish someone else's work.
+
+The trap is that `freeze: true` does not notice when you edit a chunk. Render
+after changing code and you will silently get the *old* output back. To pick up
+your changes, delete that post's freeze entry first:
+
+``` bash
+rm -rf _freeze/posts/<your-post-folder>
+```
+
+Then render. You do need the post's own dependencies at that point, because this
+is the render that actually executes the code. Commit the regenerated `_freeze/`
+folder along with your changes.
+
+------------------------------------------------------------------------
+
 ## Changing how the site looks
 
 Styling lives in three files at the repo root:

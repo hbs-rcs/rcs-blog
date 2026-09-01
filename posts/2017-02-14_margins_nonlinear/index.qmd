@@ -5,6 +5,24 @@ date: "2017-02-14"
 categories: [statistics, Stata]
 ---
 
+```{r}
+#| echo: false
+#| message: false
+# knitr's built-in `engine = "stata"` does not work on Windows: StataMP-64.exe
+# is a GUI application, so the call returns before Stata has written its log and
+# knitr reads an empty file ("request ignored because of batch mode"). The
+# Statamarkdown engine waits for Stata to finish, so the {stata} chunks below
+# use it -- same as the specification-curve post.
+library(Statamarkdown)
+
+# Pin the Stata version for the same reason as the other Stata posts: the
+# newest install here (StataNow19) has broken batch-mode graphics. Set STATA_EXE
+# to override; if the path below is absent, auto-detection takes over.
+stata_exe <- Sys.getenv("STATA_EXE", "C:/Program Files/Stata17/StataMP-64.exe")
+if (file.exists(stata_exe)) {
+  knitr::opts_chunk$set(engine.path = list(stata = stata_exe))
+}
+```
 
 # Marginal effects in a linear model
 
@@ -16,7 +34,7 @@ In a linear model with fixed effects, we can do it either by "demeaning" every v
 For example:
 
 
-```{r stata-chunk, engine='stata', engine.path='C:/Program Files/Stata17/StataMP-64.exe', cache=TRUE}
+```{stata}
 clear
 sysuse auto
 xtset rep78
@@ -32,7 +50,7 @@ All is fine.
 
 In a nonlinear model, we need to be more careful:
 
-```{r stata-chunk2, engine='stata', engine.path='C:/Program Files/Stata17/StataMP-64.exe', cache=TRUE}
+```{stata}
 clear
 sysuse auto
 xtset rep78
